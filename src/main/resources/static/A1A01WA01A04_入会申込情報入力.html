@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>株式会社　H　カード</title>
+<!-- Bootstrap -->
+<link href="css/bootstrap-4.0.0.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark"><a class="navbar-brand" href="#">カードサイト</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+    <div class="collapse navbar-collapse" >
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item"> <a class="nav-link" href="#">お手続き <span class="sr-only"></span></a> </li>
+            <li class="nav-item"> <a class="nav-link" href="#">お問い合わせ</a> </li>
+            <li class="nav-item"> <a class="nav-link" href="#">会員ログイン</a> </li>
+        </ul>
+    </div>
+</nav>
+<hr>
+<div class="alert-danger text-center">
+    <P class="card-text">申し込み内容のご入力</p>
+</div>
+<div class="container">
+    <div class="row text-center"> </div>
+    <hr>
+    <div class="row card-header">住所情報登録</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-2 bg-aqua">
+                <p>
+                <ul class="list-inline">
+                    <li class="list-inline-item">住居種別</li>
+                    <li class="list-inline-item"><img class="card-img card-img-top" src="images/icon_required.gif" alt="必須"></li>
+                </ul>
+                </P>
+            </div>
+            <div class="col-4 bg-lemonchiffon">
+                <div class="form-group">
+                    <select class="form-control" >
+                        <option>本人持家</option>
+                        <option>家族持家</option>
+                        <option>借家・賃貸マンション</option>
+                        <option>その他</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-6 bg-lemonchiffon"> </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-2 bg-aqua">
+                <p>
+                <ul class="list-inline">
+                    <li class="list-inline-item">電話番号</li>
+                </ul>
+                </P>
+            </div>
+            <div class="col-4">
+                <input type="text" class="form-control" placeholder="<例>03-0000-1111">
+            </div>
+            <div class="col-6"> </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-2 bg-aqua">
+                <p>
+                <ul class="list-inline">
+                    <li class="list-inline-item">郵便番号</li>
+                    <li class="list-inline-item"><img class="card-img card-img-top" src="images/icon_required.gif" alt="必須"></li>
+                </ul>
+                </p>
+            </div>
+            <div class="col-4 bg-lemonchiffon">
+                <input type="text" class="form-control" placeholder="<例>101-0001">
+            </div>
+            <div class="col-6 bg-lemonchiffon"></div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-2 bg-aqua">
+                <p>
+                <ul class="list-inline">
+                    <li class="list-inline-item">都・道・府・県</li>
+                    <li class="list-inline-item"><img class="card-img card-img-top" src="images/icon_required.gif" alt="必須"></li>
+                </ul>
+                </p>
+            </div>
+            <div class="col-4 bg-lemonchiffon">
+                <div class="form-group">
+                    <select class="form-control" >
+                        <option>北海道</option>
+                        <option>東京都</option>
+                        <option>大阪府</option>
+                        <option>神奈川</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-6 bg-lemonchiffon"></div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-2 bg-aqua">
+                <p>
+                <ul class="list-inline">
+                    <li class="list-inline-item">住所</li>
+                    <li class="list-inline-item"><img class="card-img card-img-top" src="images/icon_required.gif" alt="必須"></li>
+                </ul>
+                </p>
+            </div>
+            <div class="col-2 bg-lemonchiffon">
+                <p>市・区・町・村<br>
+                    <br>
+                    <br>
+                    建物・部屋番号</p>
+            </div>
+            <div class="col-8 bg-lemonchiffon">
+                <input type="text" class="form-control" placeholder="<例>東京都品川区西品川１－１－１">
+                <hr>
+                <input type="text" class="form-control" placeholder="<例>品川ビル　１０１室">
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-2 bg-aqua">
+                <p>
+                <ul class="list-inline">
+                    <li class="list-inline-item">住所フリガナ</li>
+                    <li class="list-inline-item"><img class="card-img card-img-top" src="images/icon_required.gif" alt="必須"></li>
+                </ul>
+                </p>
+            </div>
+            <div class="col-2 bg-lemonchiffon">
+                <p>市・区・町・村<br>
+                    <br>
+                    <br>
+                    建物・部屋番号</p>
+            </div>
+            <div class="col-8 bg-lemonchiffon">
+                <input type="text" class="form-control" placeholder="<例>トウキョウトシナガワくニシシナガワ１－１－１">
+                <hr>
+                <input type="text" class="form-control" placeholder="<例>シナガワビル　１０１シツ">
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row card-header">申請情報登録</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-2 bg-aqua">
+                <p>
+                <ul class="list-inline">
+                    <li class="list-inline-item">ショッピング枠区分</li>
+                    <li class="list-inline-item"><img class="card-img card-img-top" src="images/icon_required.gif" alt="必須"></li>
+                </ul>
+                </p>
+            </div>
+            <div class="col-4 bg-lemonchiffon">
+                <div class="form-group">
+                    <select class="form-control" >
+                        <option>１０万</option>
+                        <option>３０万</option>
+                        <option>５０万</option>
+                        <option>７０万</option>
+                        <option>１００万</option>
+                        <option>１２０万</option>
+                        <option>１５０万</option>
+                        <option>２００万</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-6 bg-lemonchiffon"></div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-2 bg-aqua">
+                <p>
+                <ul class="list-inline">
+                    <li class="list-inline-item">ショッピング<br>
+                        取引目的区分</li>
+                </ul>
+                </p>
+            </div>
+            <div class="col-4">
+                <div class="form-group">
+                    <select class="form-control" >
+                        <option>生計費</option>
+                        <option>事業費</option>
+                        <option>生計費・事業費決済</option>
+                        <option>その他</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-6"></div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-2 bg-aqua">
+                <p>
+                <ul class="list-inline">
+                    <li class="list-inline-item">キャッシング枠区分</li>
+                    <li class="list-inline-item"><img class="card-img card-img-top" src="images/icon_required.gif" alt="必須"></li>
+                </ul>
+                </p>
+            </div>
+            <div class="col-4 bg-lemonchiffon">
+                <div class="form-group">
+                    <select class="form-control" >
+                        <option>不要</option>
+                        <option>１万</option>
+                        <option>２万</option>
+                        <option>３万</option>
+                        <option>５万</option>
+                        <option>７万</option>
+                        <option>１０万</option>
+                        <option>２０万</option>
+                        <option>５０万</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-6 bg-lemonchiffon"></div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-2 bg-aqua">
+                <p>
+                <ul class="list-inline">
+                    <li class="list-inline-item">キャッシング<br>
+                        取引目的区分</li>
+                </ul>
+                </p>
+            </div>
+            <div class="col-4">
+                <div class="form-group">
+                    <select class="form-control" >
+                        <option>生計費融資</option>
+                        <option>事業資金</option>
+                        <option>その他</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-6"></div>
+        </div>
+    </div>
+    <hr>
+    <div class="row card-header">個人情報登録</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-3 bg-aqua">
+                <p>
+                <ul class="list-inline">
+                    <li class="list-inline-item">運転免許証</li>
+                </ul>
+                </p>
+            </div>
+            <div class="col-5">
+                <input type="text" class="form-control" placeholder="<例>123456789012">
+            </div>
+            <div class="col-6"></div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-3 bg-aqua">
+                <p>
+                <ul class="list-inline">
+                    <li class="list-inline-item">健康保険証番号</li>
+                </ul>
+                </p>
+            </div>
+            <div class="col-4">
+                <input type="text" class="form-control" placeholder="<例>12345678901234567890">
+            </div>
+            <div class="col-5"></div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-3 bg-aqua">
+                <p>
+                <ul class="list-inline">
+                    <li class="list-inline-item">本人確認書類確認方法</li>
+                </ul>
+                </p>
+            </div>
+            <div class="col-9">
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" class="custom-control-input" id="Radio4" name="exampleB">
+                    <label class="custom-control-label" for="Radio4">申込後</label>
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" class="custom-control-input" id="Radio6" name="exampleB">
+                    <label class="custom-control-label" for="Radio6">郵送で登録</label>
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" class="custom-control-input" id="Radio7" name="exampleB">
+                    <label class="custom-control-label" for="Radio7">カードのお届けで</label>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-3 bg-aqua">
+                <p>
+                <ul class="list-inline">
+                    <li class="list-inline-item">配偶者有無</li>
+                </ul>
+                </p>
+            </div>
+            <div class="col-4">
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" class="custom-control-input" id="customRadio0" name="example0">
+                    <label class="custom-control-label" for="customRadio0">有</label>
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" class="custom-control-input" id="customRadioA" name="example0">
+                    <label class="custom-control-label" for="customRadioA">無</label>
+                </div>
+            </div>
+            <div class="col-5"></div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-3 bg-aqua">
+                <p>
+                <ul class="list-inline">
+                    <li class="list-inline-item">家族カード付け希望</li>
+                </ul>
+                </p>
+            </div>
+            <div class="col-4">
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" class="custom-control-input" id="customRadio1" name="example1">
+                    <label class="custom-control-label" for="customRadio1">有</label>
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" class="custom-control-input" id="customRadio2" name="example1">
+                    <label class="custom-control-label" for="customRadio2">無</label>
+                </div>
+            </div>
+            <div class="col-5"></div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-3 bg-aqua">
+                <p>
+                <ul class="list-inline">
+                    <li class="list-inline-item">家族カード案内メール希望</li>
+                </ul>
+                </p>
+            </div>
+            <div class="col-4">
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" class="custom-control-input" id="customRadio3" name="example2">
+                    <label class="custom-control-label" for="customRadio3">有</label>
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" class="custom-control-input" id="customRadio4" name="example2">
+                    <label class="custom-control-label" for="customRadio4">無</label>
+                </div>
+            </div>
+            <div class="col-5"></div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-3 bg-aqua">
+                <p>
+                <ul class="list-inline">
+                    <li class="list-inline-item">キャンペーンメール希望</li>
+                </ul>
+                </p>
+            </div>
+            <div class="col-4">
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" class="custom-control-input" id="customRadio5" name="example3">
+                    <label class="custom-control-label" for="customRadio5">有</label>
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" class="custom-control-input" id="customRadio6" name="example3">
+                    <label class="custom-control-label" for="customRadio6">無</label>
+                </div>
+            </div>
+            <div class="col-5"></div>
+        </div>
+    </div>
+    <hr>
+    <div class="text-center">
+        <div class="custom-control custom-radio custom-control-inline">
+            <p class="lead"> <a class="btn btn-danger btn-lg" href="#" role="button">戻る</a> </p>
+        </div>
+        <div class="custom-control custom-radio custom-control-inline">
+            <p class="lead"> <a class="btn btn-danger btn-lg" href="#" role="button">次へ進む</a> </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="text-center col-lg-6 offset-lg-3">
+            <p>Copyright &copy; H &middot; All Rights Reserved &middot;</p>
+        </div>
+    </div>
+</div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+<script src="js/jquery-3.2.1.min.js"></script> 
+<!-- Include all compiled plugins (below), or include individual files as needed --> 
+<script src="js/popper.min.js"></script> 
+<script src="js/bootstrap-4.0.0.js"></script>
+</body>
+</html>
