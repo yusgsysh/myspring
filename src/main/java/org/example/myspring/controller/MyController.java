@@ -1,20 +1,13 @@
 package org.example.myspring.controller;
 
-import jakarta.annotation.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import service.MyService;
 
 @Controller
-@RequestMapping("/card")
 public class MyController {
-
-    @Resource
-    private MyService myService;
-
-    @RequestMapping("/insert")
-    public String add() {
-        return add();
+    @RequestMapping("/")
+    public String hello() {
+        return "A1A01WA01A01_入会申込情報入力";
     }
 
 }
