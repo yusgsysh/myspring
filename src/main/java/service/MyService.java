@@ -1,14 +1,16 @@
 package service;
 
 import jakarta.annotation.Resource;
-import org.example.myspring.dao.MyRepository;
+import org.example.myspring.dao.AppRepository;
+
 import org.example.myspring.entity.App;
 
 public class MyService {
     @Resource
-    private MyRepository myRepository;
+    private AppRepository myRepository;
 
-    public int insertapp(App app){
+    public int insertApp(App app){
         return myRepository.insertApp(app);
+
     }
 }
