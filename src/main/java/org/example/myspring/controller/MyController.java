@@ -5,6 +5,9 @@ import jakarta.servlet.http.HttpSession;
 import org.example.myspring.dao.AppRepository;
 import org.example.myspring.entity.App;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -18,18 +21,22 @@ public class MyController {
 
     @RequestMapping("/insert1")
     public String toInsert1(App app, HttpSession session) {
-        session.setAttribute("MAIL", app.getMail());
-        session.setAttribute("BER",app.getBer());
-        session.setAttribute("PHO",app.getPho());
-        session.setAttribute("KJNHJN",app.getKjnhjn());
-        session.setAttribute("SEIKJ",app.getSeikj());
-        session.setAttribute("SEIKN",app.getSeikn());
-        session.setAttribute("SEIEN",app.getSeien());
-        session.setAttribute("MEIKJ",app.getMeikj());
-        session.setAttribute("MEIKN",app.getMeikn());
-        session.setAttribute("MEIEN",app.getMeien());
-        session.setAttribute("SEX",app.getSex());
+        System.out.println("app_wdc:"+app);
+        session.setAttribute("mail", app.getMail());
+        session.setAttribute("ber",app.getBer());
+        session.setAttribute("pho",app.getPho());
+        session.setAttribute("kjnhjn",app.getKjnhjn());
+        session.setAttribute("seikj",app.getSeikj());
+        session.setAttribute("seikn",app.getSeikn());
+        session.setAttribute("seien",app.getSeien());
+        session.setAttribute("meikj",app.getMeikj());
+        session.setAttribute("meikn",app.getMeikn());
+        session.setAttribute("meien",app.getMeien());
+        session.setAttribute("sex",app.getSex());
+        System.out.println(session.getAttribute("mail"));
+        System.out.println("----");
         return "A1A01WA01A04_入会申込情報入力";
+//        return null;
     }
     @RequestMapping("/insert2")
     public String toInsert2(App app, HttpSession session) {

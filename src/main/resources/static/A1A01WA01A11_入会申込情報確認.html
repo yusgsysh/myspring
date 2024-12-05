@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="utf-8">
@@ -35,6 +35,7 @@
             <div class="col-md-8 card-body card"> </div>
         </div>
         <hr>
+        <form action="/confirm">
         <div class="row card-header">受付情報登録</div>
         <div class="container">
             <div class="row">
@@ -45,7 +46,15 @@
                     </ul>
                 </div>
                 <div class="col-4 bg-lemonchiffon">
-                    <label>yamata.taro@h.co.jp</label>
+                    <!--<label>-->
+                    <label>
+                        <input th:value="${session.mail}" type="text"/>
+                    </label>
+                    <script type="application/javascript">
+                            console.log(sessionStorage.getItem('mail'))
+                        </script>
+<!--                        <input value="${session.mail}" th:value:${session.mail} type="text">-->
+                   <!-- </label>-->
                 </div>
                 <div class="col-6 bg-lemonchiffon"></div>
             </div>
@@ -594,9 +603,10 @@
         <br>
         <div class="text-center">
             <div class="custom-control custom-radio custom-control-inline">
-                <p class="lead"> <a class="btn btn-danger btn-lg-cus" href="#" role="button">　　申込　　</a> </p>
+                <p class="lead"> <a class="btn btn-danger btn-lg-cus" role="button" type="submit">　　申込　　</a> </p>
             </div>
         </div>
+        </form>
         <div class="row">
             <div class="text-center col-lg-6 offset-lg-3">
                 <p>Copyright &copy; H &middot; All Rights Reserved &middot;</p>
