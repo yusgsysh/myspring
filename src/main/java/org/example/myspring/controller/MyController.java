@@ -104,8 +104,6 @@ public class MyController {
         app.setNshym((String) session.getAttribute("NSHYM"));
         app.setNsg((String) session.getAttribute("NSG"));
         return "A1A01WA01A01_入会申込情報入力";
-
-
     }
 
 
