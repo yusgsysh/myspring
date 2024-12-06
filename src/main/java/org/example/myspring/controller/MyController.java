@@ -146,6 +146,15 @@ public class MyController {
         app.setKmsjs2((String) session.getAttribute("kmsjs2"));
         app.setNshym((String) session.getAttribute("nshym"));
         app.setNsg((String) session.getAttribute("nsg"));
+        app.setKzkseikj((String) session.getAttribute("kzkseikj"));
+        app.setKzkseikn((String) session.getAttribute("kzkseikn"));
+        app.setKzkseien((String) session.getAttribute("kzkseien"));
+        app.setKzksex((Character) session.getAttribute("kzksex"));
+        app.setKzkgyocd((String) session.getAttribute("kzkgyocd"));
+        app.setKzkkms((String) session.getAttribute("kzkkms"));
+        app.setKzkkmsdep((String) session.getAttribute("kzkkmsdep"));
+        app.setKzkkmstel((String) session.getAttribute("kzkkmstel"));
+        app.setKzkhhucd((Character) session.getAttribute("kzkhhucd"));
         return "A1A01WA01A01_入会申込情報入力";
     }
 }
