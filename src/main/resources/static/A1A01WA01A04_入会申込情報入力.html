@@ -45,7 +45,7 @@
                 </div>
                 <div class="col-4 bg-lemonchiffon">
                     <div class="form-group">
-                        <select class="form-control">
+                        <select class="form-control" name="jkysbt">
                         <option>本人持家</option>
                         <option>家族持家</option>
                         <option>借家・賃貸マンション</option>
@@ -65,7 +65,7 @@
                     </P>
                 </div>
                 <div class="col-4">
-                    <input type="text" class="form-control" placeholder="<例>03-0000-1111">
+                    <input type="text" class="form-control" placeholder="<例>03-0000-1111" name="tel">
                 </div>
                 <div class="col-6"> </div>
             </div>
@@ -80,7 +80,7 @@
                     </p>
                 </div>
                 <div class="col-4 bg-lemonchiffon">
-                    <input type="text" class="form-control" placeholder="<例>101-0001">
+                    <input type="text" class="form-control" placeholder="<例>101-0001" name="post">
                 </div>
                 <div class="col-6 bg-lemonchiffon"></div>
             </div>
@@ -96,7 +96,7 @@
                 </div>
                 <div class="col-4 bg-lemonchiffon">
                     <div class="form-group">
-                        <select class="form-control">
+                        <select class="form-control" name="knc">
                         <option>北海道</option>
                         <option>東京都</option>
                         <option>大阪府</option>
@@ -123,9 +123,9 @@
                     </p>
                 </div>
                 <div class="col-8 bg-lemonchiffon">
-                    <input type="text" class="form-control" placeholder="<例>東京都品川区西品川１－１－１">
+                    <input type="text" class="form-control" placeholder="<例>東京都品川区西品川１－１－１" name ="jskj1">
                     <hr>
-                    <input type="text" class="form-control" placeholder="<例>品川ビル　１０１室">
+                    <input type="text" class="form-control" placeholder="<例>品川ビル　１０１室" name ="jskj2">
                 </div>
             </div>
             <br>
@@ -145,9 +145,9 @@
                     </p>
                 </div>
                 <div class="col-8 bg-lemonchiffon">
-                    <input type="text" class="form-control" placeholder="<例>トウキョウトシナガワくニシシナガワ１－１－１">
+                    <input type="text" class="form-control" placeholder="<例>トウキョウトシナガワくニシシナガワ１－１－１" name="jskn1">
                     <hr>
-                    <input type="text" class="form-control" placeholder="<例>シナガワビル　１０１シツ">
+                    <input type="text" class="form-control" placeholder="<例>シナガワビル　１０１シツ" name="jskn1">
                 </div>
             </div>
         </div>
@@ -165,7 +165,7 @@
                 </div>
                 <div class="col-4 bg-lemonchiffon">
                     <div class="form-group">
-                        <select class="form-control">
+                        <select class="form-control" name="spgtorkbn">
                         <option>１０万</option>
                         <option>３０万</option>
                         <option>５０万</option>
@@ -191,7 +191,7 @@
                 </div>
                 <div class="col-4">
                     <div class="form-group">
-                        <select class="form-control">
+                        <select class="form-control" name="spgkbn">
                         <option>生計費</option>
                         <option>事業費</option>
                         <option>生計費・事業費決済</option>
@@ -213,7 +213,7 @@
                 </div>
                 <div class="col-4 bg-lemonchiffon">
                     <div class="form-group">
-                        <select class="form-control">
+                        <select class="form-control" name="csgkbn">
                         <option>不要</option>
                         <option>１万</option>
                         <option>２万</option>
@@ -240,7 +240,7 @@
                 </div>
                 <div class="col-4">
                     <div class="form-group">
-                        <select class="form-control">
+                        <select class="form-control" name="torkbn">
                         <option>生計費融資</option>
                         <option>事業資金</option>
                         <option>その他</option>
@@ -262,7 +262,7 @@
                     </p>
                 </div>
                 <div class="col-5">
-                    <input type="text" class="form-control" placeholder="<例>123456789012">
+                    <input type="text" class="form-control" placeholder="<例>123456789012" name="driverid">
                 </div>
                 <div class="col-6"></div>
             </div>
@@ -276,7 +276,7 @@
                     </p>
                 </div>
                 <div class="col-4">
-                    <input type="text" class="form-control" placeholder="<例>12345678901234567890">
+                    <input type="text" class="form-control" placeholder="<例>12345678901234567890" name="kkhcd">
                 </div>
                 <div class="col-5"></div>
             </div>
@@ -392,10 +392,10 @@
         <hr>
         <div class="text-center">
             <div class="custom-control custom-radio custom-control-inline">
-                <p class="lead"> <a class="btn btn-danger btn-lg" href="A1A01WA01A03_入会申込情報入力.html" role="button">戻る</a> </p>
+                <p class="lead"> <a class="btn btn-danger btn-lg" href="A1A01WA01A03_入会申込情報入力.html" role="button" >戻る</a></p>
             </div>
             <div class="custom-control custom-radio custom-control-inline">
-                <p class="lead"> <a class="btn btn-danger btn-lg" href="insert2" role="button">次へ進む</a> </p>
+                <p class="lead"> <input type="button" value="次へ進む"  onclick="check(event)" > </p>
             </div>
         </div>
     </form>
@@ -410,6 +410,78 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap-4.0.0.js"></script>
+<script>
+    function  check(event){
+
+        // 防止默认事件
+        event.preventDefault();
+
+
+        let errors = [];
+
+        // 检查 電話番号是否为空
+        let tel = document.querySelector('input[placeholder="<例>03-0000-1111"]').value;
+        if (!tel) {
+            errors.push('電話番号は必須です。');
+        }
+
+        // 检查郵便番号是否为空
+        let post = document.querySelector('input[placeholder="<例>101-0001"]').value; // 更新为对应的确认输入框
+        if (!post) {
+            errors.push('郵便番号は必須です。');
+        }
+
+        // 检查住所是否为空
+        let jskj1 = document.querySelector('input[placeholder="<例>東京都品川区西品川１－１－１"]').value;
+        if (!jskj1) {
+            errors.push('市・区・町・村は必須です。');
+        }
+        let jskj2 = document.querySelector('input[placeholder="<例>品川ビル　１０１室"]').value;
+        if (!jskj2) {
+            errors.push('建物・部屋番号は必須です。');
+        }
+
+        // 检查 住所フリガナ是否为空
+        let jskn1 = document.querySelector('input[placeholder="<例>トウキョウトシナガワくニシシナガワ１－１－１"]').value;
+        if (!jskn1) {
+            errors.push('市・区・町・村は必須です。');
+        }
+        let jskn2 = document.querySelector('input[placeholder="<例>シナガワビル　１０１シツ"]').value;
+        if (!jskn2) {
+            errors.push('建物・部屋番号は必須です。');
+        }
+
+        // 检查運転免許証是否为空
+        let driverid = document.querySelector('input[placeholder="<例>123456789012"]').value;
+        if (!driverid) {
+            errors.push('運転免許証は必須です。');
+        }
+        // 检查健康保険証番号是否为空
+        let kkhcd = document.querySelector('input[placeholder="<例>12345678901234567890"]').value;
+        if (!kkhcd) {
+            errors.push('健康保険証番号は必須です。');
+        }
+
+
+
+
+
+        // 如果有错误，显示弹窗
+        if (errors.length > 0) {
+            alert(errors.join('\n'));
+
+        } else {
+            // 所有必填项都已填写，跳转到新页面
+            // console.log(email,emailConfirm)
+
+            // window.location.assign('/insert1');
+            window.location.href='/insert2 ;
+            // window.location.assign('/insert1',{'eamil':email}) ;
+
+        }
+    // })
+    }
+</script>
 
 </body>
 
