@@ -191,9 +191,9 @@
                     </p>
                 </div>
                 <div class="col-3">
-                    <input type="text" class="form-control" name="meikn">
+                    <input type="text" class="form-control" name="meikn" placeholder="ローマ字名" >
                     <hr>
-                    <input type="text" class="form-control" name="meien">
+                    <input type="text" class="form-control" name="meien" placeholder="ローマ字は">
                 </div>
                 <div class="col-6">
                     <p><small>・ローマ字名はカード券面に名・姓の順で印字されます。<br>
@@ -334,6 +334,18 @@
                 errors.push('お名前フリガナの名は必須です。');
             }
 
+            // 检查お名前フリガナ姓是否为空
+            let threeName = document.querySelector('input[placeholder="ローマ字名"]').value;
+            if (!threeName) {
+                errors.push('お名前フリガナの姓は必須です。');
+            }
+
+            // 检查お名前フリガナ名是否为空
+            let threeName2 = document.querySelector('input[placeholder="ローマ字は"]').value;
+            if (!threeName2) {
+                errors.push('お名前フリガナの名は必須です。');
+            }
+
             // 检查性别是否已选择
             let genderRadios = document.querySelectorAll('input[name="sex"]');
             let genderSelected = false;
@@ -351,6 +363,26 @@
                 errors.push('性別を選択してください。');
             }
 
+
+
+
+            // 检查性别是否已选择
+            let kjnhjnRadios = document.querySelectorAll('input[name="kjnhjn"]');
+            let kjnhjnSelected = false;
+            let kjnhjn = '';
+            for (let radio of kjnhjnRadios) {
+                if (radio.checked) {
+                    kjnhjnSelected = true;
+                    kjnhjn = 0;
+                    break;
+                } else {
+                    kjnhjn = 1;
+                }
+            }
+            if (!kjnhjnSelected) {
+                errors.push('法人を選択してください。');
+            }
+
             // 如果有错误，显示弹窗
             if (errors.length > 0) {
                 alert(errors.join('\n'));
@@ -360,12 +392,13 @@
                     mail: email,
                     ber: birthday,
                     pho: phone,
-                    // kjnhjn: ,
+                    kjnhjn: kjnhjn,
                     seikj:lastName,
+                    seikn:firstName,
                     seien: lastNameKana,
                     meikj: firstNameKana,
-                    // meikn: ,
-                    // meien: ,
+                    meikn: threeName,
+                    meien: threeName2,
                     sex: gender,
                 });
                 // 所有必填项都已填写，跳转到新页面

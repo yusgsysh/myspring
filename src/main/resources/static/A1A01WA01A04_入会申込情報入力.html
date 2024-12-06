@@ -46,10 +46,10 @@
                 <div class="col-4 bg-lemonchiffon">
                     <div class="form-group">
                         <select class="form-control" name="jkysbt">
-                        <option>本人持家</option>
-                        <option>家族持家</option>
-                        <option>借家・賃貸マンション</option>
-                        <option>その他</option>
+                        <option >本人持家</option>
+                        <option >家族持家</option>
+                        <option >借家・賃貸マンション</option>
+                        <option >その他</option>
                     </select>
                     </div>
                 </div>
@@ -315,11 +315,11 @@
                 </div>
                 <div class="col-4">
                     <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" class="custom-control-input" id="customRadio0" name="example0">
+                        <input type="radio" class="custom-control-input" id="customRadio0" name="hgsumk">
                         <label class="custom-control-label" for="customRadio0">有</label>
                     </div>
                     <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" class="custom-control-input" id="customRadioA" name="example0">
+                        <input type="radio" class="custom-control-input" id="customRadioA" name="hgsumk">
                         <label class="custom-control-label" for="customRadioA">無</label>
                     </div>
                 </div>
@@ -357,11 +357,11 @@
                 </div>
                 <div class="col-4">
                     <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" class="custom-control-input" id="customRadio3" name="example2">
+                        <input type="radio" class="custom-control-input" id="customRadio3" name="kzkmlflg">
                         <label class="custom-control-label" for="customRadio3">有</label>
                     </div>
                     <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" class="custom-control-input" id="customRadio4" name="example2">
+                        <input type="radio" class="custom-control-input" id="customRadio4" name="kzkmlflg">
                         <label class="custom-control-label" for="customRadio4">無</label>
                     </div>
                 </div>
@@ -378,11 +378,11 @@
                 </div>
                 <div class="col-4">
                     <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" class="custom-control-input" id="customRadio5" name="example3">
+                        <input type="radio" class="custom-control-input" id="customRadio5" name="cammlflg">
                         <label class="custom-control-label" for="customRadio5">有</label>
                     </div>
                     <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" class="custom-control-input" id="customRadio6" name="example3">
+                        <input type="radio" class="custom-control-input" id="customRadio6" name="cammlflg">
                         <label class="custom-control-label" for="customRadio6">無</label>
                     </div>
                 </div>
@@ -418,7 +418,12 @@
 
 
         let errors = [];
-
+        let dizhi = document.querySelector('select[name="jkysbt"]').value;
+        let knc = document.querySelector('select[name="knc"]').value;
+        let spgtorkbn = document.querySelector('select[name="spgtorkbn"]').value;
+        let spgkbn = document.querySelector('select[name="spgkbn"]').value;
+        let csgkbn = document.querySelector('select[name="csgkbn"]').value;
+        let torkbn = document.querySelector('select[name="torkbn"]').value;
         // 检查 電話番号是否为空
         let tel = document.querySelector('input[placeholder="<例>03-0000-1111"]').value;
         if (!tel) {
@@ -500,12 +505,16 @@
             }
 
          // 检查配偶者有無是否已选择
-            let spouseRadios = document.querySelectorAll('input[name="example0"]');
+            let spouseRadios = document.querySelectorAll('input[name="hgsumk"]');
             let confirmSpouse = false;
+            let spo = '';
             for (let radio of spouseRadios) {
                 if (radio.checked) {
                     confirmSpouse = true;
+                    spo = 0;
                     break;
+                }else{
+                    spo = 1;
                 }
             }
             if (!confirmSpouse) {
@@ -524,25 +533,33 @@
                 errors.push('家族カード付け希望を選択してください。');
             }
             // 检查家族カード案内メール希望是否已选择
-            let cardRadios = document.querySelectorAll('input[name="example2"]');
+            let cardRadios = document.querySelectorAll('input[name="kzkmlflg"]');
             let confirmCard = false;
+            let card = '';
             for (let radio of cardRadios) {
                 if (radio.checked) {
                     confirmCard = true;
+                    card = 0;
                     break;
+                }else{
+                    card = 1;
                 }
             }
             if (!confirmCard) {
                 errors.push('家族カード案内メール希望を選択してください。');
             }
             // 检查キャンペーンメール希望是否已选择
-            let campaignRadios = document.querySelectorAll('input[name="example3"]');
+            let campaignRadios = document.querySelectorAll('input[name="cammlflg"]');
             let confirmCampaign = false;
+            let campaign = '';
 
             for (let radio of campaignRadios) {
                 if (radio.checked) {
                     confirmCampaign = true;
+                    campaign = 0;
                     break;
+                }else{
+                    campaign = 1;
                 }
             }
             if (!confirmCampaign) {
@@ -558,9 +575,30 @@
         } else {
             // 所有必填项都已填写，跳转到新页面
             // console.log(email,emailConfirm)
+            let urlParams = new URLSearchParams({
+                jkysbt:dizhi,
+                tel: tel,
+                post: post,
+                knc:knc,
+                jskj1:jskj1,
+                jskj2:jskj2,
+                jskn1:jskn1,
+                jskn2:jskn2,
+                spgtorkbn:spgtorkbn,
+                spgkbn:spgkbn,
+                csgkbn:csgkbn,
+                torkbn:torkbn,
+                driverid:driverid,
+                kkhcd:kkhcd,
+                hgsumk:spo,
+                kzkmlflg:card,
+                cammlflg:spo
 
+
+
+            });
             // window.location.assign('/insert1');
-            window.location.href='/insert2' ;
+            window.location.href='/insert2?'+urlParams.toString();
             // window.location.assign('/insert1',{'eamil':email}) ;
 
         }

@@ -43,7 +43,7 @@ public class App {
 
     public Character sex;
 
-    public Character jkysbt;
+    public String jkysbt;
 
     public String tel;
 
@@ -59,13 +59,13 @@ public class App {
 
     public String jskn2;
 
-    public Character spgtorkbn;
+    public String spgtorkbn;
 
-    public Character spgkbn;
+    public String spgkbn;
 
-    public Character csgkbn;
+    public String csgkbn;
 
-    public Character torkbn;
+    public String torkbn;
 
     public String driverid;
 

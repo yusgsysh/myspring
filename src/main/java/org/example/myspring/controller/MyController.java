@@ -106,7 +106,7 @@ public class MyController {
         session.setAttribute("hgsumk", app.getHgsumk());
         session.setAttribute("kzkmlflg", app.getKzkmlflg());
         session.setAttribute("cammlflg", app.getCammlflg());
-        session.setAttribute("famflg", request.getParameter("famflg"));
+//        session.setAttribute("famflg", request.getParameter("famflg"));
         return "A1A01WA01A05_入会申込情報入力";
     }
 
@@ -166,7 +166,7 @@ public class MyController {
         app.setMeikn((String) session.getAttribute("meikn"));
         app.setMeien((String) session.getAttribute("meien"));
         app.setSex((Character) session.getAttribute("sex"));
-        app.setJkysbt((Character) session.getAttribute("jkysbt"));
+        app.setJkysbt((String) session.getAttribute("jkysbt"));
         app.setTel((String) session.getAttribute("tel"));
         app.setPost((String) session.getAttribute("post"));
         app.setKnc((String) session.getAttribute("knc"));
@@ -174,10 +174,10 @@ public class MyController {
         app.setJskj2((String) session.getAttribute("jskj2"));
         app.setJskn1((String) session.getAttribute("jskn1"));
         app.setJskn2((String) session.getAttribute("jskn2"));
-        app.setSpgtorkbn((Character) session.getAttribute("spgtorkbn"));
-        app.setSpgkbn((Character) session.getAttribute("spgkbn"));
-        app.setCsgkbn((Character) session.getAttribute("csgkbn"));
-        app.setTorkbn((Character) session.getAttribute("torkbn"));
+        app.setSpgtorkbn((String) session.getAttribute("spgtorkbn"));
+        app.setSpgkbn((String) session.getAttribute("spgkbn"));
+        app.setCsgkbn((String) session.getAttribute("csgkbn"));
+        app.setTorkbn((String) session.getAttribute("torkbn"));
         app.setDriverid((String) session.getAttribute("driverid"));
         app.setKkhcd((String) session.getAttribute("kkhcd"));
         app.setHgsumk((Character) session.getAttribute("hgsumk"));
