@@ -45,106 +45,106 @@
         </div>
         <hr>
         <form>
-        <div class="row card-header">受付情報登録</div>
-        <div class="container">
-            <div class="row">
-                <div class="col-2 bg-aqua">
-                    <p>Ｅメールアドレス</P>
-                    <ul class="list-inline">
-                        <li class="list-inline-item"> <img class="card-img card-img-top" src="images/icon_required.gif" alt="必須"></li>
-                    </ul>
-                    <p>確認用再入力</p>
-                    <ul class="list-inline">
-                        <li class="list-inline-item"> <img class="card-img card-img-top" src="images/icon_required.gif" alt="必須"></li>
-                    </ul>
-                </div>
-                <div class="col-4 bg-lemonchiffon">
-                    <input type="text" class="form-control" placeholder="<例>yamata.taro@h.co.jp" th:value="${session.mail}" name="mail">
-                    <hr>
-                    <input type="text" class="form-control" placeholder="<例>yamata.taro@h.co.jp" th:value="${session.mail}" name="mail">
-                </div>
-                <div class="col-6 bg-lemonchiffon">
-                    <p><small>・Eメールアドレスを入力してください。入会手続きに関するメールをお送りします。</small></p>
-                </div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-2 bg-aqua">
-                    <p>
+            <div class="row card-header">受付情報登録</div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-2 bg-aqua">
+                        <p>Ｅメールアドレス</P>
                         <ul class="list-inline">
-                            <li class="list-inline-item">生年月日</li>
-                            <li class="list-inline-item"><img class="card-img card-img-top" src="images/icon_required.gif" alt="必須"></li>
+                            <li class="list-inline-item"> <img class="card-img card-img-top" src="images/icon_required.gif" alt="必須"></li>
                         </ul>
-                    </p>
-                </div>
-                <div class="col-4 bg-lemonchiffon">
-                    <input type="text" class="form-control" placeholder="<例>1980-12-31" name="ber">
-                </div>
-                <div class="col-6 bg-lemonchiffon"></div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-2 bg-aqua">
-                    <p>
+                        <p>確認用再入力</p>
                         <ul class="list-inline">
-                            <li class="list-inline-item">携帯電話</li>
-                            <li class="list-inline-item"><img class="card-img card-img-top" src="images/icon_required.gif" alt="必須"></li>
+                            <li class="list-inline-item"> <img class="card-img card-img-top" src="images/icon_required.gif" alt="必須"></li>
                         </ul>
-                    </p>
-                </div>
-                <div class="col-4 bg-lemonchiffon">
-                    <input type="text" class="form-control" placeholder="<例>080-1234-5678" name="pho" th:value="${session.pho}">
-                </div>
-                <div class="col-6 bg-lemonchiffon"></div>
-            </div>
-        </div>
-        <hr>
-        <div class="row card-header">ご本人について</div>
-        <div class="container">
-            <div class="row">
-                <div class="col-2 bg-aqua">
-                    <p>
-                        <ul class="list-inline">
-                            <li class="list-inline-item">個人・法人</li>
-                            <li class="list-inline-item"><img class="card-img card-img-top" src="images/icon_required.gif" alt="必須"></li>
-                        </ul>
-                    </p>
-                </div>
-                <div class="col-4 bg-lemonchiffon">
-                    <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" class="custom-control-input" id="radio1" name="kjnhjn" th:value="${session.kjnhjn}">
-                        <label class="custom-control-label" for="radio1">個人</label>
                     </div>
-                    <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" class="custom-control-input" id="radio2" name="kjnhjn" th:value="${session.kjnhjn}">
-                        <label class="custom-control-label" for="radio2">法人</label>
+                    <div class="col-4 bg-lemonchiffon">
+                        <input type="text" class="form-control" placeholder="<例>yamata.taro@h.co.jp" name="mail">
+                        <hr>
+                        <input type="text" class="form-control" placeholder="<例>yamata.taro@h.co.jp" name="remail">
+                    </div>
+                    <div class="col-6 bg-lemonchiffon">
+                        <p><small>・Eメールアドレスを入力してください。入会手続きに関するメールをお送りします。</small></p>
                     </div>
                 </div>
-                <div class="col-6 bg-lemonchiffon"></div>
+                <br>
+                <div class="row">
+                    <div class="col-2 bg-aqua">
+                        <p>
+                            <ul class="list-inline">
+                                <li class="list-inline-item">生年月日</li>
+                                <li class="list-inline-item"><img class="card-img card-img-top" src="images/icon_required.gif" alt="必須"></li>
+                            </ul>
+                        </p>
+                    </div>
+                    <div class="col-4 bg-lemonchiffon">
+                        <input type="text" class="form-control" placeholder="<例>1980-12-31" name="ber">
+                    </div>
+                    <div class="col-6 bg-lemonchiffon"></div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-2 bg-aqua">
+                        <p>
+                            <ul class="list-inline">
+                                <li class="list-inline-item">携帯電話</li>
+                                <li class="list-inline-item"><img class="card-img card-img-top" src="images/icon_required.gif" alt="必須"></li>
+                            </ul>
+                        </p>
+                    </div>
+                    <div class="col-4 bg-lemonchiffon">
+                        <input type="text" class="form-control" placeholder="<例>080-1234-5678" name="pho">
+                    </div>
+                    <div class="col-6 bg-lemonchiffon"></div>
+                </div>
             </div>
-            <br>
-            <div class="row">
-                <div class="col-2 bg-aqua">
-                    <p>
-                        <ul class="list-inline">
-                            <li class="list-inline-item">お名前</li>
-                            <li class="list-inline-item"><img class="card-img card-img-top" src="images/icon_required.gif" alt="必須"></li>
-                        </ul>
-                    </p>
+            <hr>
+            <div class="row card-header">ご本人について</div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-2 bg-aqua">
+                        <p>
+                            <ul class="list-inline">
+                                <li class="list-inline-item">個人・法人</li>
+                                <li class="list-inline-item"><img class="card-img card-img-top" src="images/icon_required.gif" alt="必須"></li>
+                            </ul>
+                        </p>
+                    </div>
+                    <div class="col-4 bg-lemonchiffon">
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" class="custom-control-input" id="radio1" name="kjnhjn">
+                            <label class="custom-control-label" for="radio1">個人</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" class="custom-control-input" id="radio2" name="kjnhjn">
+                            <label class="custom-control-label" for="radio2">法人</label>
+                        </div>
+                    </div>
+                    <div class="col-6 bg-lemonchiffon"></div>
                 </div>
-                <div class="col-1 bg-lemonchiffon">
-                    <p>姓<br>
-                        <br>
-                        <br> 名
-                    </p>
-                </div>
-                <div class="col-3 bg-lemonchiffon">
-                    <input type="text" class="form-control" placeholder="<例>山田" name="seikj" th:value="${session.seikj}">
-                    <hr>
-                    <input type="text" class="form-control" placeholder="<例>太郎" name="seikn" th:value="${session.seikn}">
-                </div>
-                <div class="col-6 bg-lemonchiffon">
-                    <p><small>・このカードは個人名義でお申し込みください。<br>
+                <br>
+                <div class="row">
+                    <div class="col-2 bg-aqua">
+                        <p>
+                            <ul class="list-inline">
+                                <li class="list-inline-item">お名前</li>
+                                <li class="list-inline-item"><img class="card-img card-img-top" src="images/icon_required.gif" alt="必須"></li>
+                            </ul>
+                        </p>
+                    </div>
+                    <div class="col-1 bg-lemonchiffon">
+                        <p>姓<br>
+                            <br>
+                            <br> 名
+                        </p>
+                    </div>
+                    <div class="col-3 bg-lemonchiffon">
+                        <input type="text" class="form-control" placeholder="<例>山田" name="seikj">
+                        <hr>
+                        <input type="text" class="form-control" placeholder="<例>太郎" name="seikn">
+                    </div>
+                    <div class="col-6 bg-lemonchiffon">
+                        <p><small>・このカードは個人名義でお申し込みください。<br>
                     ・システムの都合上、入力された一部の文字が変換されて登録されるケースがあります。<br>
                     ・本人確認書類と同じ表記で入力してください。<br>
                     ・15文字以内で入力してください。</small></p>
@@ -249,31 +249,65 @@
             // 防止默认事件
             event.preventDefault();
 
-
             let errors = [];
 
             // 检查 E メールアドレス是否为空
             let email = document.querySelector('input[placeholder="<例>yamata.taro@h.co.jp"]').value;
             if (!email) {
                 errors.push('Eメールアドレスは必須です。');
+            } else {
+                // 邮箱正则表达式
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                // 检查邮箱格式
+                if (!emailRegex.test(email)) {
+                    errors.push('Eメールアドレスの形式が不正です。');
+                }
             }
 
-            // 检查确认用再输入 E メールアドレス是否为空
-            let emailConfirm = document.querySelector('input[placeholder="<例>yamata.taro@h.co.jp"]').value; // 更新为对应的确认输入框
+            // 检查确认用再输入 E メールアドレス是否为空且与原输入一致
+            let emailConfirm = document.querySelector('input[name="remail"]').value;
             if (!emailConfirm) {
                 errors.push('確認用再入力の E メールアドレスは必須です。');
+            } else {
+                if (email !== emailConfirm) {
+                    errors.push('E メールアドレスと確認用再入力の E メールアドレスが一致しません。');
+                }
             }
 
             // 检查生年月日是否为空
             let birthday = document.querySelector('input[placeholder="<例>1980-12-31"]').value;
             if (!birthday) {
                 errors.push('生年月日は必須です。');
+            } else {
+                // 生日格式检查
+                const birthdayRegex = /^\d{4}-\d{2}-\d{2}$/;
+                if (!birthdayRegex.test(birthday)) {
+                    errors.push('生年月日の形式が不正です。');
+                }
             }
 
             // 检查携帯電話是否为空
             let phone = document.querySelector('input[placeholder="<例>080-1234-5678"]').value;
             if (!phone) {
                 errors.push('携帯電話は必須です。');
+            } else {
+                // 手机号码格式检查
+                const phoneRegex = /^0\d{2}-?\d{4}-?\d{4}$/;
+                if (!phoneRegex.test(phone)) {
+                    errors.push('携帯電話の形式が不正です。');
+                }
+            }
+            // 检查个人法人是否已选择
+            let personalCorporateRadios = document.querySelectorAll('input[name="kjnhjn"]');
+            let personalCorporateSelected = false;
+            for (let radio of personalCorporateRadios) {
+                if (radio.checked) {
+                    personalCorporateSelected = true;
+                    break;
+                }
+            }
+            if (!personalCorporateSelected) {
+                errors.push('個人法人を選択してください。');
             }
 
             // 检查お名前姓是否为空
