@@ -351,22 +351,23 @@
                 errors.push('お名前フリガナの姓は平仮名または片仮名で入力してください。');
             }
 
-            // 检查ローマ字名姓是否为空且是否为半角英文字符
+            // 检查ローマ字名姓是否为空且是否为半角英数字符
             let lastNameRoman = document.querySelector('input[name="meikn"]').value;
             let firstNameRoman = document.querySelector('input[name="meien"]').value;
-            let halfWidthRegex = /^[a-zA-Z\s]+$/; // 正则表达式：匹配半角英文字符和空格
+            let halfWidthAlphanumericRegex = /^[a-zA-Z0-9-\s]+$/; // 正则表达式：匹配半角英数字符和空格
 
             if (!lastNameRoman) {
                 errors.push('ローマ字名の姓は必須です。');
-            } else if (!halfWidthRegex.test(lastNameRoman)) {
-                errors.push('ローマ字名の姓は半角英字で入力してください。');
+            } else if (!halfWidthAlphanumericRegex.test(lastNameRoman)) {
+                errors.push('ローマ字名の姓は半角英数字で入力してください。');
             }
 
             if (!firstNameRoman) {
                 errors.push('ローマ字名の名は必須です。');
-            } else if (!halfWidthRegex.test(firstNameRoman)) {
-                errors.push('ローマ字名の名は半角英字で入力してください。');
+            } else if (!halfWidthAlphanumericRegex.test(firstNameRoman)) {
+                errors.push('ローマ字名の名は半角英数字で入力してください。');
             }
+
 
 
 
