@@ -3,18 +3,12 @@ package org.example.myspring.controller;
 import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
-import org.apache.catalina.Session;
 import org.example.myspring.dao.AppRepository;
 import org.example.myspring.entity.App;
+import org.example.myspring.util.CreateID;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.support.SessionStatus;
-
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 @Controller
 public class MyController {
