@@ -11,6 +11,7 @@
 </head>
 
 <body>
+<!--<input th:value="${session.mail}" type="text"/>-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark"><a class="navbar-brand" href="#">カードサイト</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
         <div class="collapse navbar-collapse">
@@ -58,9 +59,9 @@
                     </ul>
                 </div>
                 <div class="col-4 bg-lemonchiffon">
-                    <input type="text" class="form-control" placeholder="<例>yamata.taro@h.co.jp" name="mail">
+                    <input type="text" class="form-control" placeholder="<例>yamata.taro@h.co.jp" th:value="${session.mail}" name="mail">
                     <hr>
-                    <input type="text" class="form-control" placeholder="<例>yamata.taro@h.co.jp"  name="mail">
+                    <input type="text" class="form-control" placeholder="<例>yamata.taro@h.co.jp" th:value="${session.mail}" name="mail">
                 </div>
                 <div class="col-6 bg-lemonchiffon">
                     <p><small>・Eメールアドレスを入力してください。入会手続きに関するメールをお送りします。</small></p>
@@ -92,7 +93,7 @@
                     </p>
                 </div>
                 <div class="col-4 bg-lemonchiffon">
-                    <input type="text" class="form-control" placeholder="<例>080-1234-5678" name="pho">
+                    <input type="text" class="form-control" placeholder="<例>080-1234-5678" name="pho" th:value="${session.pho}">
                 </div>
                 <div class="col-6 bg-lemonchiffon"></div>
             </div>
@@ -111,11 +112,11 @@
                 </div>
                 <div class="col-4 bg-lemonchiffon">
                     <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" class="custom-control-input" id="radio1" name="kjnhjn">
+                        <input type="radio" class="custom-control-input" id="radio1" name="kjnhjn" th:value="${session.kjnhjn}">
                         <label class="custom-control-label" for="radio1">個人</label>
                     </div>
                     <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" class="custom-control-input" id="radio2" name="kjnhjn">
+                        <input type="radio" class="custom-control-input" id="radio2" name="kjnhjn" th:value="${session.kjnhjn}">
                         <label class="custom-control-label" for="radio2">法人</label>
                     </div>
                 </div>
@@ -138,9 +139,9 @@
                     </p>
                 </div>
                 <div class="col-3 bg-lemonchiffon">
-                    <input type="text" class="form-control" placeholder="<例>山田" name="seikj">
+                    <input type="text" class="form-control" placeholder="<例>山田" name="seikj" th:value="${session.seikj}">
                     <hr>
-                    <input type="text" class="form-control" placeholder="<例>太郎" name="seikn">
+                    <input type="text" class="form-control" placeholder="<例>太郎" name="seikn" th:value="${session.seikn}">
                 </div>
                 <div class="col-6 bg-lemonchiffon">
                     <p><small>・このカードは個人名義でお申し込みください。<br>
@@ -167,9 +168,9 @@
                     </p>
                 </div>
                 <div class="col-3 bg-lemonchiffon">
-                    <input type="text" class="form-control" placeholder="<例>ヤマダ" name="seien">
+                    <input type="text" class="form-control" placeholder="<例>ヤマダ" name="seien" th:value="${session.seien}">
                     <hr>
-                    <input type="text" class="form-control" placeholder="<例>タロウ" name="meikj">
+                    <input type="text" class="form-control" placeholder="<例>タロウ" name="meikj" th:value="${session.meikj}">
                 </div>
                 <div class="col-6 bg-lemonchiffon"></div>
             </div>
@@ -214,11 +215,11 @@
                 </div>
                 <div class="col-4 bg-lemonchiffon">
                     <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" class="custom-control-input" id="customRadio1" value="male" name="sex">
+                        <input type="radio" class="custom-control-input" id="customRadio1" value="male" name="sex" th:value="${session.sex}">
                         <label class="custom-control-label" for="customRadio1">男性</label>
                     </div>
                     <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" class="custom-control-input" id="customRadio2" value="female" name="sex">
+                        <input type="radio" class="custom-control-input" id="customRadio2" value="female" name="sex" th:value="${session.sex}">
                         <label class="custom-control-label" for="customRadio2">女性</label>
                     </div>
                 </div>

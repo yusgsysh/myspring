@@ -14,10 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.Arrays;
 import java.util.Optional;
 import java.util.UUID;
@@ -26,6 +23,7 @@ import java.util.UUID;
 public class MyController {
 
     private String userToken;
+    File directory = new File("src/main/java/org/example/myspring/util/");
 
     @Resource
     private AppRepository appRepository;
@@ -43,8 +41,9 @@ public class MyController {
     }
 
     @RequestMapping("/A1A01WA01A03")
-    public String toA1A01WA01A03(HttpServletRequest request, HttpServletResponse response) {
+    public String toA1A01WA01A03(HttpSession session,HttpServletRequest request, HttpServletResponse response) {
         this.getCookie(request,response);
+        getCSV(session);
         return "A1A01WA01A03_入会申込情報入力";
     }
 
@@ -63,8 +62,8 @@ public class MyController {
         session.setAttribute("meikn",app.getMeikn());
         session.setAttribute("meien",app.getMeien());
         session.setAttribute("sex",app.getSex());
-        System.out.println(session.getAttribute("mail"));
-        System.out.println("----");
+//        System.out.println(session.getAttribute("mail"));
+//        System.out.println("----");
 
         StringBuilder csvContent = new StringBuilder();
         csvContent.append("Key,Value\n");
@@ -80,18 +79,7 @@ public class MyController {
         csvContent.append("meien,").append(app.getMeien()).append("\n");
         csvContent.append("sex,").append(app.getSex()).append("\n");
 
-        // 确保目录存在
-        File directory = new File("src/main/java/org/example/myspring/util/");
-        if (!directory.exists()) {
-            directory.mkdirs();
-        }
-        // 写入CSV文件
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(directory.getAbsolutePath() + "/" + this.userToken + ".csv"))) {
-            writer.write(csvContent.toString());
-            System.out.println("Success wrote");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
         return "A1A01WA01A04_入会申込情報入力";
 //        return null;
     }
@@ -195,5 +183,35 @@ public class MyController {
             response.addCookie(cookie);
             this.userToken = token;
         }
+    }
+    public void saveCSV(String csvContent) {
+        // 写入CSV文件
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(directory.getAbsolutePath() + "/" + this.userToken + ".csv"))) {
+            writer.write(csvContent.toString());
+            System.out.println("Success wrote");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void getCSV(HttpSession session){
+        File file = new File(directory.getAbsolutePath() + "/" + this.userToken + ".csv");
+        if (file.exists()){
+            try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+                String line;
+                while ((line = br.readLine()) != null) {
+                    String[] parts = line.split(",");
+                    if (parts.length == 2) {
+                        session.setAttribute(parts[0].trim(), parts[1].trim());
+                    }
+                }
+                System.out.println(session.getAttribute("mail"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            return;
+        }
+
     }
 }
