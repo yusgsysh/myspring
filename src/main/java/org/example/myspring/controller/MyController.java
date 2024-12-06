@@ -86,6 +86,7 @@ public class MyController {
 
     // A1A01WA01A04_入会申込情報入力.html
     // famflg 为 家族カード付け希望
+    // selfflg 为 本人確認書類確認方法
     @RequestMapping("/insert2")
     public String toInsert2(App app, HttpSession session,HttpServletRequest request, HttpServletResponse response) {
         this.getCookie(request,response);
@@ -106,7 +107,8 @@ public class MyController {
         session.setAttribute("hgsumk", app.getHgsumk());
         session.setAttribute("kzkmlflg", app.getKzkmlflg());
         session.setAttribute("cammlflg", app.getCammlflg());
-//        session.setAttribute("famflg", request.getParameter("famflg"));
+        session.setAttribute("famflg", request.getParameter("famflg"));
+        session.setAttribute("selfflg", request.getParameter("selfflg"));
         return "A1A01WA01A05_入会申込情報入力";
     }
 
