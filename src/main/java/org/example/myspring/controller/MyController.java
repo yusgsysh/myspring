@@ -78,8 +78,7 @@ public class MyController {
         csvContent.append("meikn,").append(app.getMeikn()).append("\n");
         csvContent.append("meien,").append(app.getMeien()).append("\n");
         csvContent.append("sex,").append(app.getSex()).append("\n");
-
-
+        saveCSV(csvContent.toString());
         return "A1A01WA01A04_入会申込情報入力";
 //        return null;
     }
