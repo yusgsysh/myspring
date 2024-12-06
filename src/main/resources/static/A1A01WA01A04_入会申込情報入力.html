@@ -395,7 +395,7 @@
                 <p class="lead"> <a class="btn btn-danger btn-lg" href="A1A01WA01A03_入会申込情報入力.html" role="button" >戻る</a></p>
             </div>
             <div class="custom-control custom-radio custom-control-inline">
-                <p class="lead"> <input type="button" value="次へ進む"  onclick="check(event)" > </p>
+                <p class="lead"> <input type="button" value="次へ進む"  onclick="check()" > </p>
             </div>
         </div>
     </form>
@@ -411,7 +411,7 @@
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap-4.0.0.js"></script>
 <script>
-    function  check(event){
+    function  check(){
 
         // 防止默认事件
         event.preventDefault();
@@ -423,13 +423,25 @@
         let tel = document.querySelector('input[placeholder="<例>03-0000-1111"]').value;
         if (!tel) {
             errors.push('電話番号は必須です。');
-        }
+        }else {
+                // 手机号码格式检查
+                const phoneRegex = /^0\d{2}-?\d{4}-?\d{4}$/;
+                if (!phoneRegex.test(tel)) {
+                    errors.push('携帯電話の形式が不正です。');
+                }
+            }
 
         // 检查郵便番号是否为空
         let post = document.querySelector('input[placeholder="<例>101-0001"]').value; // 更新为对应的确认输入框
         if (!post) {
             errors.push('郵便番号は必須です。');
-        }
+        }else {
+                // 手机号码格式检查
+                const phoneRegex = /^\d{3}-\d{4}$/;
+                if (!phoneRegex.test(post)) {
+                    errors.push('郵便番号の形式が不正です。');
+                }
+            }
 
         // 检查住所是否为空
         let jskj1 = document.querySelector('input[placeholder="<例>東京都品川区西品川１－１－１"]').value;
@@ -451,18 +463,91 @@
             errors.push('建物・部屋番号は必須です。');
         }
 
-        // 检查運転免許証是否为空
+      // 检查運転免許証是否为空
         let driverid = document.querySelector('input[placeholder="<例>123456789012"]').value;
         if (!driverid) {
             errors.push('運転免許証は必須です。');
+        } else {
+            // 運転免許証格式检查，确保是12位数字
+            const driveridRegex = /^\d{12}$/;
+            if (!driveridRegex.test(driverid)) {
+                errors.push('運転免許証は12桁の数字で入力してください。');
+            }
         }
         // 检查健康保険証番号是否为空
         let kkhcd = document.querySelector('input[placeholder="<例>12345678901234567890"]').value;
         if (!kkhcd) {
             errors.push('健康保険証番号は必須です。');
+        }else {
+
+            const kkhcdRegex = /^\d{20}$/;
+            if (!kkhcdRegex.test(kkhcd)) {
+                errors.push('检查健康保険証番号は20桁の数字で入力してください。');
+            }
         }
 
+        // 检查本人確認書類確認方法是否已选择
+            let selfRadios = document.querySelectorAll('input[name="exampleB"]');
+            let confirmSelf = false;
+            for (let radio of selfRadios) {
+                if (radio.checked) {
+                    confirmSelf = true;
+                    break;
+                }
+            }
+            if (!confirmSelf) {
+                errors.push('本人確認書類確認方法を選択してください。');
+            }
 
+         // 检查配偶者有無是否已选择
+            let spouseRadios = document.querySelectorAll('input[name="example0"]');
+            let confirmSpouse = false;
+            for (let radio of spouseRadios) {
+                if (radio.checked) {
+                    confirmSpouse = true;
+                    break;
+                }
+            }
+            if (!confirmSpouse) {
+                errors.push('配偶者有無を選択してください。');
+            }
+            // 检查家族カード付け希望是否已选择
+            let familyRadios = document.querySelectorAll('input[name="example1"]');
+            let confirmFamily = false;
+            for (let radio of familyRadios) {
+                if (radio.checked) {
+                    confirmFamily = true;
+                    break;
+                }
+            }
+            if (!confirmFamily) {
+                errors.push('家族カード付け希望を選択してください。');
+            }
+            // 检查家族カード案内メール希望是否已选择
+            let cardRadios = document.querySelectorAll('input[name="example2"]');
+            let confirmCard = false;
+            for (let radio of cardRadios) {
+                if (radio.checked) {
+                    confirmCard = true;
+                    break;
+                }
+            }
+            if (!confirmCard) {
+                errors.push('家族カード案内メール希望を選択してください。');
+            }
+            // 检查キャンペーンメール希望是否已选择
+            let campaignRadios = document.querySelectorAll('input[name="example3"]');
+            let confirmCampaign = false;
+
+            for (let radio of campaignRadios) {
+                if (radio.checked) {
+                    confirmCampaign = true;
+                    break;
+                }
+            }
+            if (!confirmCampaign) {
+                errors.push('キャンペーンメール希望を選択してください。');
+                }
 
 
 
@@ -475,7 +560,7 @@
             // console.log(email,emailConfirm)
 
             // window.location.assign('/insert1');
-            window.location.href='/insert2 ;
+            window.location.href='/insert2' ;
             // window.location.assign('/insert1',{'eamil':email}) ;
 
         }
