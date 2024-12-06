@@ -29,6 +29,10 @@ public class MyController {
         session.setAttribute("MEIKN",app.getMeikn());
         session.setAttribute("MEIEN",app.getMeien());
         session.setAttribute("SEX",app.getSex());
+        System.out.println(app.getMail());
+        System.out.println(app.getBer());
+        System.out.println(app.getPho());
+        System.out.println(app.getKjnhjn());
         return "A1A01WA01A04_入会申込情報入力";
     }
     @RequestMapping("/insert2")
