@@ -1,7 +1,9 @@
 package org.example.myspring.controller;
 
 import jakarta.annotation.Resource;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
+import org.apache.catalina.Session;
 import org.example.myspring.dao.AppRepository;
 import org.example.myspring.entity.App;
 import org.springframework.stereotype.Controller;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.support.SessionStatus;
 
 @Controller
 public class MyController {
@@ -19,6 +22,7 @@ public class MyController {
         return "A1A01WA01A01_入会申込情報入力";
     }
 
+    // A1A01WA01A03_入会申込情報入力.html
     @RequestMapping("/insert1")
     public String toInsert1(App app, HttpSession session) {
         System.out.println("app_wdc:"+app);
@@ -38,8 +42,11 @@ public class MyController {
         return "A1A01WA01A04_入会申込情報入力";
 //        return null;
     }
+
+    // A1A01WA01A04_入会申込情報入力.html
+    // famflg 为 家族カード付け希望
     @RequestMapping("/insert2")
-    public String toInsert2(App app, HttpSession session) {
+    public String toInsert2(App app, HttpSession session , HttpServletRequest request) {
         session.setAttribute("jkysbt", app.getJkysbt());
         session.setAttribute("tel",app.getTel());
         session.setAttribute("post",app.getPost());
@@ -57,8 +64,11 @@ public class MyController {
         session.setAttribute("hgsumk",app.getHgsumk());
         session.setAttribute("kzkmlflg",app.getKzkmlflg());
         session.setAttribute("cammlflg",app.getCammlflg());
+        request.setAttribute("famflg",request.getParameter("famflg"));
         return "A1A01WA01A05_入会申込情報入力";
     }
+
+    // A1A01WA01A05_入会申込情報入力.html
     @RequestMapping("/insert3")
     public String toInsert3(App app, HttpSession session) {
         session.setAttribute("gyocd", app.getGyocd());
@@ -70,6 +80,32 @@ public class MyController {
         session.setAttribute("nshym",app.getNshym());
         session.setAttribute("nsg",app.getNsg());
         return "A1A01WA01A11_入会申込情報確認";
+    }
+
+    // A1A01WB01A01_家族カード申込情報入力.html
+    @RequestMapping("/insert4")
+    public String insert4(App app, HttpSession session, SessionStatus sessionStatus) {
+        session.setAttribute("kzkseikj", app.getKzkseikj());
+        session.setAttribute("kzkseikn",app.getKzkseikn());
+        session.setAttribute("kzkseien",app.getKzkseien());
+        session.setAttribute("kzksex",app.getKzksex());
+        session.setAttribute("kzkgyocd",app.getKzkgyocd());
+        session.setAttribute("kzkkms",app.getKzkkms());
+        session.setAttribute("kzkkmsdep",app.getKzkkmsdep());
+        session.setAttribute("kzkkmstel",app.getKzkkmstel());
+        session.setAttribute("kzkhhucd",app.getKzkhhucd());
+        return "redirect:/A1A01WD01A01_本人・家族確認書類アップロード";
+    }
+
+    //判断是否为家族申请
+    @RequestMapping("isFamily")
+    public String isFamily(HttpServletRequest request) {
+        if ("1".equals((String) request.getAttribute("famflg"))) {
+            return "redirect:/A1A01WB01A01_家族カード申込情報入力";
+        } else if ("0".equals((String) request.getAttribute("famflg"))) {
+            return "redirect:/A1A01WD01A01_本人・家族確認書類アップロード";
+        }
+        else return "redirect:/";
     }
 
     @RequestMapping("/confirm")
@@ -112,8 +148,4 @@ public class MyController {
         app.setNsg((String) session.getAttribute("nsg"));
         return "A1A01WA01A01_入会申込情報入力";
     }
-
-
-
-
 }
