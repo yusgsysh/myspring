@@ -8,7 +8,8 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class GetCsv {
-    public static void getCSV(HttpSession session,String userToken ,File directory){
+    public static void getCSV(HttpSession session,String userToken ,String path){
+        File directory = new File(path);
         File file = new File(directory.getAbsolutePath() + "/" + userToken + ".csv");
         if (file.exists()){
             try (BufferedReader br = new BufferedReader(new FileReader(file))) {

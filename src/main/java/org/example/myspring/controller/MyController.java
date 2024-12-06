@@ -2,23 +2,15 @@ package org.example.myspring.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.annotation.Resource;
-import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import org.example.myspring.dao.AppRepository;
 import org.example.myspring.entity.App;
-import org.example.myspring.util.CreateID;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.support.SessionStatus;
-
-import java.io.*;
-import java.util.Arrays;
-import java.util.Optional;
-import java.util.UUID;
-
+import java.io.File;
 import static org.example.myspring.util.CreateID.createID;
 import static org.example.myspring.util.GetCookie.getCookie;
 import static org.example.myspring.util.GetCsv.getCSV;
@@ -28,7 +20,8 @@ import static org.example.myspring.util.SaveCsv.saveCSV;
 public class MyController {
 
     private String userToken;
-    File directory = new File("src/main/java/org/example/myspring/util/");
+    String path = "src/main/java/org/example/myspring/util/";
+
 
     @Resource
     private AppRepository appRepository;
@@ -50,7 +43,7 @@ public class MyController {
     @RequestMapping("/A1A01WA01A03")
     public String toA1A01WA01A03(HttpSession session, HttpServletRequest request, HttpServletResponse response) {
         userToken = getCookie(request, response, userToken);
-        getCSV(session, userToken, directory);
+        getCSV(session, userToken, path);
         return "A1A01WA01A03_入会申込情報入力";
     }
 
@@ -85,7 +78,7 @@ public class MyController {
         csvContent.append("meikn,").append(app.getMeikn()).append("\n");
         csvContent.append("meien,").append(app.getMeien()).append("\n");
         csvContent.append("sex,").append(app.getSex()).append("\n");
-        saveCSV(csvContent.toString(), userToken, directory);
+        saveCSV(csvContent.toString(), userToken, path);
         return "A1A01WA01A04_入会申込情報入力";
 //        return null;
     }
