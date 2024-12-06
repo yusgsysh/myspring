@@ -69,7 +69,9 @@
                     </p>
                 </div>
                 <div class="col-4 bg-lemonchiffon">
-                    <label>1980-12-31</label>
+                    <label>
+                        <input th:value="${session.ber}" type="text"/>
+                    </label>
                 </div>
                 <div class="col-6 bg-lemonchiffon"></div>
             </div>
@@ -84,7 +86,7 @@
                     </p>
                 </div>
                 <div class="col-4 bg-lemonchiffon">
-                    <label>080-1234-5678</label>
+                    <label> <input th:value="${session.pho}" type="text"/></label>
                 </div>
                 <div class="col-6 bg-lemonchiffon"></div>
             </div>
@@ -102,7 +104,9 @@
                     </p>
                 </div>
                 <div class="col-4 bg-lemonchiffon">
-                    <label>個人</label>
+                    <label>
+                        <input th:value="${session.kjnhjn}" type="text"/>
+                    </label>
                 </div>
                 <div class="col-6 bg-lemonchiffon"></div>
             </div>
@@ -123,9 +127,9 @@
                     </p>
                 </div>
                 <div class="col-3 bg-lemonchiffon">
-                    <label>山田</label>
+                    <label>   <input th:value="${session.seikj}" type="text"/></label>
                     <hr>
-                    <label>太郎</label>
+                    <label>   <input th:value="${session.seikn}" type="text"/></label>
                 </div>
                 <div class="col-6 bg-lemonchiffon"></div>
             </div>
@@ -147,9 +151,9 @@
                     </p>
                 </div>
                 <div class="col-3 bg-lemonchiffon">
-                    <label>ヤマダ</label>
+                    <label> <input th:value="${session.seien}" type="text"/></label>
                     <hr>
-                    <label>タロウ</label>
+                    <label> <input th:value="${session.meikj}" type="text"/></label>
                 </div>
                 <div class="col-6 bg-lemonchiffon"></div>
             </div>
@@ -170,9 +174,9 @@
                     </p>
                 </div>
                 <div class="col-3">
-                    <label>YAMATA</label>
+                    <label><input th:value="${session.meikn}" type="text"/></label>
                     <hr>
-                    <label>TAROU</label>
+                    <label><input th:value="${session.meien}" type="text"/></label>
                 </div>
                 <div class="col-6"> </div>
             </div>
@@ -187,7 +191,7 @@
                     </p>
                 </div>
                 <div class="col-4 bg-lemonchiffon">
-                    <P>男性</P>
+                    <P><input th:value="${session.sex}" type="text"/></P>
                 </div>
                 <div class="col-6 bg-lemonchiffon"></div>
             </div>
@@ -195,7 +199,7 @@
         <hr>
         <div class="text-center">
             <div class="custom-control custom-radio custom-control-inline">
-                <p class="lead"> <a class="btn btn-danger btn-lg" href="#" role="button">編集</a> </p>
+                <p class="lead"> <a class="btn btn-danger btn-lg" href="/insert1" role="button">編集</a> </p>
             </div>
         </div>
         <hr>
@@ -212,7 +216,7 @@
                 </div>
                 <div class="col-4 bg-lemonchiffon">
                     <div class="form-group">
-                        <label>本人持家</label>
+                        <label><input th:value="${session.jkysbt}" type="text"/></label>
                     </div>
                 </div>
                 <div class="col-6 bg-lemonchiffon"> </div>
@@ -227,7 +231,7 @@
                     </P>
                 </div>
                 <div class="col-4">
-                    <label>03-0000-1111</label>
+                    <label><input th:value="${session.tel}" type="text"/></label>
                 </div>
                 <div class="col-6"> </div>
             </div>
@@ -242,7 +246,7 @@
                     </p>
                 </div>
                 <div class="col-4 bg-lemonchiffon">
-                    <label>101-0001</label>
+                    <label><input th:value="${session.post}" type="text"/></label>
                 </div>
                 <div class="col-6 bg-lemonchiffon"></div>
             </div>
@@ -258,7 +262,7 @@
                 </div>
                 <div class="col-4 bg-lemonchiffon">
                     <div class="form-group">
-                        <label>北海道</label>
+                        <label><input th:value="${session.knc}" type="text"/></label>
                     </div>
                 </div>
                 <div class="col-6 bg-lemonchiffon"></div>
@@ -279,9 +283,9 @@
                     <label>建物・部屋番号</label>
                 </div>
                 <div class="col-8 bg-lemonchiffon">
-                    <label>東京都品川区西品川１－１－１</label>
+                    <label><input th:value="${session.jskj1}" type="text"/></label>
                     <hr>
-                    <label>品川ビル　１０１室</label>
+                    <label><input th:value="${session.jskj2}" type="text"/></label>
                 </div>
             </div>
             <br>
@@ -300,9 +304,9 @@
                     <label>建物・部屋番号</label>
                 </div>
                 <div class="col-8 bg-lemonchiffon">
-                    <label>トウキョウトシナガワくニシシナガワ１－１－１</label>
+                    <label><input th:value="${session.jskn1}" type="text"/></label>
                     <hr>
-                    <label>シナガワビル　１０１シツ</label>
+                    <label><input th:value="${session.jskn2}" type="text"/></label>
                 </div>
             </div>
         </div>
@@ -320,7 +324,7 @@
                 </div>
                 <div class="col-4 bg-lemonchiffon">
                     <div class="form-group">
-                        <label>１００万</label>
+                        <label><input th:value="${session.spgtorkbn}" type="text"/></label>
                     </div>
                 </div>
                 <div class="col-6 bg-lemonchiffon"></div>
@@ -337,7 +341,7 @@
                 </div>
                 <div class="col-4">
                     <div class="form-group">
-                        <label>生計費</label>
+                        <label><input th:value="${session.spgkbn}" type="text"/></label>
                     </div>
                 </div>
                 <div class="col-6"></div>
@@ -354,7 +358,7 @@
                 </div>
                 <div class="col-4 bg-lemonchiffon">
                     <div class="form-group">
-                        <label>１０万</label>
+                        <label><input th:value="${session.csgkbn}" type="text"/></label>
                     </div>
                 </div>
                 <div class="col-6 bg-lemonchiffon"></div>
@@ -371,7 +375,7 @@
                 </div>
                 <div class="col-4">
                     <div class="form-group">
-                        <label>生計費融資</label>
+                        <label> <input th:value="${session.torkbn}" type="text"/></label>
                     </div>
                 </div>
                 <div class="col-6"></div>
@@ -389,7 +393,7 @@
                     </p>
                 </div>
                 <div class="col-5">
-                    <label>123456789012</label>
+                    <label> <input th:value="${session.driverid}" type="text"/></label>
                 </div>
                 <div class="col-6"></div>
             </div>
@@ -403,7 +407,7 @@
                     </p>
                 </div>
                 <div class="col-4">
-                    <label>1234567890</label>
+                    <label><input th:value="${session.kkhcd}" type="text"/></label>
                 </div>
                 <div class="col-5"></div>
             </div>
@@ -417,7 +421,7 @@
                     </p>
                 </div>
                 <div class="col-9">
-                    <label>申込後</label>
+                    <label><input th:value="${session.hgsumk}" type="text"/></label>
                 </div>
             </div>
             <br>
@@ -430,7 +434,7 @@
                     </p>
                 </div>
                 <div class="col-4">
-                    <label>有</label>
+                    <label><input th:value="${session.kzkmlflg}" type="text"/></label>
                 </div>
                 <div class="col-5"></div>
             </div>
@@ -458,7 +462,7 @@
                     </p>
                 </div>
                 <div class="col-4">
-                    <label>有</label>
+                    <label><input th:value="${session.cammlflg}" type="text"/></label>
                 </div>
                 <div class="col-5"></div>
             </div>
@@ -480,7 +484,7 @@
         <hr>
         <div class="text-center">
             <div class="custom-control custom-radio custom-control-inline">
-                <p class="lead"> <a class="btn btn-danger btn-lg" href="#" role="button">編集</a> </p>
+                <p class="lead"> <a class="btn btn-danger btn-lg" href="/insert2" role="button">編集</a> </p>
             </div>
         </div>
         <hr>
@@ -596,7 +600,7 @@
         <hr>
         <div class="text-center">
             <div class="custom-control custom-radio custom-control-inline">
-                <p class="lead"> <a class="btn btn-danger btn-lg" href="#" role="button">編集</a> </p>
+                <p class="lead"> <a class="btn btn-danger btn-lg" href="/insert3" role="button">編集</a> </p>
             </div>
         </div>
         <br>

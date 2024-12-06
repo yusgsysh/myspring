@@ -40,23 +40,25 @@ public class MyController {
     }
     @RequestMapping("/insert2")
     public String toInsert2(App app, HttpSession session) {
-        session.setAttribute("JKYSBT", app.getJkysbt());
-        session.setAttribute("TEL",app.getTel());
-        session.setAttribute("POST",app.getPost());
-        session.setAttribute("KNC",app.getKnc());
-        session.setAttribute("JSKJ1",app.getJskj1());
-        session.setAttribute("JSKJ2",app.getJskj2());
-        session.setAttribute("JSKN1",app.getJskn1());
-        session.setAttribute("JSKN2",app.getJskn2());
-        session.setAttribute("SPGTORKBN",app.getSpgtorkbn());
-        session.setAttribute("SPGKBN",app.getSpgkbn());
-        session.setAttribute("CSGKBN",app.getCsgkbn());
-        session.setAttribute("TORKBN",app.getTorkbn());
-        session.setAttribute("DRIVERID",app.getDriverid());
-        session.setAttribute("KKHCD",app.getKkhcd());
-        session.setAttribute("HGSUMK",app.getHgsumk());
-        session.setAttribute("KZKMLFLG",app.getKzkmlflg());
-        session.setAttribute("CAMMLFLG",app.getCammlflg());
+        System.out.println("app_wdc2:"+app);
+        session.setAttribute("jkysbt", app.getJkysbt());
+        session.setAttribute("tel",app.getTel());
+        session.setAttribute("post",app.getPost());
+        session.setAttribute("knc",app.getKnc());
+        session.setAttribute("jskj1",app.getJskj1());
+        session.setAttribute("jskj2",app.getJskj2());
+        session.setAttribute("jskn1",app.getJskn1());
+        session.setAttribute("jskn2",app.getJskn2());
+        session.setAttribute("spgtorkbn",app.getSpgtorkbn());
+        session.setAttribute("spgkbn",app.getSpgkbn());
+        session.setAttribute("csgkbn",app.getCsgkbn());
+        session.setAttribute("torkbn",app.getTorkbn());
+        session.setAttribute("driverid",app.getDriverid());
+        session.setAttribute("kkhcd",app.getKkhcd());
+        session.setAttribute("hgsumk",app.getHgsumk());
+        session.setAttribute("kzkmlflg",app.getKzkmlflg());
+        session.setAttribute("cammlflg",app.getCammlflg());
+        System.out.println("----");
         return "A1A01WA01A05_入会申込情報入力";
     }
     @RequestMapping("/insert3")
