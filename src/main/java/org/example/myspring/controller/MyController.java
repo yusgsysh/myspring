@@ -61,14 +61,14 @@ public class MyController {
     }
     @RequestMapping("/insert3")
     public String toInsert3(App app, HttpSession session) {
-        session.setAttribute("GYOCD", app.getGyocd());
-        session.setAttribute("KMS",app.getKms());
-        session.setAttribute("KMSDEP",app.getKmsdep());
-        session.setAttribute("KMSTEL",app.getKmstel());
-        session.setAttribute("KMSJS1",app.getKmsjs1());
-        session.setAttribute("KMSJS2",app.getKmsjs2());
-        session.setAttribute("NSHYM",app.getNshym());
-        session.setAttribute("NSG",app.getNsg());
+        session.setAttribute("gyocd", app.getGyocd());
+        session.setAttribute("kms",app.getKms());
+        session.setAttribute("kmsdep",app.getKmsdep());
+        session.setAttribute("kmstel",app.getKmstel());
+        session.setAttribute("kmsjs1",app.getKmsjs1());
+        session.setAttribute("kmsjs2",app.getKmsjs2());
+        session.setAttribute("nshym",app.getNshym());
+        session.setAttribute("nsg",app.getNsg());
         return "A1A01WA01A11_入会申込情報確認";
     }
 
