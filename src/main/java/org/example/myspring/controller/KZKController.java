@@ -26,7 +26,7 @@ public class KZKController {
         session.setAttribute("kzkkmsdep",app.getKzkkmsdep());
         session.setAttribute("kzkkmstel",app.getKzkkmstel());
         session.setAttribute("kzkhhucd",app.getKzkhhucd());
-        System.out.println(session.getAttribute("kzksex"));
+        System.out.println(session.getAttribute("kzkseikj"));
         System.out.println("----");
         return "A1A01WB01A11_家族カード申込情報確認";
     }
@@ -35,4 +35,5 @@ public class KZKController {
     public String toA1A01WB01A11(){
         return "A1A01WB01A01_家族カード申込情報入力.html";
     }
+
 }
