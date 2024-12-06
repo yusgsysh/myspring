@@ -256,31 +256,50 @@
 
         // 检查家族お名前の姓是否为空
         let kzkseikj = document.querySelector('input[placeholder="<例>山田"]').value;
+        let fullWidthRegex = /^[一-龯]+$/; // 正则表达式：匹配全角字符
+
         if (!kzkseikj) {
             errors.push('家族お名前の姓は必須です。');
+        }else if (!fullWidthRegex.test(kzkseikj)) {
+            errors.push('家族お名前の姓は全角文字で入力してください。');
         }
 
-        // 检查家族お名前の名是否为空
+        // 检查家族お名前の名是否为空且是否为汉字
         let kzkmeikj = document.querySelector('input[placeholder="<例>祐希"]').value;
         if (!kzkmeikj) {
             errors.push('家族お名前の名は必須です。');
+        }else if (!fullWidthRegex.test(kzkmeikj)) {
+            errors.push('家族お名前の名は全角文字で入力してください。');
         }
 
-        // 检查家族お名前フリガナの姓是否为空
+        // 检查家族お名前フリガナの姓是否为空且是否为平假名或片假名
         let kzkseikn = document.querySelector('input[placeholder="<例>ヤマダ"]').value;
+        let kanaRegex = /^[あ-んア-ン]+$/;
         if (!kzkseikn) {
             errors.push('家族お名前フリガナの姓は必須です。');
+        }else if (!kanaRegex.test(kzkseikn)) {
+            errors.push('家族お名前フリガナの姓は平仮名または片仮名で入力してください。');
         }
 
         // 检查家族お名前フリガナの名是否为空
         let kzkmeikn = document.querySelector('input[placeholder="<例>ユウキ"]').value;
         if (!kzkmeikn) {
             errors.push('家族お名前フリガナの名は必須です。');
+        }else if (!kanaRegex.test(kzkmeikn)) {
+            errors.push('家族お名前フリガナの名は平仮名または片仮名で入力してください。');
         }
 
-        // ローマ字名の姓 ローマ字名の名
+        // ローマ字名の姓 ローマ字名の名 是否为半角英文字符
         let kzkseien = document.querySelector('input[name="kzkseien"]').value;
         let kzkmeien = document.querySelector('input[name="kzkmeien"]').value;
+        let halfWidthRegex = /^[a-zA-Z\s]+$/; // 正则表达式：匹配半角英文字符和空格
+
+        if (!halfWidthRegex.test(kzkseien)) {
+            errors.push('ローマ字名の姓は半角英字で入力してください。');
+        }
+        if (!halfWidthRegex.test(kzkmeien)) {
+            errors.push('ローマ字名の名は半角英字で入力してください。');
+        }
 
         // 检查性别是否已选择
         let sexchecked = document.getElementById('customRadio1')
@@ -314,6 +333,15 @@
         let kzkkms = document.querySelector('input[name="kzkkms"]').value;
         let kzkkmsdep = document.querySelector('input[name="kzkkmsdep"]').value;
         let kzkkmstel = document.querySelector('input[name="kzkkmstel"]').value;
+        if (!fullWidthRegex.test(kzkkms)) {
+            errors.push('勤務先名は全角文字で入力してください。');
+        }
+        if (!fullWidthRegex.test(kzkkmsdep)) {
+            errors.push('勤務先部課名は全角文字で入力してください。');
+        }
+        if (!halfWidthRegex.test(kzkkmstel)) {
+            errors.push('勤務先電話は半角英字で入力してください。');
+        }
 
         // 检查家族確認書類確認方法是否已选择
         let kzkhhucdchecked = document.getElementById('Radio8')
