@@ -2,6 +2,9 @@ package org.example.myspring.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.annotation.Resource;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import org.example.myspring.dao.AppRepository;
 import org.example.myspring.entity.App;
@@ -15,30 +18,39 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.Optional;
+import java.util.UUID;
 
 @Controller
 public class MyController {
+
+    private String userToken;
+
     @Resource
     private AppRepository appRepository;
     private final ObjectMapper objectMapper = new ObjectMapper();
     @RequestMapping("/")
-    public String hello() {
+    public String hello(HttpServletRequest request, HttpServletResponse response) {
+        this.getCookie(request,response);
         return "A1A01WA01A01_入会申込情報入力";
     }
 
     @RequestMapping("/toA1A01WA01A02")
-    public String toA1A01WA01A02() {
+    public String toA1A01WA01A02(HttpServletRequest request, HttpServletResponse response) {
+        this.getCookie(request,response);
         return "A1A01WA01A02_入会申込情報入力";
     }
 
     @RequestMapping("/A1A01WA01A03")
-    public String toA1A01WA01A03() {
+    public String toA1A01WA01A03(HttpServletRequest request, HttpServletResponse response) {
+        this.getCookie(request,response);
         return "A1A01WA01A03_入会申込情報入力";
     }
 
     @RequestMapping("/insert1")
-    public String toInsert1(App app, HttpSession session) {
-        
+    public String toInsert1(App app, HttpSession session,HttpServletRequest request, HttpServletResponse response) {
+        this.getCookie(request,response);
 //        System.out.println("app_wdc:"+app);
         session.setAttribute("mail", app.getMail());
         session.setAttribute("ber",app.getBer());
@@ -53,8 +65,6 @@ public class MyController {
         session.setAttribute("sex",app.getSex());
         System.out.println(session.getAttribute("mail"));
         System.out.println("----");
-
-        String sessionID = String.valueOf(session);
 
         StringBuilder csvContent = new StringBuilder();
         csvContent.append("Key,Value\n");
@@ -75,20 +85,19 @@ public class MyController {
         if (!directory.exists()) {
             directory.mkdirs();
         }
-
         // 写入CSV文件
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(directory.getAbsolutePath() + "/" + sessionID + ".csv"))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(directory.getAbsolutePath() + "/" + this.userToken + ".csv"))) {
             writer.write(csvContent.toString());
-            System.out.println("Successfully wrote to the file.");
+            System.out.println("Success wrote");
         } catch (IOException e) {
-            System.out.println("An error occurred while writing to the file.");
             e.printStackTrace();
         }
         return "A1A01WA01A04_入会申込情報入力";
 //        return null;
     }
     @RequestMapping("/insert2")
-    public String toInsert2(App app, HttpSession session) {
+    public String toInsert2(App app, HttpSession session,HttpServletRequest request, HttpServletResponse response) {
+        this.getCookie(request,response);
         session.setAttribute("jkysbt", app.getJkysbt());
         session.setAttribute("tel",app.getTel());
         session.setAttribute("post",app.getPost());
@@ -109,7 +118,8 @@ public class MyController {
         return "A1A01WA01A05_入会申込情報入力";
     }
     @RequestMapping("/insert3")
-    public String toInsert3(App app, HttpSession session) {
+    public String toInsert3(App app, HttpSession session,HttpServletRequest request, HttpServletResponse response) {
+        this.getCookie(request,response);
         session.setAttribute("gyocd", app.getGyocd());
         session.setAttribute("kms",app.getKms());
         session.setAttribute("kmsdep",app.getKmsdep());
@@ -122,7 +132,8 @@ public class MyController {
     }
 
     @RequestMapping("/confirm")
-    public String confirm(App app, HttpSession session){
+    public String confirm(App app, HttpSession session,HttpServletRequest request, HttpServletResponse response){
+        this.getCookie(request,response);
         app.setMail((String) session.getAttribute("mail"));
         app.setBer((String) session.getAttribute("ber"));
         app.setPho((String) session.getAttribute("pho"));
@@ -162,7 +173,27 @@ public class MyController {
         return "A1A01WA01A01_入会申込情報入力";
     }
 
-
-
-
+    /**
+     * 获取当前用户cookid
+     * @param request
+     * @param response
+     * @return this.userToken
+     */
+    public void getCookie(HttpServletRequest request, HttpServletResponse response) {
+        Cookie[] cookies = request.getCookies();
+        for (Cookie cookie : cookies) {
+            if ("userToken".equals(cookie.getName())) {
+                this.userToken = cookie.getValue();
+            }
+        }
+        System.out.println(userToken);
+        if (this.userToken == null) {
+            String token = UUID.randomUUID().toString();
+            Cookie cookie = new Cookie("userToken",token);
+            cookie.setMaxAge(-1);
+            cookie.setPath("/");
+            response.addCookie(cookie);
+            this.userToken = token;
+        }
+    }
 }
