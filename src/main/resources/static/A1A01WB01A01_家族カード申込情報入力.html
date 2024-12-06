@@ -26,6 +26,7 @@
 <div class="container">
     <div class="row text-center"> </div>
     <hr>
+    <form>
     <div class="row card-header">ご家族について</div>
     <div class="container">
         <div class="row">
@@ -44,9 +45,9 @@
                     名</p>
             </div>
             <div class="col-3 bg-lemonchiffon">
-                <input type="text" class="form-control" placeholder="<例>山田">
+                <input type="text" class="form-control" placeholder="<例>山田" name="kzkseikj">
                 <hr>
-                <input type="text" class="form-control" placeholder="<例>祐希">
+                <input type="text" class="form-control" placeholder="<例>祐希" name="kzkmeikj">
             </div>
             <div class="col-6 bg-lemonchiffon">
                 <p><small>・このカードは個人名義でお申し込みください。<br>
@@ -73,9 +74,9 @@
                     名</p>
             </div>
             <div class="col-3 bg-lemonchiffon">
-                <input type="text" class="form-control" placeholder="<例>ヤマダ">
+                <input type="text" class="form-control" placeholder="<例>ヤマダ" name="kzkseikn">
                 <hr>
-                <input type="text" class="form-control" placeholder="<例>ユウキ">
+                <input type="text" class="form-control" placeholder="<例>ユウキ" name="kzkmeikn">
             </div>
             <div class="col-6 bg-lemonchiffon"></div>
         </div>
@@ -96,9 +97,9 @@
                     名</p>
             </div>
             <div class="col-3">
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" name="kzkseien">
                 <hr>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" name="kzkmeien">
             </div>
             <div class="col-6">
                 <p><small>・ローマ字名はカード券面に名・姓の順で印字されます。<br>
@@ -120,11 +121,11 @@
             </div>
             <div class="col-4 bg-lemonchiffon">
                 <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" class="custom-control-input" id="customRadio1" name="example1">
+                    <input type="radio" class="custom-control-input" id="customRadio1" name="kzksex">
                     <label class="custom-control-label" for="customRadio1">男性</label>
                 </div>
                 <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" class="custom-control-input" id="customRadio2" name="example1">
+                    <input type="radio" class="custom-control-input" id="customRadio2" name="kzksex">
                     <label class="custom-control-label" for="customRadio2">女性</label>
                 </div>
             </div>
@@ -145,7 +146,7 @@
             </div>
             <div class="col-4 bg-lemonchiffon">
                 <div class="form-group">
-                    <select class="form-control" >
+                    <select class="form-control" name="kzkgyocd"  placeholder="<例>農林水産" >
                         <option>農林水産</option>
                         <option>土木建築</option>
                         <option>製造</option>
@@ -168,7 +169,7 @@
                 </P>
             </div>
             <div class="col-4">
-                <input type="text" class="form-control" placeholder="<例>株式会社　H">
+                <input type="text" class="form-control" placeholder="<例>株式会社　H" name="kzkkms">
             </div>
             <div class="col-6"> </div>
         </div>
@@ -182,7 +183,7 @@
                 </p>
             </div>
             <div class="col-4">
-                <input type="text" class="form-control" placeholder="<例>第一事業部">
+                <input type="text" class="form-control" placeholder="<例>第一事業部" name="kzkkmsdep">
             </div>
             <div class="col-6"></div>
         </div>
@@ -196,7 +197,7 @@
                 </p>
             </div>
             <div class="col-4">
-                <input type="text" class="form-control" placeholder="<例>03-1111-2222">
+                <input type="text" class="form-control" placeholder="<例>03-1111-2222" name="kzkkmstel">
             </div>
             <div class="col-6"></div>
         </div>
@@ -215,11 +216,11 @@
             </div>
             <div class="col-9">
                 <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" class="custom-control-input" id="Radio8" name="exampleC">
+                    <input type="radio" class="custom-control-input" id="Radio8" name="kzkhhucd">
                     <label class="custom-control-label" for="Radio8">申込後</label>
                 </div>
                 <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" class="custom-control-input" id="Radio10" name="exampleC">
+                    <input type="radio" class="custom-control-input" id="Radio10" name="kzkhhucd">
                     <label class="custom-control-label" for="Radio10">郵送で登録</label>
                 </div>
             </div>
@@ -228,9 +229,10 @@
     <hr>
     <div class="text-center">
         <div class="custom-control custom-radio custom-control-inline">
-            <p class="lead"> <a class="btn btn-danger btn-lg" href="#" role="button">次へ進む</a> </p>
+            <p class="lead"> <input type="button" value="次へ進む" onclick="check()"> </p>
         </div>
     </div>
+    </form>
     <div class="row">
         <div class="text-center col-lg-6 offset-lg-3">
             <p>Copyright &copy; H &middot; All Rights Reserved &middot;</p>
@@ -243,5 +245,130 @@
 <!-- Include all compiled plugins (below), or include individual files as needed --> 
 <script src="js/popper.min.js"></script> 
 <script src="js/bootstrap-4.0.0.js"></script>
+<script>
+    function  check(){
+        // document.querySelector('.btn-danger').addEventListener('click', function(event) {
+        // 防止默认事件
+        event.preventDefault();
+
+
+        let errors = [];
+
+        // 检查家族お名前の姓是否为空
+        let kzkseikj = document.querySelector('input[placeholder="<例>山田"]').value;
+        if (!kzkseikj) {
+            errors.push('家族お名前の姓は必須です。');
+        }
+
+        // 检查家族お名前の名是否为空
+        let kzkmeikj = document.querySelector('input[placeholder="<例>祐希"]').value;
+        if (!kzkmeikj) {
+            errors.push('家族お名前の名は必須です。');
+        }
+
+        // 检查家族お名前フリガナの姓是否为空
+        let kzkseikn = document.querySelector('input[placeholder="<例>ヤマダ"]').value;
+        if (!kzkseikn) {
+            errors.push('家族お名前フリガナの姓は必須です。');
+        }
+
+        // 检查家族お名前フリガナの名是否为空
+        let kzkmeikn = document.querySelector('input[placeholder="<例>ユウキ"]').value;
+        if (!kzkmeikn) {
+            errors.push('家族お名前フリガナの名は必須です。');
+        }
+
+        // ローマ字名の姓 ローマ字名の名
+        let kzkseien = document.querySelector('input[name="kzkseien"]').value;
+        let kzkmeien = document.querySelector('input[name="kzkmeien"]').value;
+
+        // 检查性别是否已选择
+        let sexchecked = document.getElementById('customRadio1')
+        let gender = '';
+        if (sexchecked.checked){
+            gender = 1
+        } else {
+            gender = 0
+        }
+
+        // let genderSelected =document.querySelectorAll('input[name="kzksex"]');
+        // alert(genderSelected.values())
+        // let genderSelected = false;
+        // let gender = '';
+        // for (let radio of genderRadios) {
+        //     if (radio.checked) {
+        //         genderSelected = true;
+        //         gender = 0;
+        //         break;
+        //     } else {
+        //         gender = 1;
+        //     }
+        // }
+        if (gender === '') {
+            errors.push('性別を選択してください。');
+        }
+
+        let kzkgyocd = document.querySelector('select[name="kzkgyocd"]').value;
+
+        //勤務先名 勤務先部課名 勤務先電話
+        let kzkkms = document.querySelector('input[name="kzkkms"]').value;
+        let kzkkmsdep = document.querySelector('input[name="kzkkmsdep"]').value;
+        let kzkkmstel = document.querySelector('input[name="kzkkmstel"]').value;
+
+        // 检查家族確認書類確認方法是否已选择
+        let kzkhhucdchecked = document.getElementById('Radio8')
+        let kzkhhucd = '';
+        if (kzkhhucdchecked.checked){
+            kzkhhucd = 1
+        } else {
+            kzkhhucd = 0
+        }
+        // let kzkhhucdRadios = document.querySelectorAll('input[name="kzkhhucd"]');
+        // let kzkhhucdSelected = false;
+        // let kzkhhucd = '';
+        // for (let radio of kzkhhucdRadios) {
+        //     if (radio.checked) {
+        //         kzkhhucdSelected = true;
+        //         kzkhhucd = 0;
+        //         break;
+        //     } else {
+        //         kzkhhucd = 1;
+        //     }
+        // }
+
+        if (kzkhhucd === '') {
+            errors.push('家族確認書類確認方法を選択してください。');
+        }
+
+        // 如果有错误，显示弹窗
+        if (errors.length > 0) {
+            alert(errors.join('\n'));
+            // window.location.href = 'A1A01WA01A04_入会申込情報入力.html';
+        } else {
+            let urlParams = new URLSearchParams({
+                kzkseikj: kzkseikj,
+                kzkmeikj: kzkmeikj,
+                kzkseikn: kzkseikn,
+                kzkmeikn:kzkmeikn,
+                kzkseien:kzkseien,
+                kzkmeien:kzkmeien,
+                kzksex: gender,
+                kzkgyocd:kzkgyocd,
+                kzkkms:kzkkms,
+                kzkkmsdep:kzkkmsdep,
+                kzkkmstel:kzkkmstel,
+                kzkhhucd:kzkhhucd,
+            });
+            // 所有必填项都已填写，跳转到新页面
+            // console.log(email,emailConfirm)
+
+            // window.location.assign('/insert1');
+            window.location.href='/KZKinsert?'+urlParams.toString() ;
+            // window.location.assign('/insert1',{'eamil':email}) ;
+
+        }
+        // })
+    }
+</script>
 </body>
 </html>

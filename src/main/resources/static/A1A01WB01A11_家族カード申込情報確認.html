@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,6 +26,7 @@
 <div class="container">
     <div class="row text-center"> </div>
     <hr>
+    <form>
     <div class="row card-header">ご家族について</div>
     <div class="container">
         <div class="row">
@@ -43,9 +44,13 @@
                 <label>名</label>
             </div>
             <div class="col-9 bg-lemonchiffon">
-                <label>山田</label>
+                <label>
+                    <p type="text" th:value="${session.kzkseikj}"></p>
+                </label>
                 <hr>
-                <label>祐希</label>
+                <label>
+                    <p type="text" th:value="${session.kzkmeikj}"></p>
+                </label>
             </div>
         </div>
         <br>
@@ -65,9 +70,13 @@
                 <label>名</label>
             </div>
             <div class="col-3 bg-lemonchiffon">
-                <label>ヤマダ</label>
+                <label>
+                    <p type="text" th:value="${session.kzkseikn}"></p>
+                </label>
                 <hr>
-                <label>ユウキ</label>
+                <label>
+                    <p type="text" th:value="${session.kzkmeikn}"></p>
+                </label>
             </div>
             <div class="col-6 bg-lemonchiffon"></div>
         </div>
@@ -87,9 +96,13 @@
                 <label>名</label>
             </div>
             <div class="col-3">
-                 <label>YAMADA</label>
+                 <label>
+                     <p type="text" th:value="${session.kzkseien}"></p>
+                 </label>
                 <hr>
-                <label>YUUKI</label>
+                <label>
+                    <p type="text" th:value="${session.kzkmeien}"></p>
+                </label>
             </div>
             <div class="col-6">
             </div>
@@ -105,7 +118,10 @@
                 </p>
             </div>
             <div class="col-4 bg-lemonchiffon">
-                <label>女性</label>
+                <label>
+                    <p th:if="${session.kzksex} == '1'">男性</p>
+                    <p th:if="${session.kzksex} == '0'">女性</p>
+                </label>
             </div>
             <div class="col-6 bg-lemonchiffon"></div>
         </div>
@@ -124,7 +140,9 @@
             </div>
             <div class="col-4 bg-lemonchiffon">
                 <div class="form-group">
-                    <label>製造</label>
+                    <label>
+                        <p th:text="${session.kzkgyocd}"></p>
+                    </label>
                 </div>
             </div>
             <div class="col-6 bg-lemonchiffon"> </div>
@@ -139,7 +157,9 @@
                 </P>
             </div>
             <div class="col-4">
-                <label>株式会社　H</label>
+                <label>
+                    <p th:text="${session.kzkkms}"></p>
+                </label>
             </div>
             <div class="col-6"> </div>
         </div>
@@ -153,7 +173,9 @@
                 </p>
             </div>
             <div class="col-4">
-                <label>第一事業部</label>
+                <label>
+                    <p th:text="${session.kzkkmsdep}"></p>
+                </label>
             </div>
             <div class="col-6"></div>
         </div>
@@ -167,7 +189,9 @@
                 </p>
             </div>
             <div class="col-4">
-                <label>03-1111-2222</label>
+                <label>
+                    <p th:text="${session.kzkkmstel}"></p>
+                </label>
             </div>
             <div class="col-6"></div>
         </div>
@@ -185,19 +209,23 @@
                 </p>
             </div>
             <div class="col-9">
-                <label>申込後</label>
+                <label>
+                    <p th:if="${session.kzksex} == '1'">申込後</p>
+                    <p th:if="${session.kzksex} == '0'">郵送で登録</p>
+                </label>
             </div>
         </div>
     </div>
     <hr>
     <div class="text-center">
         <div class="custom-control custom-radio custom-control-inline">
-            <p class="lead"> <a class="btn btn-danger btn-lg" href="#" role="button">戻る</a> </p>
+            <p class="lead"> <a class="btn btn-danger btn-lg" th:href="@{A1A01WB01A01_家族カード申込情報入力.html}" role="button">戻る</a> </p>
         </div>
         <div class="custom-control custom-radio custom-control-inline">
             <p class="lead"> <a class="btn btn-danger btn-lg" href="#" role="button">確定</a> </p>
         </div>
     </div>
+    </form>
     <div class="row">
         <div class="text-center col-lg-6 offset-lg-3">
             <p>Copyright &copy; H &middot; All Rights Reserved &middot;</p>

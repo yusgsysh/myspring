@@ -133,11 +133,18 @@ public class App {
 
     public Character kzkflg;
 
+    //1234567890-
     public String kzkseikj;
 
     public String kzkseikn;
 
     public String kzkseien;
+
+    public String kzkmeikj;
+
+    public String kzkmeikn;
+
+    public String kzkmeien;
 
     public Character kzksex;
 
@@ -150,6 +157,7 @@ public class App {
     public String kzkkmstel;
 
     public Character kzkhhucd;
+    //1234567890-
 
     public String kzkks1;
 
