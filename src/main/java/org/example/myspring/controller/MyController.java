@@ -19,6 +19,16 @@ public class MyController {
         return "A1A01WA01A01_入会申込情報入力";
     }
 
+    @RequestMapping("/toA1A01WA01A02")
+    public String toA1A01WA01A02() {
+        return "A1A01WA01A02_入会申込情報入力";
+    }
+
+    @RequestMapping("/A1A01WA01A03")
+    public String toA1A01WA01A03() {
+        return "A1A01WA01A03_入会申込情報入力";
+    }
+
     @RequestMapping("/insert1")
     public String toInsert1(App app, HttpSession session) {
         System.out.println("app_wdc:"+app);
