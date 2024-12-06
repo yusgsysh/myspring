@@ -214,11 +214,11 @@
                 </div>
                 <div class="col-4 bg-lemonchiffon">
                     <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" class="custom-control-input" id="customRadio1" name="sex">
+                        <input type="radio" class="custom-control-input" id="customRadio1" value="male" name="sex">
                         <label class="custom-control-label" for="customRadio1">男性</label>
                     </div>
                     <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" class="custom-control-input" id="customRadio2" name="sex">
+                        <input type="radio" class="custom-control-input" id="customRadio2" value="female" name="sex">
                         <label class="custom-control-label" for="customRadio2">女性</label>
                     </div>
                 </div>
@@ -302,10 +302,14 @@
             // 检查性别是否已选择
             let genderRadios = document.querySelectorAll('input[name="sex"]');
             let genderSelected = false;
+            let gender = '';
             for (let radio of genderRadios) {
                 if (radio.checked) {
                     genderSelected = true;
+                    gender = 0;
                     break;
+                } else {
+                    gender = 1;
                 }
             }
             if (!genderSelected) {
@@ -317,11 +321,24 @@
                 alert(errors.join('\n'));
                 // window.location.href = 'A1A01WA01A04_入会申込情報入力.html';
             } else {
+                let urlParams = new URLSearchParams({
+                    mail: email,
+                    ber: birthday,
+                    pho: phone,
+                    // kjnhjn: ,
+                    seikj:lastName,
+                    seien: lastNameKana,
+                    meikj: firstNameKana,
+                    // meikn: ,
+                    // meien: ,
+                    sex: gender,
+                });
                 // 所有必填项都已填写，跳转到新页面
                 // console.log(email,emailConfirm)
 
                 // window.location.assign('/insert1');
-                window.location.href='/insert1?mail='+email+'&ber='+birthday+'&pho='+phone ;
+                // window.location.href='/insert1?mail='+genderRadios+'ber'+birthday+'&pho='+phone+'&kjnhjn='+''+'&seikj'+lastName+'&seien='+lastNameKana+'&meikj='+firstNameKana+'&meikn='+''+'&meien='+''+'&sex='+genderRadios;
+                window.location.href='/insert1?'+urlParams.toString();
                 // window.location.assign('/insert1',{'eamil':email}) ;
 
             }
