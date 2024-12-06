@@ -1,5 +1,6 @@
 package org.example.myspring.controller;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpSession;
 import org.example.myspring.dao.AppRepository;
@@ -10,10 +11,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
 @Controller
 public class MyController {
     @Resource
     private AppRepository appRepository;
+    private final ObjectMapper objectMapper = new ObjectMapper();
     @RequestMapping("/")
     public String hello() {
         return "A1A01WA01A01_入会申込情報入力";
@@ -31,7 +38,8 @@ public class MyController {
 
     @RequestMapping("/insert1")
     public String toInsert1(App app, HttpSession session) {
-        System.out.println("app_wdc:"+app);
+        
+//        System.out.println("app_wdc:"+app);
         session.setAttribute("mail", app.getMail());
         session.setAttribute("ber",app.getBer());
         session.setAttribute("pho",app.getPho());
@@ -45,6 +53,37 @@ public class MyController {
         session.setAttribute("sex",app.getSex());
         System.out.println(session.getAttribute("mail"));
         System.out.println("----");
+
+        String sessionID = String.valueOf(session);
+
+        StringBuilder csvContent = new StringBuilder();
+        csvContent.append("Key,Value\n");
+        csvContent.append("mail,").append(app.getMail()).append("\n");
+        csvContent.append("ber,").append(app.getBer()).append("\n");
+        csvContent.append("pho,").append(app.getPho()).append("\n");
+        csvContent.append("kjnhjn,").append(app.getKjnhjn()).append("\n");
+        csvContent.append("seikj,").append(app.getSeikj()).append("\n");
+        csvContent.append("seikn,").append(app.getSeikn()).append("\n");
+        csvContent.append("seien,").append(app.getSeien()).append("\n");
+        csvContent.append("meikj,").append(app.getMeikj()).append("\n");
+        csvContent.append("meikn,").append(app.getMeikn()).append("\n");
+        csvContent.append("meien,").append(app.getMeien()).append("\n");
+        csvContent.append("sex,").append(app.getSex()).append("\n");
+
+        // 确保目录存在
+        File directory = new File("src/main/java/org/example/myspring/util/");
+        if (!directory.exists()) {
+            directory.mkdirs();
+        }
+
+        // 写入CSV文件
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(directory.getAbsolutePath() + "/" + sessionID + ".csv"))) {
+            writer.write(csvContent.toString());
+            System.out.println("Successfully wrote to the file.");
+        } catch (IOException e) {
+            System.out.println("An error occurred while writing to the file.");
+            e.printStackTrace();
+        }
         return "A1A01WA01A04_入会申込情報入力";
 //        return null;
     }
