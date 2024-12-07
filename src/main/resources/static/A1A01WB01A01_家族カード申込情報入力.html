@@ -292,7 +292,7 @@
         // ローマ字名の姓 ローマ字名の名 是否为半角英文字符
         let kzkseien = document.querySelector('input[name="kzkseien"]').value;
         let kzkmeien = document.querySelector('input[name="kzkmeien"]').value;
-        let halfWidthRegex = /^[a-zA-Z\s]+$/; // 正则表达式：匹配半角英文字符和空格
+        let halfWidthRegex = /^[a-zA-Z0-9\s]+$/; // 正则表达式：匹配半角英数字符和空格
 
         if (!halfWidthRegex.test(kzkseien)) {
             errors.push('ローマ字名の姓は半角英字で入力してください。');
@@ -302,12 +302,15 @@
         }
 
         // 检查性别是否已选择
-        let sexchecked = document.getElementById('customRadio1')
-        let gender = '';
-        if (sexchecked.checked){
+        let sexchecked1 = document.getElementById('customRadio1')
+        let sexchecked2 = document.getElementById('customRadio2')
+        let gender;
+        if (sexchecked1.checked){
             gender = 1
-        } else {
+        } else if (sexchecked2.checked){
             gender = 0
+        }else {
+            gender = 3
         }
 
         // let genderSelected =document.querySelectorAll('input[name="kzksex"]');
@@ -323,7 +326,7 @@
         //         gender = 1;
         //     }
         // }
-        if (gender === '') {
+        if (gender === 3) {
             errors.push('性別を選択してください。');
         }
 
@@ -344,12 +347,15 @@
         }
 
         // 检查家族確認書類確認方法是否已选择
-        let kzkhhucdchecked = document.getElementById('Radio8')
-        let kzkhhucd = '';
-        if (kzkhhucdchecked.checked){
+        let kzkhhucdchecked1 = document.getElementById('Radio8')
+        let kzkhhucdchecked2 = document.getElementById('Radio10')
+        let kzkhhucd;
+        if (kzkhhucdchecked1.checked){
             kzkhhucd = 1
-        } else {
+        } else if (kzkhhucdchecked2.checked){
             kzkhhucd = 0
+        }else {
+            kzkhhucd = 3
         }
         // let kzkhhucdRadios = document.querySelectorAll('input[name="kzkhhucd"]');
         // let kzkhhucdSelected = false;
@@ -364,7 +370,7 @@
         //     }
         // }
 
-        if (kzkhhucd === '') {
+        if (kzkhhucd === 3) {
             errors.push('家族確認書類確認方法を選択してください。');
         }
 
