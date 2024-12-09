@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class NewGetCSV {
+public class GetCSV {
     public static Map<String, String> getCSV(String userToken, String path) {
         String csvFile = path + "/" +userToken + ".csv";
         Map<String, String> dataMap = new HashMap<>();

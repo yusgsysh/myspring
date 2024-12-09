@@ -7,7 +7,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Map;
 
-public class NewSaveCSV {
+public class SaveCSV {
     public static void saveCSV(String userToken,Map<String, String> hashMap, String path) {
         String csvFilePath = path + "/" +userToken + ".csv";
         try (CSVPrinter printer = new CSVPrinter(new FileWriter(csvFilePath,true), CSVFormat.DEFAULT)) {
