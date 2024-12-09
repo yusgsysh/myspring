@@ -34,7 +34,6 @@ public class MyController {
     @RequestMapping("/")
     public String hello(HttpSession session, HttpServletRequest request, HttpServletResponse response) {
         userToken = getCookie(request, response, userToken);
-        mapToSession(getCSV(userToken, path),session);
         return "A1A01WA01A01_入会申込情報入力";
     }
 
