@@ -26,27 +26,6 @@ public class MyControllerC {
     private AppRepository appRepository;
     private final ObjectMapper objectMapper = new ObjectMapper();
 
-
-    @RequestMapping("/")
-    public String hello(HttpServletRequest request, HttpServletResponse response) {
-        userToken = getCookie(request, response, userToken);
-        return "A1A01WA01A01_入会申込情報入力";
-    }
-
-    // A1A01WA01A03_入会申込情報入力.html
-    @RequestMapping("/toA1A01WA01A02")
-    public String toA1A01WA01A02(HttpServletRequest request, HttpServletResponse response) {
-        userToken = getCookie(request, response, userToken);
-        return "A1A01WA01A02_入会申込情報入力";
-    }
-
-    @RequestMapping("/A1A01WA01A03")
-    public String toA1A01WA01A03(HttpSession session, HttpServletRequest request, HttpServletResponse response) {
-        userToken = getCookie(request, response, userToken);
-        getCSV(session, userToken, path);
-        return "A1A01WA01A03_入会申込情報入力";
-    }
-
     //    A1A01WC01A01_お支払口座登録・変更.html
     @RequestMapping("/insert5")
     public String toInsert5(App app, HttpSession session, HttpServletRequest request, HttpServletResponse response) {
