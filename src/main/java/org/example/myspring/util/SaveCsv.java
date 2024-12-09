@@ -16,4 +16,13 @@ public class SaveCsv {
             e.printStackTrace();
         }
     }
+    public static void addCSV(String csvContent, String userToken ,String path) {
+        File directory = new File(path);
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(directory.getAbsolutePath() + "/" + userToken + ".csv",true))) {
+            writer.write(csvContent.toString());
+            System.out.println("Success added");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
