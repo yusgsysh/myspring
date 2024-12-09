@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,6 +26,7 @@
 <div class="container">
     <div class="row text-center"> </div>
     <hr>
+    <form>
     <div class="row card-header">お支払口座について</div>
     <div class="container">
         <div class="row">
@@ -39,23 +40,23 @@
             </div>
             <div class="col-9 bg-lemonchiffon">
                 <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" class="custom-control-input" id="radio1" name="bank">
+                    <input type="radio" class="custom-control-input" id="radio1" name="bank" th:checked="${session.bankcd eq '1' ? true : false}">
                     <label class="custom-control-label" for="radio1">三菱ＵＦＪ銀行</label>
                 </div>
                 <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" class="custom-control-input" id="radio2" name="bank">
+                    <input type="radio" class="custom-control-input" id="radio2" name="bank" th:checked="${session.bankcd eq '2' ? true : false}">
                     <label class="custom-control-label" for="radio2">三井住友銀行</label>
                 </div>
                 <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" class="custom-control-input" id="radio3" name="bank">
+                    <input type="radio" class="custom-control-input" id="radio3" name="bank" th:checked="${session.bankcd eq '3' ? true : false}">
                     <label class="custom-control-label" for="radio3">みずほ銀行</label>
                 </div>
                 <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" class="custom-control-input" id="radio4" name="bank">
+                    <input type="radio" class="custom-control-input" id="radio4" name="bank" th:checked="${session.bankcd eq '4' ? true : false}">
                     <label class="custom-control-label" for="radio4">りそな銀行</label>
                 </div>
                 <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" class="custom-control-input" id="radio5" name="bank">
+                    <input type="radio" class="custom-control-input" id="radio5" name="bank" th:checked="${session.bank eq '5' ? true : false}">
                     <label class="custom-control-label" for="radio5">埼玉りそな銀行</label>
                 </div>
             </div>
@@ -71,7 +72,7 @@
                 </p>
             </div>
             <div class="col-4 bg-lemonchiffon">
-                <input type="text" class="form-control" placeholder="<例>001">
+                <input type="text" class="form-control" placeholder="<例>001" name="bchcd" th:value="${session.bchcd}">
             </div>
             <div class="col-5 bg-lemonchiffon"></div>
         </div>
@@ -87,11 +88,11 @@
             </div>
             <div class="col-4 bg-lemonchiffon">
                 <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" class="custom-control-input" id="radio6" name="YKN">
+                    <input type="radio" class="custom-control-input" id="radio6" name="YKN" th:checked="${session.ykn eq '1' ? true : false}">
                     <label class="custom-control-label" for="radio6">普通預金</label>
                 </div>
                 <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" class="custom-control-input" id="radio7" name="YKN">
+                    <input type="radio" class="custom-control-input" id="radio7" name="YKN" th:checked="${session.ykn eq '0' ? true : false}">
                     <label class="custom-control-label" for="radio7">当座</label>
                 </div>
             </div>
@@ -108,7 +109,7 @@
                 </p>
             </div>
             <div class="col-4 bg-lemonchiffon">
-                <input type="text" class="form-control" placeholder="<例>1234567">
+                <input type="text" class="form-control" placeholder="<例>1234567" name="actcd" th:value="${session.actcd}">
             </div>
             <div class="col-5 bg-lemonchiffon"></div>
         </div>
@@ -123,7 +124,7 @@
                 </p>
             </div>
             <div class="col-5 bg-lemonchiffon">
-                <input type="text" class="form-control" placeholder="<例>ヤマダ タロウ">
+                <input type="text" class="form-control" placeholder="<例>ヤマダ タロウ" name="actnae" th:value="${session.actnae}">
             </div>
             <div class="col-4 bg-lemonchiffon">
                 <p><small>・このカードの本人名義と同じでお記載ください。<br>
@@ -134,9 +135,10 @@
     <hr>
     <div class="text-center">
         <div class="custom-control custom-radio custom-control-inline">
-            <p class="lead"><input type="button" value="次へ進む"> </p>
+            <p class="lead"> <input class="btn btn-danger btn-lg" type="button" value="次へ進む" onclick="check()"> </p>
         </div>
     </div>
+    </form>
     <div class="row">
         <div class="text-center col-lg-6 offset-lg-3">
             <p>Copyright &copy; H &middot; All Rights Reserved &middot;</p>
@@ -149,5 +151,90 @@
 <!-- Include all compiled plugins (below), or include individual files as needed --> 
 <script src="js/popper.min.js"></script> 
 <script src="js/bootstrap-4.0.0.js"></script>
+<script>
+    function  check(){
+        // document.querySelector('.btn-danger').addEventListener('click', function(event) {
+        // 防止默认事件
+        event.preventDefault();
+
+        let errors = [];
+
+        //金融機関名是否已选择
+        let bankchecked1 = document.getElementById('radio1')
+        let bankchecked2 = document.getElementById('radio2')
+        let bankchecked3 = document.getElementById('radio3')
+        let bankchecked4 = document.getElementById('radio4')
+        let bankchecked5 = document.getElementById('radio5')
+        let bank;
+        if (bankchecked1.checked){
+            bank = 1
+        } else if (bankchecked2.checked){
+            bank = 2
+        }else if (bankchecked3.checked){
+            bank = 3
+        }else if (bankchecked4.checked){
+            bank = 4
+        }else if (bankchecked5.checked){
+            bank = 5
+        }else {
+            errors.push('金融機関名を選択してください。')
+        }
+
+        // 检查支店・出張所コード是否为空且符合格式
+        let bchcd = document.querySelector('input[placeholder="<例>001"]').value;
+        let bchcdRegex = /^00\d{1}$/; // 正则表达式：匹配全角字符
+
+        if (!bchcd) {
+            errors.push('支店・出張所コードは必須です。');
+        }else if (!bchcdRegex.test(bchcd)) {
+            errors.push('支店・出張所コードの形式が正しくありません。');
+        }
+
+        // 检查預金種別是否已选择
+        let YKNchecked1 = document.getElementById('radio6')
+        let YKNchecked2 = document.getElementById('radio7')
+        let YKN;
+        if (YKNchecked1.checked){
+            YKN = 1
+        } else if (YKNchecked2.checked){
+            YKN = 0
+        }else {
+            errors.push('家族確認書類確認方法を選択してください。')
+        }
+
+        // 检查口座番号是否为空且是否为7位数字
+        let actcd = document.querySelector('input[placeholder="<例>1234567"]').value;
+        let actcdRegex = /^\d{7}$/;
+        if (!actcd) {
+            errors.push('口座番号は必須です。');
+        }else if (!actcdRegex.test(actcd)) {
+            errors.push('口座番号形式が正しくありません。');
+        }
+
+        // 检查口座番号是否为空且是否为7位数字
+        let actnae = document.querySelector('input[placeholder="<例>ヤマダ タロウ"]').value;
+        let actnaeRegex = /^[あ-んア-ン]+$/;
+        if (!actnae) {
+            errors.push('口座番号は必須です。');
+        }else if (!actnaeRegex.test(actnae)) {
+            errors.push('口座番号は平仮名または片仮名で入力してください。');
+        }
+
+        // 如果有错误，显示弹窗
+        if (errors.length > 0) {
+            alert(errors.join('\n'));
+        } else {
+            let urlParams = new URLSearchParams({
+                bankcd: bank,
+                bchcd: bchcd,
+                ykn: YKN,
+                actcd:actcd,
+                actnae:actnae,
+            });
+            // 所有必填项都已填写，跳转到新页面
+            window.location.href='/insert5?'+urlParams.toString() ;
+        }
+    }
+</script>
 </body>
 </html>

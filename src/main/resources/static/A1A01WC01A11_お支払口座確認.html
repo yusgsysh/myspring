@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -38,7 +38,13 @@
                 </p>
             </div>
             <div class="col-5 bg-lemonchiffon">
-                    <label>三菱ＵＦＪ銀行</label>
+                    <label>
+                        <p th:if="${session.bankcd} == '1'">三菱ＵＦＪ</p>
+                        <p th:if="${session.bankcd} == '2'">三井住友</p>
+                        <p th:if="${session.bankcd} == '3'">みずほ</p>
+                        <p th:if="${session.bankcd} == '4'">りそな</p>
+                        <p th:if="${session.bankcd} == '5'">埼玉りそな</p>
+                    </label>
             </div>
             <div class="col-4 bg-lemonchiffon">
             </div>
@@ -54,7 +60,9 @@
                 </p>
             </div>
             <div class="col-4 bg-lemonchiffon">
-                <label>001</label>
+                <label>
+                    <p th:text="${session.bchcd}"></p>
+                </label>
             </div>
             <div class="col-5 bg-lemonchiffon"></div>
         </div>
@@ -69,7 +77,10 @@
                 </p>
             </div>
             <div class="col-4 bg-lemonchiffon">
-                <label>普通預金</label>
+                <label>
+                    <p th:if="${session.ykn} == '1'">普通預金</p>
+                    <p th:if="${session.ykn} == '0'">当座</p>
+                </label>
             </div>
             <div class="col-5 bg-lemonchiffon"> </div>
         </div>
@@ -84,7 +95,9 @@
                 </p>
             </div>
             <div class="col-4 bg-lemonchiffon">
-                <label>1234567</label>
+                <label>
+                    <p th:text="${session.actcd}"></p>
+                </label>
             </div>
             <div class="col-5 bg-lemonchiffon"></div>
         </div>
@@ -99,7 +112,9 @@
                 </p>
             </div>
             <div class="col-5 bg-lemonchiffon">
-                <label>ヤマダ タロウ</label>
+                <label>
+                    <p th:text="${session.actnae}"></p>
+                </label>
             </div>
             <div class="col-4 bg-lemonchiffon">
             </div>
@@ -108,10 +123,10 @@
     <hr>
     <div class="text-center">
         <div class="custom-control custom-radio custom-control-inline">
-            <p class="lead"> <a class="btn btn-danger btn-lg" href="#" role="button">戻る</a> </p>
+            <p class="lead"> <a class="btn btn-danger btn-lg" href="/toA1A01WC01A01" role="button">戻る</a> </p>
         </div>
         <div class="custom-control custom-radio custom-control-inline">
-            <p class="lead"> <a class="btn btn-danger btn-lg" href="#" role="button">確定</a> </p>
+            <p class="lead"> <a class="btn btn-danger btn-lg" th:href="${session.kzkmlflg eq '11' ? '/toA1A01WB01A11' : '/toA1A01WD01A01'}" role="button">確定</a> </p>
         </div>
     </div>
     <div class="row">

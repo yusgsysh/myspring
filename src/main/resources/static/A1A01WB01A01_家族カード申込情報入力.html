@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -45,9 +45,9 @@
                     名</p>
             </div>
             <div class="col-3 bg-lemonchiffon">
-                <input type="text" class="form-control" placeholder="<例>山田" name="kzkseikj">
+                <input type="text" class="form-control" placeholder="<例>山田" name="kzkseikj" th:value="${session.kzkseikj}"/>
                 <hr>
-                <input type="text" class="form-control" placeholder="<例>祐希" name="kzkmeikj">
+                <input type="text" class="form-control" placeholder="<例>祐希" name="kzkmeikj" th:value="${session.kzkmeikj}"/>
             </div>
             <div class="col-6 bg-lemonchiffon">
                 <p><small>・このカードは個人名義でお申し込みください。<br>
@@ -74,9 +74,9 @@
                     名</p>
             </div>
             <div class="col-3 bg-lemonchiffon">
-                <input type="text" class="form-control" placeholder="<例>ヤマダ" name="kzkseikn">
+                <input type="text" class="form-control" placeholder="<例>ヤマダ" name="kzkseikn" th:value="${session.kzkseikn}"/>
                 <hr>
-                <input type="text" class="form-control" placeholder="<例>ユウキ" name="kzkmeikn">
+                <input type="text" class="form-control" placeholder="<例>ユウキ" name="kzkmeikn" th:value="${session.kzkmeikn}"/>
             </div>
             <div class="col-6 bg-lemonchiffon"></div>
         </div>
@@ -97,9 +97,9 @@
                     名</p>
             </div>
             <div class="col-3">
-                <input type="text" class="form-control" name="kzkseien">
+                <input type="text" class="form-control" name="kzkseien" th:value="${session.kzkseien}"/>
                 <hr>
-                <input type="text" class="form-control" name="kzkmeien">
+                <input type="text" class="form-control" name="kzkmeien" th:value="${session.kzkmeien}"/>
             </div>
             <div class="col-6">
                 <p><small>・ローマ字名はカード券面に名・姓の順で印字されます。<br>
@@ -121,11 +121,11 @@
             </div>
             <div class="col-4 bg-lemonchiffon">
                 <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" class="custom-control-input" id="customRadio1" name="kzksex">
+                    <input type="radio" class="custom-control-input" id="customRadio1" name="kzksex" th:checked="${session.kzksex eq '1' ? true : false}">
                     <label class="custom-control-label" for="customRadio1">男性</label>
                 </div>
                 <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" class="custom-control-input" id="customRadio2" name="kzksex">
+                    <input type="radio" class="custom-control-input" id="customRadio2" name="kzksex" th:checked="${session.kzksex eq '0' ? true : false}">
                     <label class="custom-control-label" for="customRadio2">女性</label>
                 </div>
             </div>
@@ -146,7 +146,7 @@
             </div>
             <div class="col-4 bg-lemonchiffon">
                 <div class="form-group">
-                    <select class="form-control" name="kzkgyocd"  placeholder="<例>農林水産" >
+                    <select class="form-control" name="kzkgyocd"  placeholder="<例>農林水産" th:value="${session.kzkgyocd}">
                         <option>農林水産</option>
                         <option>土木建築</option>
                         <option>製造</option>
@@ -169,7 +169,7 @@
                 </P>
             </div>
             <div class="col-4">
-                <input type="text" class="form-control" placeholder="<例>株式会社　H" name="kzkkms">
+                <input type="text" class="form-control" placeholder="<例>株式会社　H" name="kzkkms" th:value="${session.kzkkms}"/>
             </div>
             <div class="col-6"> </div>
         </div>
@@ -183,7 +183,7 @@
                 </p>
             </div>
             <div class="col-4">
-                <input type="text" class="form-control" placeholder="<例>第一事業部" name="kzkkmsdep">
+                <input type="text" class="form-control" placeholder="<例>第一事業部" name="kzkkmsdep" th:value="${session.kzkkmsdep}"/>
             </div>
             <div class="col-6"></div>
         </div>
@@ -197,7 +197,7 @@
                 </p>
             </div>
             <div class="col-4">
-                <input type="text" class="form-control" placeholder="<例>03-1111-2222" name="kzkkmstel">
+                <input type="text" class="form-control" placeholder="<例>03-1111-2222" name="kzkkmstel" th:value="${session.kzkkmstel}"/>
             </div>
             <div class="col-6"></div>
         </div>
@@ -216,11 +216,11 @@
             </div>
             <div class="col-9">
                 <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" class="custom-control-input" id="Radio8" name="kzkhhucd">
+                    <input type="radio" class="custom-control-input" id="Radio8" name="kzkhhucd" th:checked="${session.kzksex eq '1' ? true : false}">
                     <label class="custom-control-label" for="Radio8">申込後</label>
                 </div>
                 <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" class="custom-control-input" id="Radio10" name="kzkhhucd">
+                    <input type="radio" class="custom-control-input" id="Radio10" name="kzkhhucd" th:checked="${session.kzksex eq '0' ? true : false}">
                     <label class="custom-control-label" for="Radio10">郵送で登録</label>
                 </div>
             </div>
@@ -292,7 +292,7 @@
         // ローマ字名の姓 ローマ字名の名 是否为半角英文字符
         let kzkseien = document.querySelector('input[name="kzkseien"]').value;
         let kzkmeien = document.querySelector('input[name="kzkmeien"]').value;
-        let halfWidthRegex = /^[a-zA-Z\s]+$/; // 正则表达式：匹配半角英文字符和空格
+        let halfWidthRegex = /^[a-zA-Z0-9\s]+$/; // 正则表达式：匹配半角英数字符和空格
 
         if (!halfWidthRegex.test(kzkseien)) {
             errors.push('ローマ字名の姓は半角英字で入力してください。');
@@ -302,12 +302,15 @@
         }
 
         // 检查性别是否已选择
-        let sexchecked = document.getElementById('customRadio1')
-        let gender = '';
-        if (sexchecked.checked){
+        let sexchecked1 = document.getElementById('customRadio1')
+        let sexchecked2 = document.getElementById('customRadio2')
+        let gender;
+        if (sexchecked1.checked){
             gender = 1
-        } else {
+        } else if (sexchecked2.checked){
             gender = 0
+        }else {
+            errors.push('性別を選択してください。')
         }
 
         // let genderSelected =document.querySelectorAll('input[name="kzksex"]');
@@ -323,9 +326,9 @@
         //         gender = 1;
         //     }
         // }
-        if (gender === '') {
-            errors.push('性別を選択してください。');
-        }
+        // if (gender === 3) {
+        //     errors.push('性別を選択してください。');
+        // }
 
         let kzkgyocd = document.querySelector('select[name="kzkgyocd"]').value;
 
@@ -344,12 +347,15 @@
         }
 
         // 检查家族確認書類確認方法是否已选择
-        let kzkhhucdchecked = document.getElementById('Radio8')
-        let kzkhhucd = '';
-        if (kzkhhucdchecked.checked){
+        let kzkhhucdchecked1 = document.getElementById('Radio8')
+        let kzkhhucdchecked2 = document.getElementById('Radio10')
+        let kzkhhucd;
+        if (kzkhhucdchecked1.checked){
             kzkhhucd = 1
-        } else {
+        } else if (kzkhhucdchecked2.checked){
             kzkhhucd = 0
+        }else {
+            errors.push('家族確認書類確認方法を選択してください。')
         }
         // let kzkhhucdRadios = document.querySelectorAll('input[name="kzkhhucd"]');
         // let kzkhhucdSelected = false;
@@ -364,9 +370,9 @@
         //     }
         // }
 
-        if (kzkhhucd === '') {
-            errors.push('家族確認書類確認方法を選択してください。');
-        }
+        // if (kzkhhucd === 3) {
+        //     errors.push('家族確認書類確認方法を選択してください。');
+        // }
 
         // 如果有错误，显示弹窗
         if (errors.length > 0) {

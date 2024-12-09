@@ -77,6 +77,7 @@ public class App {
 
     public Character cammlflg;
 
+    //C01
     public String bankcd;
 
     public String bchcd;
@@ -86,6 +87,7 @@ public class App {
     public String actcd;
 
     public String actnae;
+    //C01
 
     public String actkkndte;
 
@@ -133,7 +135,7 @@ public class App {
 
     public Character kzkflg;
 
-    //1234567890-
+    //B01
     public String kzkseikj;
 
     public String kzkseikn;
@@ -157,7 +159,7 @@ public class App {
     public String kzkkmstel;
 
     public Character kzkhhucd;
-    //1234567890-
+    //B01
 
     public String kzkks1;
 
