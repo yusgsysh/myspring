@@ -14,7 +14,6 @@ import org.springframework.web.bind.support.SessionStatus;
 import java.util.HashMap;
 import java.util.Map;
 
-import static org.example.myspring.util.CreateID.createID;
 import static org.example.myspring.util.GetCookie.getCookie;
 import static org.example.myspring.util.GetCSV.getCSV;
 import static org.example.myspring.util.MapToSession.mapToSession;
@@ -66,23 +65,6 @@ public class MyController {
         session.setAttribute("meikn", app.getMeikn());
         session.setAttribute("meien", app.getMeien());
         session.setAttribute("sex", app.getSex());
-//        System.out.println(session.getAttribute("mail"));
-//        System.out.println("----");
-
-//        StringBuilder csvContent = new StringBuilder();
-//        csvContent.append("Key,Value\n");
-//        csvContent.append("mail,").append(app.getMail()).append("\n");
-//        csvContent.append("ber,").append(app.getBer()).append("\n");
-//        csvContent.append("pho,").append(app.getPho()).append("\n");
-//        csvContent.append("kjnhjn,").append(app.getKjnhjn()).append("\n");
-//        csvContent.append("seikj,").append(app.getSeikj()).append("\n");
-//        csvContent.append("seikn,").append(app.getSeikn()).append("\n");
-//        csvContent.append("seien,").append(app.getSeien()).append("\n");
-//        csvContent.append("meikj,").append(app.getMeikj()).append("\n");
-//        csvContent.append("meikn,").append(app.getMeikn()).append("\n");
-//        csvContent.append("meien,").append(app.getMeien()).append("\n");
-//        csvContent.append("sex,").append(app.getSex()).append("\n");
-//        saveCSV(csvContent.toString(), userToken, path);
         Map<String, String> hashMap = new HashMap<>();
         hashMap.put("mail", app.getMail());
         hashMap.put("ber", app.getBer());
@@ -219,57 +201,4 @@ public class MyController {
         } else return "redirect:/";
     }
 
-//    @RequestMapping("/confirm")
-//    public String confirm(App app, HttpSession session, HttpServletRequest request, HttpServletResponse response) {
-//        userToken = getCookie(request, response, userToken);
-//        getCSV(session, userToken, path);
-//        createID((String) session.getId());
-//        app.setCstid((String) session.getId());
-//        app.setMail((String) session.getAttribute("mail"));
-//        app.setBer((String) session.getAttribute("ber"));
-//        app.setPho((String) session.getAttribute("pho"));
-//        app.setKjnhjn((Character) session.getAttribute("kjnhjn"));
-//        app.setSeikj((String) session.getAttribute("seikj"));
-//        app.setSeikn((String) session.getAttribute("seikn"));
-//        app.setSeien((String) session.getAttribute("seien"));
-//        app.setMeikj((String) session.getAttribute("meikj"));
-//        app.setMeikn((String) session.getAttribute("meikn"));
-//        app.setMeien((String) session.getAttribute("meien"));
-//        app.setSex((Character) session.getAttribute("sex"));
-//        app.setJkysbt((String) session.getAttribute("jkysbt"));
-//        app.setTel((String) session.getAttribute("tel"));
-//        app.setPost((String) session.getAttribute("post"));
-//        app.setKnc((String) session.getAttribute("knc"));
-//        app.setJskj1((String) session.getAttribute("jskj1"));
-//        app.setJskj2((String) session.getAttribute("jskj2"));
-//        app.setJskn1((String) session.getAttribute("jskn1"));
-//        app.setJskn2((String) session.getAttribute("jskn2"));
-//        app.setSpgtorkbn((String) session.getAttribute("spgtorkbn"));
-//        app.setSpgkbn((String) session.getAttribute("spgkbn"));
-//        app.setCsgkbn((String) session.getAttribute("csgkbn"));
-//        app.setTorkbn((String) session.getAttribute("torkbn"));
-//        app.setDriverid((String) session.getAttribute("driverid"));
-//        app.setKkhcd((String) session.getAttribute("kkhcd"));
-//        app.setHgsumk((Character) session.getAttribute("hgsumk"));
-//        app.setKzkmlflg((Character) session.getAttribute("kzkmlflg"));
-//        app.setCammlflg((Character) session.getAttribute("cammlflg"));
-//        app.setGyocd((String) session.getAttribute("gyocd"));
-//        app.setKms((String) session.getAttribute("kms"));
-//        app.setKmsdep((String) session.getAttribute("kmsdep"));
-//        app.setKmstel((String) session.getAttribute("kmstel"));
-//        app.setKmsjs1((String) session.getAttribute("kmsjs1"));
-//        app.setKmsjs2((String) session.getAttribute("kmsjs2"));
-//        app.setNshym((String) session.getAttribute("nshym"));
-//        app.setNsg((String) session.getAttribute("nsg"));
-//        app.setKzkseikj((String) session.getAttribute("kzkseikj"));
-//        app.setKzkseikn((String) session.getAttribute("kzkseikn"));
-//        app.setKzkseien((String) session.getAttribute("kzkseien"));
-//        app.setKzksex((Character) session.getAttribute("kzksex"));
-//        app.setKzkgyocd((String) session.getAttribute("kzkgyocd"));
-//        app.setKzkkms((String) session.getAttribute("kzkkms"));
-//        app.setKzkkmsdep((String) session.getAttribute("kzkkmsdep"));
-//        app.setKzkkmstel((String) session.getAttribute("kzkkmstel"));
-//        app.setKzkhhucd((Character) session.getAttribute("kzkhhucd"));
-//        return "A1A01WA01A01_入会申込情報入力";
-//    }
 }

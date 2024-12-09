@@ -11,8 +11,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import static org.example.myspring.util.GetCookie.getCookie;
-import static org.example.myspring.util.GetCsv.getCSV;
-import static org.example.myspring.util.SaveCsv.saveCSV;
 
 @Controller
 public class MyControllerC {
@@ -37,14 +35,6 @@ public class MyControllerC {
         session.setAttribute("actcd", app.getActcd());
         session.setAttribute("actnae", app.getActnae());
 
-        StringBuilder csvContent = new StringBuilder();
-        csvContent.append("Key,Value\n");
-        csvContent.append("bankcd,").append( app.getBankcd()).append("\n");
-        csvContent.append("bchcd,").append( app.getBchcd()).append("\n");
-        csvContent.append("ykn,").append( app.getYkn()).append("\n");
-        csvContent.append("actcd,").append(app.getActcd()).append("\n");
-        csvContent.append("actnae,").append(app.getActnae()).append("\n");
-        saveCSV(csvContent.toString(), userToken, path);
 
         return "A1A01WC01A11_お支払口座確認";
     }
