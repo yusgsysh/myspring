@@ -10,6 +10,10 @@ import org.example.myspring.entity.App;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.support.SessionStatus;
+
+import java.util.HashMap;
+import java.util.Map;
+
 import static org.example.myspring.util.CreateID.createID;
 import static org.example.myspring.util.GetCookie.getCookie;
 import static org.example.myspring.util.GetCsv.getCSV;
@@ -27,7 +31,7 @@ public class MyController {
     private final ObjectMapper objectMapper = new ObjectMapper();
 
     @RequestMapping("/")
-    public String hello(HttpSession session,HttpServletRequest request, HttpServletResponse response) {
+    public String hello(HttpSession session, HttpServletRequest request, HttpServletResponse response) {
         userToken = getCookie(request, response, userToken);
         getCSV(session, userToken, path);
         return "A1A01WA01A01_入会申込情報入力";
@@ -66,20 +70,26 @@ public class MyController {
 //        System.out.println(session.getAttribute("mail"));
 //        System.out.println("----");
 
-        StringBuilder csvContent = new StringBuilder();
-        csvContent.append("Key,Value\n");
-        csvContent.append("mail,").append(app.getMail()).append("\n");
-        csvContent.append("ber,").append(app.getBer()).append("\n");
-        csvContent.append("pho,").append(app.getPho()).append("\n");
-        csvContent.append("kjnhjn,").append(app.getKjnhjn()).append("\n");
-        csvContent.append("seikj,").append(app.getSeikj()).append("\n");
-        csvContent.append("seikn,").append(app.getSeikn()).append("\n");
-        csvContent.append("seien,").append(app.getSeien()).append("\n");
-        csvContent.append("meikj,").append(app.getMeikj()).append("\n");
-        csvContent.append("meikn,").append(app.getMeikn()).append("\n");
-        csvContent.append("meien,").append(app.getMeien()).append("\n");
-        csvContent.append("sex,").append(app.getSex()).append("\n");
-        saveCSV(csvContent.toString(), userToken, path);
+//        StringBuilder csvContent = new StringBuilder();
+//        csvContent.append("Key,Value\n");
+//        csvContent.append("mail,").append(app.getMail()).append("\n");
+//        csvContent.append("ber,").append(app.getBer()).append("\n");
+//        csvContent.append("pho,").append(app.getPho()).append("\n");
+//        csvContent.append("kjnhjn,").append(app.getKjnhjn()).append("\n");
+//        csvContent.append("seikj,").append(app.getSeikj()).append("\n");
+//        csvContent.append("seikn,").append(app.getSeikn()).append("\n");
+//        csvContent.append("seien,").append(app.getSeien()).append("\n");
+//        csvContent.append("meikj,").append(app.getMeikj()).append("\n");
+//        csvContent.append("meikn,").append(app.getMeikn()).append("\n");
+//        csvContent.append("meien,").append(app.getMeien()).append("\n");
+//        csvContent.append("sex,").append(app.getSex()).append("\n");
+//        saveCSV(csvContent.toString(), userToken, path);
+        Map<String, String> hashMap = new HashMap<>();
+        hashMap.put("mail", app.getMail());
+        hashMap.put("ber", app.getBer());
+        hashMap.put("pho", app.getPho());
+
+
         return "A1A01WA01A04_入会申込情報入力";
 //        return null;
     }
@@ -131,7 +141,7 @@ public class MyController {
 
     // A1A01WB01A01_家族カード申込情報入力.html
     @RequestMapping("/insert4")
-    public String insert4(App app, HttpSession session, SessionStatus sessionStatus,HttpServletRequest request, HttpServletResponse response) {
+    public String insert4(App app, HttpSession session, SessionStatus sessionStatus, HttpServletRequest request, HttpServletResponse response) {
         userToken = getCookie(request, response, userToken);
         getCSV(session, userToken, path);
         session.setAttribute("kzkseikj", app.getKzkseikj());
@@ -148,7 +158,7 @@ public class MyController {
 
     //判断是否为家族申请
     @RequestMapping("isFamily")
-    public String isFamily(HttpSession session,HttpServletRequest request, HttpServletResponse response) {
+    public String isFamily(HttpSession session, HttpServletRequest request, HttpServletResponse response) {
         userToken = getCookie(request, response, userToken);
         getCSV(session, userToken, path);
         if ("1".equals((String) session.getAttribute("famflg"))) {
