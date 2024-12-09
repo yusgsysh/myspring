@@ -194,9 +194,9 @@ public class MyController {
     public String isFamily(HttpSession session, HttpServletRequest request, HttpServletResponse response) {
         userToken = getCookie(request, response, userToken);
         mapToSession(getCSV(userToken, path),session);
-        if ("1".equals((String) session.getAttribute("famflg"))) {
+        if ("0".equals((String) session.getAttribute("kzkmlflg"))) {
             return "redirect:/A1A01WB01A01_家族カード申込情報入力";
-        } else if ("0".equals((String) session.getAttribute("famflg"))) {
+        } else if ("1".equals((String) session.getAttribute("kzkmlflg"))) {
             return "redirect:/A1A01WD01A01_本人・家族確認書類アップロード";
         } else return "redirect:/";
     }

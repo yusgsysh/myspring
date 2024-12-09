@@ -39,5 +39,5 @@ public class MyControllerC {
         System.out.println(session.getAttribute("bankcd"));
         return "A1A01WC01A11_お支払口座確認";
     }
-    }
+}
 
