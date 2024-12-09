@@ -42,7 +42,7 @@
                 </div>
                 <div class="col-4 bg-lemonchiffon">
                     <div class="form-group">
-                        <select class="form-control">
+                        <select class="form-control" name="gyocd">
                         <option>農林水産</option>
                         <option>土木建築</option>
                         <option>製造</option>
@@ -65,7 +65,7 @@
                     </P>
                 </div>
                 <div class="col-4">
-                    <input type="text" class="form-control" placeholder="<例>株式会社　H">
+                    <input type="text" class="form-control" placeholder="<例>株式会社　H" name="kms">
                 </div>
                 <div class="col-6"> </div>
             </div>
@@ -79,7 +79,7 @@
                     </p>
                 </div>
                 <div class="col-4">
-                    <input type="text" class="form-control" placeholder="<例>第一事業部">
+                    <input type="text" class="form-control" placeholder="<例>第一事業部" name="kmsdep">
                 </div>
                 <div class="col-6"></div>
             </div>
@@ -93,7 +93,7 @@
                     </p>
                 </div>
                 <div class="col-4">
-                    <input type="text" class="form-control" placeholder="<例>03-1111-2222">
+                    <input type="text" class="form-control" placeholder="<例>03-1111-2222" name="kmstel">
                 </div>
                 <div class="col-6"></div>
             </div>
@@ -107,9 +107,9 @@
                     </p>
                 </div>
                 <div class="col-4">
-                    <input type="text" class="form-control" placeholder="<例>東京都品川区東品川１－１－１">
+                    <input type="text" class="form-control" placeholder="<例>東京都品川区東品川１－１－１" name="kmsjs1">
                     <hr>
-                    <input type="text" class="form-control" placeholder="<例>東品川ビル　１０１室">
+                    <input type="text" class="form-control" placeholder="<例>東品川ビル　１０１室" name="kmsjs2">
                 </div>
                 <div class="col-6"></div>
             </div>
@@ -124,7 +124,7 @@
                 </div>
 
                 <div class="col-2">
-                    <input type="text" class="form-control" placeholder="<例>201810">
+                    <input type="text" class="form-control" placeholder="<例>201810" name="nshym">
                 </div>
                 <div class="col-8">
                 </div>
@@ -140,7 +140,7 @@
                 </div>
                 <div class="col-3">
                     <ul class="list-inline">
-                        <li class="list-inline-item"><input type="text" class="form-control" placeholder="<例>320"></li>
+                        <li class="list-inline-item"><input type="text" class="form-control" placeholder="<例>320" name="nsg"></li>
                         <li class="list-inline-item">万円</li>
                     </ul>
                 </div>
@@ -154,7 +154,7 @@
                 <p class="lead"> <a class="btn btn-danger btn-lg" href="insert2" role="button">戻る</a> </p>
             </div>
             <div class="custom-control custom-radio custom-control-inline">
-                <p class="lead"> <a class="btn btn-danger btn-lg" href="insert3" role="button">次へ進む</a> </p>
+                <p class="lead"> <input type="button" value="次へ進む"  onclick="check()" ></a> </p>
             </div>
         </div>
         </form>
@@ -169,6 +169,68 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap-4.0.0.js"></script>
+<script>
+    function  check(){
+        // 防止默认事件
+        event.preventDefault();
+        let errors = [];
+        let yewu = document.querySelector('select[name="gyocd"]').value;
+
+        let kms = document.querySelector('input[placeholder="<例>株式会社　H"]').value;
+        if (!kms) {
+            errors.push('勤務先名は必須です。');
+        }
+        let kmsdep = document.querySelector('input[placeholder="<例>第一事業部"]').value;
+        if (!kmsdep) {
+            errors.push('勤務先部課名は必須です。');
+        }
+        let kmstel = document.querySelector('input[placeholder="<例>03-1111-2222"]').value;
+        if (!kmstel) {
+            errors.push('勤務先電話は必須です。');
+        }
+
+        let kmsjs1 = document.querySelector('input[ placeholder="<例>東京都品川区東品川１－１－１"]').value;
+        if (!kmsjs1) {
+            errors.push('勤務先住所は必須です。');
+        }
+        let kmsjs2 = document.querySelector('input[placeholder="<例>東品川ビル　１０１室"]').value;
+        if (!kmsjs2) {
+            errors.push('勤務先住所は必須です。');
+        }
+        let nshym = document.querySelector('input[placeholder="<例>201810"]').value;
+        if (!nshym) {
+            errors.push('入社年月は必須です。');
+        }
+        let nsg = document.querySelector('input[placeholder="<例>320"]').value;
+        if (!nsg) {
+            errors.push('年収額は必須です。');
+        }
+        // 如果有错误，显示弹窗
+        if (errors.length > 0) {
+            alert(errors.join('\n'));
+
+        } else {
+            // 所有必填项都已填写，跳转到新页面
+            // console.log(email,emailConfirm)
+            let urlParams = new URLSearchParams({
+                gyocd:yewu,
+                kms:kms,
+                kmsdep:kmsdep,
+                kmstel:kmstel,
+                kmsjs1:kmsjs1,
+                kmsjs2:kmsjs2,
+                nshym:nshym,
+                nsg:nsg,
+            });
+            // window.location.assign('/insert1');
+            window.location.href='/insert3?'+urlParams.toString();
+            // window.location.assign('/insert1',{'eamil':email}) ;
+
+        }
+        // })
+    }
+</script>
+
 </body>
 
 </html>

@@ -443,7 +443,7 @@
                     </p>
                 </div>
                 <div class="col-4">
-                    <label>有</label>
+                    <label><input th:value="${session.hgsumk}" type="text"/></label>
                 </div>
                 <div class="col-5"></div>
             </div>
@@ -471,7 +471,7 @@
                     </p>
                 </div>
                 <div class="col-4">
-                    <label>有</label>
+                    <label><input th:value="${session.kzkmlflg}" type="text"/></label>
                 </div>
                 <div class="col-5"></div>
             </div>
@@ -485,7 +485,7 @@
                     </p>
                 </div>
                 <div class="col-4">
-                    <label>有</label>
+                    <label><input th:value="${session.cammlflg}" type="text"/></label>
                 </div>
                 <div class="col-5"></div>
             </div>
@@ -509,7 +509,7 @@
                     </P>
                 </div>
                 <div class="col-4 bg-lemonchiffon">
-                    <label>製造</label>
+                    <label><input th:value="${session.gyocd}" type="text"/></label>
                 </div>
                 <div class="col-6 bg-lemonchiffon"> </div>
             </div>
@@ -523,7 +523,7 @@
                     </P>
                 </div>
                 <div class="col-4">
-                    <label>株式会社　H</label>
+                    <label><input th:value="${session.kms}" type="text"/></label>
                 </div>
                 <div class="col-6"> </div>
             </div>
@@ -537,7 +537,7 @@
                     </p>
                 </div>
                 <div class="col-4">
-                    <label>第一事業部</label>
+                    <label><input th:value="${session.kmsdep}" type="text"/></label>
                 </div>
                 <div class="col-6"></div>
             </div>
@@ -551,7 +551,7 @@
                     </p>
                 </div>
                 <div class="col-4">
-                    <label>03-1111-2222</label>
+                    <label><input th:value="${session.kmstel}" type="text"/></label>
                 </div>
                 <div class="col-6"></div>
             </div>
@@ -565,9 +565,9 @@
                     </p>
                 </div>
                 <div class="col-4">
-                    <label>東京都品川区東品川１－１－１</label>
+                    <label><input th:value="${session.kmsjs1}" type="text"/></label>
                     <hr>
-                    <label>東品川ビル　１０１室</label>
+                    <label><input th:value="${session.kmsjs2}" type="text"/></label>
                 </div>
                 <div class="col-6"></div>
             </div>
@@ -582,7 +582,7 @@
                 </div>
 
                 <div class="col-2">
-                    <label>201810</label>
+                    <label><input th:value="${session.nshym}" type="text"/></label>
                 </div>
                 <div class="col-8">
                 </div>
@@ -598,7 +598,7 @@
                 </div>
                 <div class="col-3">
                     <ul class="list-inline">
-                        <label>320</label></li>
+                        <label><input th:value="${session.nsg}" type="text"/></label></li>
                         <li class="list-inline-item">万円</li>
                     </ul>
                 </div>
@@ -616,7 +616,7 @@
         <br>
         <div class="text-center">
             <div class="custom-control custom-radio custom-control-inline">
-                <p class="lead"> <a class="btn btn-danger btn-lg-cus" role="button" type="submit">　　申込　　</a> </p>
+                <p class="lead"><input type="submit" value="次へ進む" > </p>
             </div>
         </div>
         </form>

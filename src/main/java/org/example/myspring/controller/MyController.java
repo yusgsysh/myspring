@@ -107,6 +107,28 @@ public class MyController {
         session.setAttribute("cammlflg", app.getCammlflg());
         session.setAttribute("famflg", request.getParameter("famflg"));
         session.setAttribute("selfflg", request.getParameter("selfflg"));
+
+
+        StringBuilder csvContent = new StringBuilder();
+        csvContent.append("Key,Value\n");
+        csvContent.append("jkysbt,").append(app.getJkysbt()).append("\n");
+        csvContent.append("tel,").append(app.getTel()).append("\n");
+        csvContent.append("post,").append(app.getPost()).append("\n");
+        csvContent.append("knc,").append(app.getKnc()).append("\n");
+        csvContent.append("jskj1,").append(app.getJskj1()).append("\n");
+        csvContent.append("jskj2,").append(app.getJskj2()).append("\n");
+        csvContent.append("jskn1,").append(app.getJskn1()).append("\n");
+        csvContent.append("jskn2,").append(app.getJskn2()).append("\n");
+        csvContent.append("spgtorkbn,").append(app.getSpgtorkbn()).append("\n");
+        csvContent.append("spgkbn,").append(app.getSpgkbn()).append("\n");
+        csvContent.append("csgkbn,").append(app.getCsgkbn()).append("\n");
+        csvContent.append("torkbn,").append(app.getTorkbn()).append("\n");
+        csvContent.append("driverid,").append(app.getDriverid()).append("\n");
+        csvContent.append("kkhcd,").append(app.getKkhcd()).append("\n");
+        csvContent.append("hgsumk,").append(app.getHgsumk()).append("\n");
+        csvContent.append("kzkmlflg,").append(app.getKzkmlflg()).append("\n");
+        csvContent.append("cammlflg,").append(app.getCammlflg()).append("\n");
+        saveCSV(csvContent.toString(), userToken, path);
         return "A1A01WA01A05_入会申込情報入力";
     }
 
@@ -122,6 +144,19 @@ public class MyController {
         session.setAttribute("kmsjs2", app.getKmsjs2());
         session.setAttribute("nshym", app.getNshym());
         session.setAttribute("nsg", app.getNsg());
+        System.out.println(session.getAttribute("kms"));
+
+        StringBuilder csvContent = new StringBuilder();
+        csvContent.append("Key,Value\n");
+        csvContent.append("gyocd,").append(app.getGyocd()).append("\n");
+        csvContent.append("kms,").append( app.getKms()).append("\n");
+        csvContent.append("kmsdep,").append(app.getKmsdep()).append("\n");
+        csvContent.append("kmstel,").append(app.getKmstel()).append("\n");
+        csvContent.append("kmsjs1,").append(app.getKmsjs1()).append("\n");
+        csvContent.append("kmsjs2,").append(app.getKmsjs2()).append("\n");
+        csvContent.append("nshym,").append(app.getNshym()).append("\n");
+        csvContent.append("nsg,").append(app.getNsg()).append("\n");
+        saveCSV(csvContent.toString(), userToken, path);
         return "A1A01WA01A11_入会申込情報確認";
     }
 
