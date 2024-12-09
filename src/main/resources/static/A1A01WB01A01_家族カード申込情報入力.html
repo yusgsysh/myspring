@@ -121,13 +121,11 @@
             </div>
             <div class="col-4 bg-lemonchiffon">
                 <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" class="custom-control-input" id="customRadio1" name="kzksex" th:value="1"
-                           th:checked="${session.kzksex == 1}">
+                    <input type="radio" class="custom-control-input" id="customRadio1" name="kzksex" th:checked="${session.kzksex eq '1' ? true : false}">
                     <label class="custom-control-label" for="customRadio1">男性</label>
                 </div>
                 <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" class="custom-control-input" id="customRadio2" name="kzksex" th:value="2"
-                           th:checked="${session.kzksex == 2}">
+                    <input type="radio" class="custom-control-input" id="customRadio2" name="kzksex" th:checked="${session.kzksex eq '0' ? true : false}">
                     <label class="custom-control-label" for="customRadio2">女性</label>
                 </div>
             </div>
@@ -218,11 +216,11 @@
             </div>
             <div class="col-9">
                 <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" class="custom-control-input" id="Radio8" name="kzkhhucd">
+                    <input type="radio" class="custom-control-input" id="Radio8" name="kzkhhucd" th:checked="${session.kzksex eq '1' ? true : false}">
                     <label class="custom-control-label" for="Radio8">申込後</label>
                 </div>
                 <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" class="custom-control-input" id="Radio10" name="kzkhhucd">
+                    <input type="radio" class="custom-control-input" id="Radio10" name="kzkhhucd" th:checked="${session.kzksex eq '0' ? true : false}">
                     <label class="custom-control-label" for="Radio10">郵送で登録</label>
                 </div>
             </div>
@@ -312,7 +310,7 @@
         } else if (sexchecked2.checked){
             gender = 0
         }else {
-            gender = 3
+            errors.push('性別を選択してください。')
         }
 
         // let genderSelected =document.querySelectorAll('input[name="kzksex"]');
@@ -328,9 +326,9 @@
         //         gender = 1;
         //     }
         // }
-        if (gender === 3) {
-            errors.push('性別を選択してください。');
-        }
+        // if (gender === 3) {
+        //     errors.push('性別を選択してください。');
+        // }
 
         let kzkgyocd = document.querySelector('select[name="kzkgyocd"]').value;
 
@@ -357,7 +355,7 @@
         } else if (kzkhhucdchecked2.checked){
             kzkhhucd = 0
         }else {
-            kzkhhucd = 3
+            errors.push('家族確認書類確認方法を選択してください。')
         }
         // let kzkhhucdRadios = document.querySelectorAll('input[name="kzkhhucd"]');
         // let kzkhhucdSelected = false;
@@ -372,9 +370,9 @@
         //     }
         // }
 
-        if (kzkhhucd === 3) {
-            errors.push('家族確認書類確認方法を選択してください。');
-        }
+        // if (kzkhhucd === 3) {
+        //     errors.push('家族確認書類確認方法を選択してください。');
+        // }
 
         // 如果有错误，显示弹窗
         if (errors.length > 0) {
