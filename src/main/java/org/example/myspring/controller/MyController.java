@@ -16,8 +16,9 @@ import java.util.Map;
 
 import static org.example.myspring.util.CreateID.createID;
 import static org.example.myspring.util.GetCookie.getCookie;
-import static org.example.myspring.util.GetCsv.getCSV;
-import static org.example.myspring.util.SaveCsv.saveCSV;
+import static org.example.myspring.util.GetCSV.getCSV;
+import static org.example.myspring.util.MapToSession.mapToSession;
+import static org.example.myspring.util.SaveCSV.saveCSV;
 
 @Controller
 public class MyController {
@@ -33,7 +34,7 @@ public class MyController {
     @RequestMapping("/")
     public String hello(HttpSession session, HttpServletRequest request, HttpServletResponse response) {
         userToken = getCookie(request, response, userToken);
-        getCSV(session, userToken, path);
+        mapToSession(getCSV(userToken, path),session);
         return "A1A01WA01A01_入会申込情報入力";
     }
 
@@ -47,14 +48,14 @@ public class MyController {
     @RequestMapping("/A1A01WA01A03")
     public String toA1A01WA01A03(HttpSession session, HttpServletRequest request, HttpServletResponse response) {
         userToken = getCookie(request, response, userToken);
-        getCSV(session, userToken, path);
+        mapToSession(getCSV(userToken, path),session);
         return "A1A01WA01A03_入会申込情報入力";
     }
 
     @RequestMapping("/insert1")
     public String toInsert1(App app, HttpSession session, HttpServletRequest request, HttpServletResponse response) {
         userToken = getCookie(request, response, userToken);
-        getCSV(session, userToken, path);
+        mapToSession(getCSV(userToken, path),session);
 //        System.out.println("app_wdc:"+app);
         session.setAttribute("mail", app.getMail());
         session.setAttribute("ber", app.getBer());
@@ -98,7 +99,6 @@ public class MyController {
         hashMap.put("sex", String.valueOf(app.getSex()));
 
 
-
         return "A1A01WA01A04_入会申込情報入力";
 //        return null;
     }
@@ -109,7 +109,7 @@ public class MyController {
     @RequestMapping("/insert2")
     public String toInsert2(App app, HttpSession session, HttpServletRequest request, HttpServletResponse response) {
         userToken = getCookie(request, response, userToken);
-        getCSV(session, userToken, path);
+        mapToSession(getCSV(userToken, path),session);
         session.setAttribute("jkysbt", app.getJkysbt());
         session.setAttribute("tel", app.getTel());
         session.setAttribute("post", app.getPost());
@@ -157,7 +157,7 @@ public class MyController {
     @RequestMapping("/insert3")
     public String toInsert3(App app, HttpSession session, HttpServletRequest request, HttpServletResponse response) {
         userToken = getCookie(request, response, userToken);
-        getCSV(session, userToken, path);
+        mapToSession(getCSV(userToken, path),session);
         session.setAttribute("gyocd", app.getGyocd());
         session.setAttribute("kms", app.getKms());
         session.setAttribute("kmsdep", app.getKmsdep());
@@ -183,7 +183,7 @@ public class MyController {
     @RequestMapping("/insert4")
     public String insert4(App app, HttpSession session, SessionStatus sessionStatus, HttpServletRequest request, HttpServletResponse response) {
         userToken = getCookie(request, response, userToken);
-        getCSV(session, userToken, path);
+        mapToSession(getCSV(userToken, path),session);
         session.setAttribute("kzkseikj", app.getKzkseikj());
         session.setAttribute("kzkseikn", app.getKzkseikn());
         session.setAttribute("kzkseien", app.getKzkseien());
@@ -211,7 +211,7 @@ public class MyController {
     @RequestMapping("isFamily")
     public String isFamily(HttpSession session, HttpServletRequest request, HttpServletResponse response) {
         userToken = getCookie(request, response, userToken);
-        getCSV(session, userToken, path);
+        mapToSession(getCSV(userToken, path),session);
         if ("1".equals((String) session.getAttribute("famflg"))) {
             return "redirect:/A1A01WB01A01_家族カード申込情報入力";
         } else if ("0".equals((String) session.getAttribute("famflg"))) {
