@@ -27,8 +27,9 @@ public class MyController {
     private final ObjectMapper objectMapper = new ObjectMapper();
 
     @RequestMapping("/")
-    public String hello(HttpServletRequest request, HttpServletResponse response) {
+    public String hello(HttpSession session,HttpServletRequest request, HttpServletResponse response) {
         userToken = getCookie(request, response, userToken);
+        getCSV(session, userToken, path);
         return "A1A01WA01A01_入会申込情報入力";
     }
 
@@ -49,6 +50,7 @@ public class MyController {
     @RequestMapping("/insert1")
     public String toInsert1(App app, HttpSession session, HttpServletRequest request, HttpServletResponse response) {
         userToken = getCookie(request, response, userToken);
+        getCSV(session, userToken, path);
 //        System.out.println("app_wdc:"+app);
         session.setAttribute("mail", app.getMail());
         session.setAttribute("ber", app.getBer());
@@ -88,6 +90,7 @@ public class MyController {
     @RequestMapping("/insert2")
     public String toInsert2(App app, HttpSession session, HttpServletRequest request, HttpServletResponse response) {
         userToken = getCookie(request, response, userToken);
+        getCSV(session, userToken, path);
         session.setAttribute("jkysbt", app.getJkysbt());
         session.setAttribute("tel", app.getTel());
         session.setAttribute("post", app.getPost());
@@ -114,6 +117,7 @@ public class MyController {
     @RequestMapping("/insert3")
     public String toInsert3(App app, HttpSession session, HttpServletRequest request, HttpServletResponse response) {
         userToken = getCookie(request, response, userToken);
+        getCSV(session, userToken, path);
         session.setAttribute("gyocd", app.getGyocd());
         session.setAttribute("kms", app.getKms());
         session.setAttribute("kmsdep", app.getKmsdep());
@@ -127,7 +131,9 @@ public class MyController {
 
     // A1A01WB01A01_家族カード申込情報入力.html
     @RequestMapping("/insert4")
-    public String insert4(App app, HttpSession session, SessionStatus sessionStatus) {
+    public String insert4(App app, HttpSession session, SessionStatus sessionStatus,HttpServletRequest request, HttpServletResponse response) {
+        userToken = getCookie(request, response, userToken);
+        getCSV(session, userToken, path);
         session.setAttribute("kzkseikj", app.getKzkseikj());
         session.setAttribute("kzkseikn", app.getKzkseikn());
         session.setAttribute("kzkseien", app.getKzkseien());
@@ -142,7 +148,9 @@ public class MyController {
 
     //判断是否为家族申请
     @RequestMapping("isFamily")
-    public String isFamily(HttpSession session) {
+    public String isFamily(HttpSession session,HttpServletRequest request, HttpServletResponse response) {
+        userToken = getCookie(request, response, userToken);
+        getCSV(session, userToken, path);
         if ("1".equals((String) session.getAttribute("famflg"))) {
             return "redirect:/A1A01WB01A01_家族カード申込情報入力";
         } else if ("0".equals((String) session.getAttribute("famflg"))) {
@@ -153,6 +161,7 @@ public class MyController {
     @RequestMapping("/confirm")
     public String confirm(App app, HttpSession session, HttpServletRequest request, HttpServletResponse response) {
         userToken = getCookie(request, response, userToken);
+        getCSV(session, userToken, path);
         createID((String) session.getId());
         app.setCstid((String) session.getId());
         app.setMail((String) session.getAttribute("mail"));
