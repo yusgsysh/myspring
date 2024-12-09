@@ -88,6 +88,15 @@ public class MyController {
         hashMap.put("mail", app.getMail());
         hashMap.put("ber", app.getBer());
         hashMap.put("pho", app.getPho());
+        hashMap.put("kjnhjn", String.valueOf(app.getKjnhjn()));
+        hashMap.put("seikj", app.getSeikj());
+        hashMap.put("seikn", app.getSeikn());
+        hashMap.put("seien", app.getSeien());
+        hashMap.put("meikj", app.getMeikj());
+        hashMap.put("meikn", app.getMeikn());
+        hashMap.put("meien", app.getMeien());
+        hashMap.put("sex", String.valueOf(app.getSex()));
+
 
 
         return "A1A01WA01A04_入会申込情報入力";
@@ -120,6 +129,27 @@ public class MyController {
         session.setAttribute("cammlflg", app.getCammlflg());
         session.setAttribute("famflg", request.getParameter("famflg"));
         session.setAttribute("selfflg", request.getParameter("selfflg"));
+
+        Map<String, String> hashMap = new HashMap<>();
+        hashMap.put("jkysbt", app.getJkysbt());
+        hashMap.put("tel", app.getTel());
+        hashMap.put("post", app.getPost());
+        hashMap.put("knc", app.getKnc());
+        hashMap.put("jskj1", app.getJskj1());
+        hashMap.put("jskj2", app.getJskj2());
+        hashMap.put("jskn1", app.getJskn1());
+        hashMap.put("jskn2", app.getJskn2());
+        hashMap.put("spgtorkbn", app.getSpgtorkbn());
+        hashMap.put("spgkbn", app.getSpgkbn());
+        hashMap.put("csgkbn", app.getCsgkbn());
+        hashMap.put("torkbn", app.getTorkbn());
+        hashMap.put("driverid", app.getDriverid());
+        hashMap.put("kkhcd", app.getKkhcd());
+        hashMap.put("hgsumk", String.valueOf(app.getHgsumk()));
+        hashMap.put("kzkmlflg", String.valueOf(app.getKzkmlflg()));
+        hashMap.put("cammlflg", String.valueOf(app.getCammlflg()));
+        hashMap.put("famflg", request.getParameter("famflg"));
+        hashMap.put("selfflg", request.getParameter("selfflg"));
         return "A1A01WA01A05_入会申込情報入力";
     }
 
@@ -136,6 +166,16 @@ public class MyController {
         session.setAttribute("kmsjs2", app.getKmsjs2());
         session.setAttribute("nshym", app.getNshym());
         session.setAttribute("nsg", app.getNsg());
+        Map<String, String> hashMap = new HashMap<>();
+        hashMap.put("gyocd", app.getGyocd());
+        hashMap.put("kms", app.getKms());
+        hashMap.put("kmsdep", app.getKmsdep());
+        hashMap.put("kmstel", app.getKmstel());
+        hashMap.put("kmsjs1", app.getKmsjs1());
+        hashMap.put("kmsjs2", app.getKmsjs2());
+        hashMap.put("nshym", app.getNshym());
+        hashMap.put("nsg", app.getNsg());
+
         return "A1A01WA01A11_入会申込情報確認";
     }
 
@@ -153,6 +193,17 @@ public class MyController {
         session.setAttribute("kzkkmsdep", app.getKzkkmsdep());
         session.setAttribute("kzkkmstel", app.getKzkkmstel());
         session.setAttribute("kzkhhucd", app.getKzkhhucd());
+        Map<String, String> hashMap = new HashMap<>();
+        hashMap.put("kzkseikj", app.getKzkseikj());
+        hashMap.put("kzkseikn", app.getKzkseikn());
+        hashMap.put("kzkseien", app.getKzkseien());
+        hashMap.put("kzksex", String.valueOf(app.getKzksex()));
+        hashMap.put("kzkgyocd", app.getKzkgyocd());
+        hashMap.put("kzkkms", app.getKzkkms());
+        hashMap.put("kzkkmsdep", app.getKzkkmsdep());
+        hashMap.put("kzkkmstel", app.getKzkkmstel());
+        hashMap.put("kzkhhucd", String.valueOf(app.getKzkhhucd()));
+
         return "redirect:/A1A01WD01A01_本人・家族確認書類アップロード";
     }
 
