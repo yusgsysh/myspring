@@ -175,6 +175,8 @@ public class MyController {
         return "redirect:/A1A01WD01A01_本人・家族確認書類アップロード";
     }
 
+
+
     //判断是否为家族申请
     @RequestMapping("isFamily")
     public String isFamily(HttpSession session) {
@@ -235,6 +237,6 @@ public class MyController {
         app.setKzkkmsdep((String) session.getAttribute("kzkkmsdep"));
         app.setKzkkmstel((String) session.getAttribute("kzkkmstel"));
         app.setKzkhhucd((Character) session.getAttribute("kzkhhucd"));
-        return "A1A01WA01A01_入会申込情報入力";
+        return "A1A01WC01A01_お支払口座登録・変更";
     }
 }
