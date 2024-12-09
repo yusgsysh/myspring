@@ -48,7 +48,6 @@ public class MyController {
     @RequestMapping("/A1A01WA01A03")
     public String toA1A01WA01A03(HttpSession session, HttpServletRequest request, HttpServletResponse response) {
         userToken = getCookie(request, response, userToken);
-        mapToSession(getCSV(userToken, path),session);
         return "A1A01WA01A03_入会申込情報入力";
     }
 
@@ -97,6 +96,7 @@ public class MyController {
         hashMap.put("meikn", app.getMeikn());
         hashMap.put("meien", app.getMeien());
         hashMap.put("sex", String.valueOf(app.getSex()));
+        saveCSV(userToken,hashMap,path);
 
 
         return "A1A01WA01A04_入会申込情報入力";
@@ -150,6 +150,7 @@ public class MyController {
         hashMap.put("cammlflg", String.valueOf(app.getCammlflg()));
         hashMap.put("famflg", request.getParameter("famflg"));
         hashMap.put("selfflg", request.getParameter("selfflg"));
+        saveCSV(userToken,hashMap,path);
         return "A1A01WA01A05_入会申込情報入力";
     }
 
@@ -175,7 +176,7 @@ public class MyController {
         hashMap.put("kmsjs2", app.getKmsjs2());
         hashMap.put("nshym", app.getNshym());
         hashMap.put("nsg", app.getNsg());
-
+        saveCSV(userToken,hashMap,path);
         return "A1A01WA01A11_入会申込情報確認";
     }
 
@@ -203,7 +204,7 @@ public class MyController {
         hashMap.put("kzkkmsdep", app.getKzkkmsdep());
         hashMap.put("kzkkmstel", app.getKzkkmstel());
         hashMap.put("kzkhhucd", String.valueOf(app.getKzkhhucd()));
-
+        saveCSV(userToken,hashMap,path);
         return "redirect:/A1A01WD01A01_本人・家族確認書類アップロード";
     }
 
