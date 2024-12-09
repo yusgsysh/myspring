@@ -58,10 +58,25 @@ public class KZKController {
     }
 
     @RequestMapping("/toA1A01WB01A01")
+    public String toA1A01WB01A01(HttpSession session,HttpServletRequest request, HttpServletResponse response){
+        userToken = getCookie(request, response, userToken);
+        getCSV(session, userToken, path);
+        return "A1A01WB01A01_家族カード申込情報入力";
+    }
+
+    @RequestMapping("/toA1A01WB01A11")
     public String toA1A01WB01A11(HttpSession session,HttpServletRequest request, HttpServletResponse response){
         userToken = getCookie(request, response, userToken);
         getCSV(session, userToken, path);
-        return "A1A01WB01A01_家族カード申込情報入力.html";
+        return "A1A01WB01A11_家族カード申込情報確認";
     }
+
+    @RequestMapping("/toA1A01WD01A01")
+    public String toA1A01WD01A01(HttpSession session,HttpServletRequest request, HttpServletResponse response){
+        userToken = getCookie(request, response, userToken);
+        getCSV(session, userToken, path);
+        return "A1A01WD01A01_本人・家族確認書類アップロード";
+    }
+
 
 }
