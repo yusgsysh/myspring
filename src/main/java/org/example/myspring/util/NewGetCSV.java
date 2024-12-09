@@ -16,7 +16,7 @@ public class NewGetCSV {
 
         try (CSVParser parser = new CSVParser(new FileReader(csvFile), CSVFormat.DEFAULT.withFirstRecordAsHeader())) {
             for (CSVRecord record : parser) {
-                // 假设第一列是键，第二列是值
+                // 第一列是键，第二列是值
                 String key = record.get(0);
                 String value = record.get(1);
                 dataMap.put(key, value);
