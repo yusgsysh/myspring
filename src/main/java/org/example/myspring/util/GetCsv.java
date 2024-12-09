@@ -8,9 +8,9 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class GetCsv {
-    public static void getCSV(HttpSession session,String userToken ,String path){
+    public static void getCSV(HttpSession session,String userToken ,String path,String htm){
         File directory = new File(path);
-        File file = new File(directory.getAbsolutePath() + "/" + userToken + ".csv");
+        File file = new File(directory.getAbsolutePath() + "/" + userToken + htm + ".csv");
         if (file.exists()){
             try (BufferedReader br = new BufferedReader(new FileReader(file))) {
                 String line;

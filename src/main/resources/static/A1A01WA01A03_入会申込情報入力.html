@@ -425,10 +425,10 @@
         // }
 
         // 如果有错误，显示弹窗
-        if (errors.length > 0) {
-            alert(errors.join('\n'));
-            // window.location.href = 'A1A01WA01A04_入会申込情報入力.html';
-        } else {
+        // if (errors.length > 0) {
+        //     alert(errors.join('\n'));
+        //     // window.location.href = 'A1A01WA01A04_入会申込情報入力.html';
+        // } else {
             let urlParams = new URLSearchParams({
                 mail: email,
                 ber: birthday,
@@ -450,7 +450,7 @@
             window.location.href = '/insert1?' + urlParams.toString();
             // window.location.assign('/insert1',{'eamil':email}) ;
 
-        }
+        // }
         // })
     }
 </script>
