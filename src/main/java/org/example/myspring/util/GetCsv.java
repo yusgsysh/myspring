@@ -14,7 +14,7 @@ public class GetCsv {
         File file = new File(directory.getAbsolutePath() + "/" + userToken + ".csv");
         if (file.exists()) {
             try (BufferedReader br = new BufferedReader(new FileReader(file))) {
-                String headerLine = br.readLine(); // 读取CSV文件的头部
+                String headerLine = br.readLine();
                 if (headerLine == null) {
                     System.out.println("CSV file is empty.");
                     return;
@@ -46,31 +46,4 @@ public class GetCsv {
         }
     }
 
-
-
-
-//    public static void getCSV(HttpSession session, String userToken ){
-//        String FILEPATH = "src/main/java/org/example/myspring/util/";
-//        File directory = new File(FILEPATH);
-//        File file = new File(directory.getAbsolutePath() + "/" + userToken + ".csv");
-//        if (file.exists()){
-//            try (BufferedReader br = new BufferedReader(new FileReader(file))) {
-//                System.out.println(br);
-
-//                String line;
-//                while ((line = br.readLine()) != null) {
-//                    String[] parts = line.split(",");
-//                    if (parts.length == 2) {
-//                        session.setAttribute(parts[0].trim(), parts[1].trim());
-//                    }
-//                }
-
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
-//        } else {
-//            return;
-//        }
-
-//    }
 }

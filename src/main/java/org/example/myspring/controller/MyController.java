@@ -29,7 +29,6 @@ public class MyController {
     @RequestMapping("/")
     public String hello(HttpSession session,HttpServletRequest request, HttpServletResponse response) {
         userToken = getCookie(request, response, userToken);
-//        getCSV(session, userToken, "A1A01WA01A01_入会申込情報入力");
         return "A1A01WA01A01_入会申込情報入力";
     }
 
@@ -51,7 +50,6 @@ public class MyController {
     public String toInsert1(App app, HttpSession session, HttpServletRequest request, HttpServletResponse response) {
         userToken = getCookie(request, response, userToken);
         getCSV(session, userToken);
-//        System.out.println("app_wdc:"+app);
         session.setAttribute("mail", app.getMail());
         session.setAttribute("ber", app.getBer());
         session.setAttribute("pho", app.getPho());
@@ -63,8 +61,6 @@ public class MyController {
         session.setAttribute("meikn", app.getMeikn());
         session.setAttribute("meien", app.getMeien());
         session.setAttribute("sex", app.getSex());
-//        System.out.println(session.getAttribute("mail"));
-//        System.out.println("----");
 
         StringBuilder csvContent = new StringBuilder();
         csvContent.append("Key,Value\n");
@@ -206,7 +202,6 @@ public class MyController {
     @RequestMapping("/confirm")
     public String confirm(App app, HttpSession session, HttpServletRequest request, HttpServletResponse response) {
         userToken = getCookie(request, response, userToken);
-//        getCSV(session, userToken, path);
         createID((String) session.getId());
         app.setCstid((String) session.getId());
         app.setMail((String) session.getAttribute("mail"));
