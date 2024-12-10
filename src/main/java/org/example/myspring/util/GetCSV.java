@@ -22,7 +22,8 @@ public class GetCSV {
                 dataMap.put(key, value);
             }
         } catch (IOException e) {
-            e.printStackTrace();
+//            e.printStackTrace();
+            System.out.println("系统找不到指定的文件。");
         }
         return dataMap;
     }
