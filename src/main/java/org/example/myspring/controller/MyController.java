@@ -7,20 +7,19 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import org.example.myspring.dao.AppRepository;
 import org.example.myspring.entity.App;
+import org.example.myspring.util.GetCsv;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.support.SessionStatus;
 import static org.example.myspring.util.CreateID.createID;
 import static org.example.myspring.util.GetCookie.getCookie;
 import static org.example.myspring.util.GetCsv.getCSV;
-//import static org.example.myspring.util.SaveCsv.addCSV;
 import static org.example.myspring.util.SaveCsv.saveCSV;
 
 @Controller
 public class MyController {
 
     private String userToken;
-    String path = "src/main/java/org/example/myspring/util/";
 
 
     @Resource
@@ -30,7 +29,7 @@ public class MyController {
     @RequestMapping("/")
     public String hello(HttpSession session,HttpServletRequest request, HttpServletResponse response) {
         userToken = getCookie(request, response, userToken);
-//        getCSV(session, userToken, path,"A1A01WA01A01_入会申込情報入力");
+//        getCSV(session, userToken, "A1A01WA01A01_入会申込情報入力");
         return "A1A01WA01A01_入会申込情報入力";
     }
 
@@ -44,14 +43,14 @@ public class MyController {
     @RequestMapping("/A1A01WA01A03")
     public String toA1A01WA01A03(HttpSession session, HttpServletRequest request, HttpServletResponse response) {
         userToken = getCookie(request, response, userToken);
-        getCSV(session, userToken, path,"insert1");
+        getCSV(session, userToken);
         return "A1A01WA01A03_入会申込情報入力";
     }
 
     @RequestMapping("/insert1")
     public String toInsert1(App app, HttpSession session, HttpServletRequest request, HttpServletResponse response) {
         userToken = getCookie(request, response, userToken);
-        getCSV(session, userToken, path,"insert1");
+        getCSV(session, userToken);
 //        System.out.println("app_wdc:"+app);
         session.setAttribute("mail", app.getMail());
         session.setAttribute("ber", app.getBer());
@@ -80,7 +79,7 @@ public class MyController {
         csvContent.append("meikn,").append(app.getMeikn()).append("\n");
         csvContent.append("meien,").append(app.getMeien()).append("\n");
         csvContent.append("sex,").append(app.getSex()).append("\n");
-        saveCSV(csvContent.toString(), userToken, path,"insert1");
+        saveCSV(session, userToken);
         return "A1A01WA01A04_入会申込情報入力";
 //        return null;
     }
@@ -91,7 +90,7 @@ public class MyController {
     @RequestMapping("/insert2")
     public String toInsert2(App app, HttpSession session, HttpServletRequest request, HttpServletResponse response) {
         userToken = getCookie(request, response, userToken);
-        getCSV(session, userToken, path,"insert2");
+        getCSV(session, userToken);
         session.setAttribute("jkysbt", app.getJkysbt());
         session.setAttribute("tel", app.getTel());
         session.setAttribute("post", app.getPost());
@@ -132,7 +131,7 @@ public class MyController {
         csvContent.append("cammlflg,").append(app.getCammlflg()).append("\n");
         csvContent.append("famflg,").append(request.getParameter("famflg")).append("\n");
         csvContent.append("selfflg,").append(request.getParameter("selfflg")).append("\n");
-        saveCSV(csvContent.toString(), userToken, path,"insert2");
+        saveCSV(session, userToken);
 
         return "A1A01WA01A05_入会申込情報入力";
     }
@@ -141,7 +140,7 @@ public class MyController {
     @RequestMapping("/insert3")
     public String toInsert3(App app, HttpSession session, HttpServletRequest request, HttpServletResponse response) {
         userToken = getCookie(request, response, userToken);
-        getCSV(session, userToken, path,"insert3");
+        getCSV(session, userToken);
         session.setAttribute("gyocd", app.getGyocd());
         session.setAttribute("kms", app.getKms());
         session.setAttribute("kmsdep", app.getKmsdep());
@@ -160,7 +159,7 @@ public class MyController {
         csvContent.append("kmsjs2,").append(app.getKmsjs2()).append("\n");
         csvContent.append("nshym,").append(app.getNshym()).append("\n");
         csvContent.append("nsg,").append(app.getNsg()).append("\n");
-        saveCSV(csvContent.toString(), userToken, path,"insert3");
+        saveCSV(session, userToken);
         return "A1A01WA01A11_入会申込情報確認";
     }
 
@@ -168,7 +167,7 @@ public class MyController {
     @RequestMapping("/insert4")
     public String insert4(App app, HttpSession session, SessionStatus sessionStatus,HttpServletRequest request, HttpServletResponse response) {
         userToken = getCookie(request, response, userToken);
-        getCSV(session, userToken, path,"insert4");
+        getCSV(session, userToken);
         session.setAttribute("kzkseikj", app.getKzkseikj());
         session.setAttribute("kzkseikn", app.getKzkseikn());
         session.setAttribute("kzkseien", app.getKzkseien());
@@ -188,7 +187,7 @@ public class MyController {
         csvContent.append("kzkkmsdep,").append(app.getKzkkmsdep()).append("\n");
         csvContent.append("kzkkmstel,").append(app.getKzkkmstel()).append("\n");
         csvContent.append("kzkhhucd,").append(app.getKzkhhucd()).append("\n");
-        saveCSV(csvContent.toString(), userToken, path,"insert4");
+        saveCSV(session, userToken);
         return "redirect:/A1A01WD01A01_本人・家族確認書類アップロード";
     }
 
