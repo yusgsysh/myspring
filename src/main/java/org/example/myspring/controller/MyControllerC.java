@@ -37,14 +37,14 @@ public class MyControllerC {
         session.setAttribute("actcd", app.getActcd());
         session.setAttribute("actnae", app.getActnae());
 
-        StringBuilder csvContent = new StringBuilder();
-        csvContent.append("Key,Value\n");
-        csvContent.append("bankcd,").append( app.getBankcd()).append("\n");
-        csvContent.append("bchcd,").append( app.getBchcd()).append("\n");
-        csvContent.append("ykn,").append( app.getYkn()).append("\n");
-        csvContent.append("actcd,").append(app.getActcd()).append("\n");
-        csvContent.append("actnae,").append(app.getActnae()).append("\n");
-        saveCSV(csvContent.toString(), userToken, path);
+//        StringBuilder csvContent = new StringBuilder();
+//        csvContent.append("Key,Value\n");
+//        csvContent.append("bankcd,").append( app.getBankcd()).append("\n");
+//        csvContent.append("bchcd,").append( app.getBchcd()).append("\n");
+//        csvContent.append("ykn,").append( app.getYkn()).append("\n");
+//        csvContent.append("actcd,").append(app.getActcd()).append("\n");
+//        csvContent.append("actnae,").append(app.getActnae()).append("\n");
+        saveCSV(session,userToken);
         System.out.println(session.getAttribute("bankcd"));
         return "A1A01WC01A11_お支払口座確認";
     }
@@ -52,7 +52,7 @@ public class MyControllerC {
     @RequestMapping("/toA1A01WC01A01")
     public String toA1A01WB01A01(HttpSession session,HttpServletRequest request, HttpServletResponse response){
         userToken = getCookie(request, response, userToken);
-        getCSV(session, userToken, path);
+        getCSV(session,userToken);
         return "A1A01WC01A01_お支払口座登録・変更.html";
     }
 
