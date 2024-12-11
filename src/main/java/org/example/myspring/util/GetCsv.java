@@ -1,32 +1,49 @@
 package org.example.myspring.util;
 
 import jakarta.servlet.http.HttpSession;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
 public class GetCsv {
-    public static void getCSV(HttpSession session,String userToken ,String path){
-        File directory = new File(path);
+
+    public static void getCSV(HttpSession session, String userToken) {
+        String FILEPATH = "src/main/java/org/example/myspring/util/";
+        File directory = new File(FILEPATH);
         File file = new File(directory.getAbsolutePath() + "/" + userToken + ".csv");
-        if (file.exists()){
+        if (file.exists()) {
             try (BufferedReader br = new BufferedReader(new FileReader(file))) {
-                String line;
-                while ((line = br.readLine()) != null) {
-                    String[] parts = line.split(",");
-                    if (parts.length == 2) {
-                        session.setAttribute(parts[0].trim(), parts[1].trim());
-                    }
+                String headerLine = br.readLine();
+                if (headerLine == null) {
+                    System.out.println("CSV file is empty.");
+                    return;
                 }
-                System.out.println(session.getAttribute("mail"));
-            } catch (IOException e) {
+                String[] headers = headerLine.split(",");
+
+                String dataLine = br.readLine();
+                if (dataLine == null) {
+                    System.out.println("No data found in CSV file.");
+                    return;
+                }
+
+                String[] values = dataLine.split(",");
+
+                if (headers.length != values.length) {
+                    System.out.println("Mismatch between headers and values in CSV file.");
+                    return;
+                }
+
+                for (int i = 0; i < headers.length; i++) {
+                    session.setAttribute(headers[i].trim(), values[i].trim());
+                }
+                System.out.println("Success read and set session attributes");
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         } else {
-            return;
+            System.out.println("File does not exist.");
         }
-
     }
+
 }

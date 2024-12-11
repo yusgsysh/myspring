@@ -392,7 +392,7 @@
         <hr>
         <div class="text-center">
             <div class="custom-control custom-radio custom-control-inline">
-                <p class="lead"> <a class="btn btn-danger btn-lg" href="A1A01WA01A03_入会申込情報入力.html" role="button" >戻る</a></p>
+                <p class="lead"> <a class="btn btn-danger btn-lg" href="/A1A01WA01A03" role="button" >戻る</a></p>
             </div>
             <div class="custom-control custom-radio custom-control-inline">
                 <p class="lead"> <input type="button" value="次へ進む"  onclick="check()" > </p>
@@ -569,10 +569,10 @@
 
 
         // 如果有错误，显示弹窗
-        if (errors.length > 0) {
-            alert(errors.join('\n'));
-
-        } else {
+        // if (errors.length > 0) {
+        //     alert(errors.join('\n'));
+        //
+        // } else {
             // 所有必填项都已填写，跳转到新页面
             // console.log(email,emailConfirm)
             let urlParams = new URLSearchParams({
@@ -601,7 +601,7 @@
             window.location.href='/insert2?'+urlParams.toString();
             // window.location.assign('/insert1',{'eamil':email}) ;
 
-        }
+        // }
     // })
     }
 </script>

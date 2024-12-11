@@ -11,412 +11,449 @@
 </head>
 
 <body>
-    <!--<input th:value="${session.mail}" type="text"/>-->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark"><a class="navbar-brand" href="#">カードサイト</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
-        <div class="collapse navbar-collapse">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item"> <a class="nav-link" href="#">お手続き <span class="sr-only"></span></a> </li>
-                <li class="nav-item"> <a class="nav-link" href="#">お問い合わせ</a> </li>
-                <li class="nav-item"> <a class="nav-link" href="#">会員ログイン</a> </li>
-            </ul>
-        </div>
-    </nav>
+<!--<input th:value="${session.mail}" type="text"/>-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark"><a class="navbar-brand" href="#">カードサイト</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
+            class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item"><a class="nav-link" href="#">お手続き <span class="sr-only"></span></a></li>
+            <li class="nav-item"><a class="nav-link" href="#">お問い合わせ</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">会員ログイン</a></li>
+        </ul>
+    </div>
+</nav>
+<hr>
+<div class="alert-danger text-center">
+    <P class="card-text">申し込み内容のご入力</p>
+</div>
+<div class="container">
+    <div class="row text-center"></div>
     <hr>
-    <div class="alert-danger text-center">
-        <P class="card-text">申し込み内容のご入力</p>
+    <div class="row">
+        <div class=" col-md-4 card-body card">
+            <h5 class="card-title alert-dark"><strong>ご希望のカード</strong></h5>
+            <img class="card-img card-img-top" src="images/visa_1.jpg" alt="Card image cap"></div>
+        <div class="col-md-4 card-body card">
+            <h5 class="card-title alert-dark"><strong>お申し込みについてのご注意事項</strong></h5>
+            <p>
+                本カードは基本的なサービスをWEBにて提供することにより、年会費が無料となる商品です。商品性にご納得いただけない場合、退会いただくこともございますのでご了承ください。ご利用代金明細、サービス案内、付帯保険案内、お問い合わせ等</p>
+        </div>
+        <div class="col-md-4 card-body card">
+            <h5 class="card-title alert-dark"><strong>ご用意いただくもの</strong></h5>
+            ※本人確認書類2点（日本国内で発行の運転免許証または運転経歴証明書、パスポート、在留カード等のコピー）の提出が必要な場合があります。<br>
+            ※2020年2月4日（火）以降に申請されたパスポートの住所欄は緊急連絡先のみの記載のため、本人確認書類としてお取り扱いできません。
+            <br> ※キャッシングサービスをご希望の方は、収入証明書類の提出が必要な場合があります。 （例）源泉徴収票、確定申告書、給与明細書等
+        </div>
     </div>
-    <div class="container">
-        <div class="row text-center"> </div>
-        <hr>
-        <div class="row">
-            <div class=" col-md-4 card-body card">
-                <h5 class="card-title alert-dark"><strong>ご希望のカード</strong></h5>
-                <img class="card-img card-img-top" src="images/visa_1.jpg" alt="Card image cap"> </div>
-            <div class="col-md-4 card-body card">
-                <h5 class="card-title alert-dark"><strong>お申し込みについてのご注意事項</strong></h5>
-                <p>本カードは基本的なサービスをWEBにて提供することにより、年会費が無料となる商品です。商品性にご納得いただけない場合、退会いただくこともございますのでご了承ください。ご利用代金明細、サービス案内、付帯保険案内、お問い合わせ等</p>
+    <hr>
+    <form>
+        <div class="row card-header">受付情報登録</div>
+        <div class="container">
+            <div class="row">
+                <div class="col-2 bg-aqua">
+                    <p>Ｅメールアドレス</P>
+                    <ul class="list-inline">
+                        <li class="list-inline-item"><img class="card-img card-img-top" src="images/icon_required.gif"
+                                                          alt="必須"></li>
+                    </ul>
+                    <p>確認用再入力</p>
+                    <ul class="list-inline">
+                        <li class="list-inline-item"><img class="card-img card-img-top" src="images/icon_required.gif"
+                                                          alt="必須"></li>
+                    </ul>
+                </div>
+                <div class="col-4 bg-lemonchiffon">
+                    <input type="text" class="form-control" placeholder="<例>yamata.taro@h.co.jp" name="mail" th:value="${session.mail}">
+                    <hr>
+                    <input type="text" class="form-control" placeholder="<例>yamata.taro@h.co.jp" name="remail" th:value="${session.mail}">
+                </div>
+                <div class="col-6 bg-lemonchiffon">
+                    <p><small>・Eメールアドレスを入力してください。入会手続きに関するメールをお送りします。</small></p>
+                </div>
             </div>
-            <div class="col-md-4 card-body card">
-                <h5 class="card-title alert-dark"><strong>ご用意いただくもの</strong></h5>
-                ※本人確認書類2点（日本国内で発行の運転免許証または運転経歴証明書、パスポート、在留カード等のコピー）の提出が必要な場合があります。<br> ※2020年2月4日（火）以降に申請されたパスポートの住所欄は緊急連絡先のみの記載のため、本人確認書類としてお取り扱いできません。
-                <br> ※キャッシングサービスをご希望の方は、収入証明書類の提出が必要な場合があります。 （例）源泉徴収票、確定申告書、給与明細書等
+            <br>
+            <div class="row">
+                <div class="col-2 bg-aqua">
+                    <p>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">生年月日</li>
+                        <li class="list-inline-item"><img class="card-img card-img-top" src="images/icon_required.gif"
+                                                          alt="必須"></li>
+                    </ul>
+                    </p>
+                </div>
+                <div class="col-4 bg-lemonchiffon">
+                    <input type="text" class="form-control" placeholder="<例>1980-12-31" name="ber" th:value="${session.ber}">
+                </div>
+                <div class="col-6 bg-lemonchiffon"></div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-2 bg-aqua">
+                    <p>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">携帯電話</li>
+                        <li class="list-inline-item"><img class="card-img card-img-top" src="images/icon_required.gif"
+                                                          alt="必須"></li>
+                    </ul>
+                    </p>
+                </div>
+                <div class="col-4 bg-lemonchiffon">
+                    <input type="text" class="form-control" placeholder="<例>080-1234-5678" name="pho" th:value="${session.pho}">
+                </div>
+                <div class="col-6 bg-lemonchiffon"></div>
             </div>
         </div>
         <hr>
-        <form>
-            <div class="row card-header">受付情報登録</div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-2 bg-aqua">
-                        <p>Ｅメールアドレス</P>
-                        <ul class="list-inline">
-                            <li class="list-inline-item"> <img class="card-img card-img-top" src="images/icon_required.gif" alt="必須"></li>
-                        </ul>
-                        <p>確認用再入力</p>
-                        <ul class="list-inline">
-                            <li class="list-inline-item"> <img class="card-img card-img-top" src="images/icon_required.gif" alt="必須"></li>
-                        </ul>
+        <div class="row card-header">ご本人について</div>
+        <div class="container">
+            <div class="row">
+                <div class="col-2 bg-aqua">
+                    <p>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">個人・法人</li>
+                        <li class="list-inline-item"><img class="card-img card-img-top" src="images/icon_required.gif"
+                                                          alt="必須"></li>
+                    </ul>
+                    </p>
+                </div>
+                <div class="col-4 bg-lemonchiffon">
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" class="custom-control-input" id="radio1" name="kjnhjn" th:checked="${session.kjnhjn eq '1' ? true : false}">
+                        <label class="custom-control-label" for="radio1">個人</label>
                     </div>
-                    <div class="col-4 bg-lemonchiffon">
-                        <input type="text" class="form-control" placeholder="<例>yamata.taro@h.co.jp" name="mail">
-                        <hr>
-                        <input type="text" class="form-control" placeholder="<例>yamata.taro@h.co.jp" name="remail">
-                    </div>
-                    <div class="col-6 bg-lemonchiffon">
-                        <p><small>・Eメールアドレスを入力してください。入会手続きに関するメールをお送りします。</small></p>
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" class="custom-control-input" id="radio2" name="kjnhjn" th:checked="${session.kjnhjn eq '0' ? true : false}">
+                        <label class="custom-control-label" for="radio2">法人</label>
                     </div>
                 </div>
-                <br>
-                <div class="row">
-                    <div class="col-2 bg-aqua">
-                        <p>
-                            <ul class="list-inline">
-                                <li class="list-inline-item">生年月日</li>
-                                <li class="list-inline-item"><img class="card-img card-img-top" src="images/icon_required.gif" alt="必須"></li>
-                            </ul>
-                        </p>
-                    </div>
-                    <div class="col-4 bg-lemonchiffon">
-                        <input type="text" class="form-control" placeholder="<例>1980-12-31" name="ber">
-                    </div>
-                    <div class="col-6 bg-lemonchiffon"></div>
+                <div class="col-6 bg-lemonchiffon"></div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-2 bg-aqua">
+                    <p>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">お名前</li>
+                        <li class="list-inline-item"><img class="card-img card-img-top" src="images/icon_required.gif"
+                                                          alt="必須"></li>
+                    </ul>
+                    </p>
                 </div>
-                <br>
-                <div class="row">
-                    <div class="col-2 bg-aqua">
-                        <p>
-                            <ul class="list-inline">
-                                <li class="list-inline-item">携帯電話</li>
-                                <li class="list-inline-item"><img class="card-img card-img-top" src="images/icon_required.gif" alt="必須"></li>
-                            </ul>
-                        </p>
-                    </div>
-                    <div class="col-4 bg-lemonchiffon">
-                        <input type="text" class="form-control" placeholder="<例>080-1234-5678" name="pho">
-                    </div>
-                    <div class="col-6 bg-lemonchiffon"></div>
+                <div class="col-1 bg-lemonchiffon">
+                    <p>姓<br>
+                        <br>
+                        <br> 名
+                    </p>
+                </div>
+                <div class="col-3 bg-lemonchiffon">
+                    <input type="text" class="form-control" placeholder="<例>山田" name="seikj" th:value="${session.seikj}">
+                    <hr>
+                    <input type="text" class="form-control" placeholder="<例>太郎" name="seikn" th:value="${session.seikn}">
+                </div>
+                <div class="col-6 bg-lemonchiffon">
+                    <p><small>・このカードは個人名義でお申し込みください。<br>
+                        ・システムの都合上、入力された一部の文字が変換されて登録されるケースがあります。<br>
+                        ・本人確認書類と同じ表記で入力してください。<br>
+                        ・15文字以内で入力してください。</small></p>
                 </div>
             </div>
-            <hr>
-            <div class="row card-header">ご本人について</div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-2 bg-aqua">
-                        <p>
-                            <ul class="list-inline">
-                                <li class="list-inline-item">個人・法人</li>
-                                <li class="list-inline-item"><img class="card-img card-img-top" src="images/icon_required.gif" alt="必須"></li>
-                            </ul>
-                        </p>
-                    </div>
-                    <div class="col-4 bg-lemonchiffon">
-                        <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" class="custom-control-input" id="radio1" name="kjnhjn">
-                            <label class="custom-control-label" for="radio1">個人</label>
-                        </div>
-                        <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" class="custom-control-input" id="radio2" name="kjnhjn">
-                            <label class="custom-control-label" for="radio2">法人</label>
-                        </div>
-                    </div>
-                    <div class="col-6 bg-lemonchiffon"></div>
+            <br>
+            <div class="row">
+                <div class="col-2 bg-aqua">
+                    <p>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">お名前<br> フリガナ
+                        </li>
+                        <li class="list-inline-item"><img class="card-img card-img-top" src="images/icon_required.gif"
+                                                          alt="必須"></li>
+                    </ul>
+                    </p>
                 </div>
-                <br>
-                <div class="row">
-                    <div class="col-2 bg-aqua">
-                        <p>
-                            <ul class="list-inline">
-                                <li class="list-inline-item">お名前</li>
-                                <li class="list-inline-item"><img class="card-img card-img-top" src="images/icon_required.gif" alt="必須"></li>
-                            </ul>
-                        </p>
-                    </div>
-                    <div class="col-1 bg-lemonchiffon">
-                        <p>姓<br>
-                            <br>
-                            <br> 名
-                        </p>
-                    </div>
-                    <div class="col-3 bg-lemonchiffon">
-                        <input type="text" class="form-control" placeholder="<例>山田" name="seikj">
-                        <hr>
-                        <input type="text" class="form-control" placeholder="<例>太郎" name="seikn">
-                    </div>
-                    <div class="col-6 bg-lemonchiffon">
-                        <p><small>・このカードは個人名義でお申し込みください。<br>
-                    ・システムの都合上、入力された一部の文字が変換されて登録されるケースがあります。<br>
-                    ・本人確認書類と同じ表記で入力してください。<br>
-                    ・15文字以内で入力してください。</small></p>
-                    </div>
+                <div class="col-1 bg-lemonchiffon">
+                    <p>姓<br>
+                        <br>
+                        <br> 名
+                    </p>
                 </div>
-                <br>
-                <div class="row">
-                    <div class="col-2 bg-aqua">
-                        <p>
-                            <ul class="list-inline">
-                                <li class="list-inline-item">お名前<br> フリガナ
-                                </li>
-                                <li class="list-inline-item"><img class="card-img card-img-top" src="images/icon_required.gif" alt="必須"></li>
-                            </ul>
-                        </p>
-                    </div>
-                    <div class="col-1 bg-lemonchiffon">
-                        <p>姓<br>
-                            <br>
-                            <br> 名
-                        </p>
-                    </div>
-                    <div class="col-3 bg-lemonchiffon">
-                        <input type="text" class="form-control" placeholder="<例>ヤマダ" name="seien" th:value="${session.seien}">
-                        <hr>
-                        <input type="text" class="form-control" placeholder="<例>タロウ" name="meikj" th:value="${session.meikj}">
-                    </div>
-                    <div class="col-6 bg-lemonchiffon"></div>
+                <div class="col-3 bg-lemonchiffon">
+                    <input type="text" class="form-control" placeholder="<例>ヤマダ" name="seien"
+                           th:value="${session.seien}">
+                    <hr>
+                    <input type="text" class="form-control" placeholder="<例>タロウ" name="meikj"
+                           th:value="${session.meikj}">
                 </div>
-                <br>
-                <div class="row">
-                    <div class="col-2 bg-aqua">
-                        <p>
-                            <ul class="list-inline">
-                                <li class="list-inline-item">ローマ字名</li>
-                                <li class="list-inline-item"></li>
-                            </ul>
-                        </p>
-                    </div>
-                    <div class="col-1">
-                        <p>姓<br>
-                            <br>
-                            <br> 名
-                        </p>
-                    </div>
-                    <div class="col-3">
-                        <input type="text" class="form-control" name="meikn">
-                        <hr>
-                        <input type="text" class="form-control" name="meien">
-                    </div>
-                    <div class="col-6">
-                        <p><small>・ローマ字名はカード券面に名・姓の順で印字されます。<br>
-                    ・ローマ字名の表記をご確認のうえ、変更が必要な場合は直接入力してください。<br>
-                    ・ローマ字は入力制限文字数以内で自動変換しています。自動変換後にお名前（フリガナ）を修正された場合は、ローマ字名も修正してください。<br>
-                    ・入力制限文字数を超える場合は、ご希望の省略名に修正してください。<br>
-                    ＜省略例＞YAMAMOTO　KAZUO　→　YAMAMOTO　K</small></P>
-                    </div>
+                <div class="col-6 bg-lemonchiffon"></div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-2 bg-aqua">
+                    <p>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">ローマ字名</li>
+                        <li class="list-inline-item"></li>
+                    </ul>
+                    </p>
                 </div>
-                <br>
-                <div class="row">
-                    <div class="col-2 bg-aqua">
-                        <p>
-                            <ul class="list-inline">
-                                <li class="list-inline-item">性別</li>
-                                <li class="list-inline-item"><img class="card-img card-img-top" src="images/icon_required.gif" alt="必須"></li>
-                            </ul>
-                        </p>
-                    </div>
-                    <div class="col-4 bg-lemonchiffon">
-                        <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" class="custom-control-input" id="customRadio1" value="male" name="sex" th:value="${session.sex}">
-                            <label class="custom-control-label" for="customRadio1">男性</label>
-                        </div>
-                        <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" class="custom-control-input" id="customRadio2" value="female" name="sex" th:value="${session.sex}">
-                            <label class="custom-control-label" for="customRadio2">女性</label>
-                        </div>
-                    </div>
-                    <div class="col-6 bg-lemonchiffon"></div>
+                <div class="col-1">
+                    <p>姓<br>
+                        <br>
+                        <br> 名
+                    </p>
+                </div>
+                <div class="col-3">
+                    <input type="text" class="form-control" name="meikn" th:value="${session.meikn}">
+                    <hr>
+                    <input type="text" class="form-control" name="meien" th:value="${session.meien}">
+                </div>
+                <div class="col-6">
+                    <p><small>・ローマ字名はカード券面に名・姓の順で印字されます。<br>
+                        ・ローマ字名の表記をご確認のうえ、変更が必要な場合は直接入力してください。<br>
+                        ・ローマ字は入力制限文字数以内で自動変換しています。自動変換後にお名前（フリガナ）を修正された場合は、ローマ字名も修正してください。<br>
+                        ・入力制限文字数を超える場合は、ご希望の省略名に修正してください。<br>
+                        ＜省略例＞YAMAMOTO　KAZUO　→　YAMAMOTO　K</small></P>
                 </div>
             </div>
-            <hr>
-            <div class="text-center">
-                <p class="lead"> <input type="button" value="次へ進む" onclick="check()"></p>
-                <!--            <p class="lead"> <input  value="次へ進む"  type="submit" onclick="check()"></p>-->
-            </div>
-        </form>
-        <div class="row">
-            <div class="text-center col-lg-6 offset-lg-3">
-                <p>Copyright &copy; H &middot; All Rights Reserved &middot;</p>
+            <br>
+            <div class="row">
+                <div class="col-2 bg-aqua">
+                    <p>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">性別</li>
+                        <li class="list-inline-item"><img class="card-img card-img-top" src="images/icon_required.gif"
+                                                          alt="必須"></li>
+                    </ul>
+                    </p>
+                </div>
+                <div class="col-4 bg-lemonchiffon">
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" class="custom-control-input" id="customRadio1" value="male" name="sex"
+                               th:checked="${session.sex eq '1' ? true : false}">
+                        <label class="custom-control-label" for="customRadio1">男性</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" class="custom-control-input" id="customRadio2" value="female" name="sex"
+                               th:value="${session.sex eq '0' ? true : false}">
+                        <label class="custom-control-label" for="customRadio2">女性</label>
+                    </div>
+                </div>
+                <div class="col-6 bg-lemonchiffon"></div>
             </div>
         </div>
+        <hr>
+        <div class="text-center">
+            <p class="lead"><input type="button" value="次へ進む" onclick="check()"></p>
+            <!--            <p class="lead"> <input  value="次へ進む"  type="submit" onclick="check()"></p>-->
+        </div>
+    </form>
+    <div class="row">
+        <div class="text-center col-lg-6 offset-lg-3">
+            <p>Copyright &copy; H &middot; All Rights Reserved &middot;</p>
+        </div>
     </div>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="js/jquery-3.2.1.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap-4.0.0.js"></script>
-    <script>
-        function check() {
-            // document.querySelector('.btn-danger').addEventListener('click', function(event) {
-            // 防止默认事件
-            event.preventDefault();
+</div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="js/jquery-3.2.1.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap-4.0.0.js"></script>
+<script>
+    function check() {
+        // document.querySelector('.btn-danger').addEventListener('click', function(event) {
+        // 防止默认事件
+        event.preventDefault();
 
-            let errors = [];
+        let errors = [];
 
-            // 检查 E メールアドレス是否为空
-            let email = document.querySelector('input[placeholder="<例>yamata.taro@h.co.jp"]').value;
-            if (!email) {
-                errors.push('Eメールアドレスは必須です。');
-            } else {
-                // 邮箱正则表达式
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                // 检查邮箱格式
-                if (!emailRegex.test(email)) {
-                    errors.push('Eメールアドレスの形式が不正です。');
-                }
+        // 检查 E メールアドレス是否为空
+        let email = document.querySelector('input[placeholder="<例>yamata.taro@h.co.jp"]').value;
+        if (!email) {
+            errors.push('Eメールアドレスは必須です。');
+        } else {
+            // 邮箱正则表达式
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            // 检查邮箱格式
+            if (!emailRegex.test(email)) {
+                errors.push('Eメールアドレスの形式が不正です。');
             }
-
-            // 检查确认用再输入 E メールアドレス是否为空且与原输入一致
-            let emailConfirm = document.querySelector('input[name="remail"]').value;
-            if (!emailConfirm) {
-                errors.push('確認用再入力の E メールアドレスは必須です。');
-            } else {
-                if (email !== emailConfirm) {
-                    errors.push('E メールアドレスと確認用再入力の E メールアドレスが一致しません。');
-                }
-            }
-
-            // 检查生年月日是否为空
-            let birthday = document.querySelector('input[placeholder="<例>1980-12-31"]').value;
-            if (!birthday) {
-                errors.push('生年月日は必須です。');
-            } else {
-                // 生日格式检查
-                const birthdayRegex = /^\d{4}-\d{2}-\d{2}$/;
-                if (!birthdayRegex.test(birthday)) {
-                    errors.push('生年月日の形式が不正です。');
-                }
-            }
-
-            // 检查携帯電話是否为空
-            let phone = document.querySelector('input[placeholder="<例>080-1234-5678"]').value;
-            if (!phone) {
-                errors.push('携帯電話は必須です。');
-            } else {
-                // 手机号码格式检查
-                const phoneRegex = /^0\d{2}-?\d{4}-?\d{4}$/;
-                if (!phoneRegex.test(phone)) {
-                    errors.push('携帯電話の形式が不正です。');
-                }
-            }
-            // 检查个人法人是否已选择
-            let personalCorporateRadios = document.querySelectorAll('input[name="kjnhjn"]');
-            let personalCorporateSelected = false;
-            for (let radio of personalCorporateRadios) {
-                if (radio.checked) {
-                    personalCorporateSelected = true;
-                    break;
-                }
-            }
-            if (!personalCorporateSelected) {
-                errors.push('個人法人を選択してください。');
-            }
-
-            // 检查お名前姓是否为空
-            // let lastName = document.querySelector('input[placeholder="<例>山田"]').value;
-            // if (!lastName) {
-            //     errors.push('お名前の姓は必須です。');
-            // }
-            let lastName = document.querySelector('input[placeholder="<例>山田"]').value;
-            let fullWidthRegex = /^[一-龯]+$/; // 正则表达式：匹配全角字符
-
-            if (!lastName) {
-                errors.push('お名前の姓は必須です。');
-            } else if (!fullWidthRegex.test(lastName)) {
-                errors.push('お名前の姓は全角文字で入力してください。');
-            }
-
-            // 检查お名前名是否为空
-            let firstName = document.querySelector('input[placeholder="<例>太郎"]').value;
-            if (!firstName) {
-                errors.push('お名前の名は必須です。');
-            } else if (!fullWidthRegex.test(firstName)) {
-                errors.push('お名前の姓は全角文字で入力してください。');
-            }
-
-            // 检查お名前フリガナ姓是否为空且是否为平假名或片假名
-            let lastNameKana = document.querySelector('input[placeholder="<例>ヤマダ"]').value;
-            let kanaRegex = /^[あ-んア-ン]+$/; // 正则表达式：匹配平假名或片假名
-
-            if (!lastNameKana) {
-                errors.push('お名前フリガナの姓は必須です。');
-            } else if (!kanaRegex.test(lastNameKana)) {
-                errors.push('お名前フリガナの姓は平仮名または片仮名で入力してください。');
-            }
-
-
-            // 检查お名前フリガナ名是否为空
-            let firstNameKana = document.querySelector('input[placeholder="<例>タロウ"]').value;
-            if (!firstNameKana) {
-                errors.push('お名前フリガナの名は必須です。');
-            } else if (!kanaRegex.test(firstNameKana)) {
-                errors.push('お名前フリガナの姓は平仮名または片仮名で入力してください。');
-            }
-
-            // 检查ローマ字名姓是否为空且是否为半角英数字符
-            let lastNameRoman = document.querySelector('input[name="meikn"]').value;
-            let firstNameRoman = document.querySelector('input[name="meien"]').value;
-            let halfWidthAlphanumericRegex = /^[a-zA-Z0-9-\s]+$/; // 正则表达式：匹配半角英数字符和空格
-
-            if (!lastNameRoman) {
-                errors.push('ローマ字名の姓は必須です。');
-            } else if (!halfWidthAlphanumericRegex.test(lastNameRoman)) {
-                errors.push('ローマ字名の姓は半角英数字で入力してください。');
-            }
-
-            if (!firstNameRoman) {
-                errors.push('ローマ字名の名は必須です。');
-            } else if (!halfWidthAlphanumericRegex.test(firstNameRoman)) {
-                errors.push('ローマ字名の名は半角英数字で入力してください。');
-            }
-
-
-
-
-            // 检查性别是否已选择
-            let genderRadios = document.querySelectorAll('input[name="sex"]');
-            let genderSelected = false;
-            let gender = '';
-            for (let radio of genderRadios) {
-                if (radio.checked) {
-                    genderSelected = true;
-                    gender = 0;
-                    break;
-                } else {
-                    gender = 1;
-                }
-            }
-            if (!genderSelected) {
-                errors.push('性別を選択してください。');
-            }
-
-            // 如果有错误，显示弹窗
-            if (errors.length > 0) {
-                alert(errors.join('\n'));
-                // window.location.href = 'A1A01WA01A04_入会申込情報入力.html';
-            } else {
-                let urlParams = new URLSearchParams({
-                    mail: email,
-                    ber: birthday,
-                    pho: phone,
-                    // kjnhjn: ,
-                    seikj: lastName,
-                    seien: lastNameKana,
-                    meikj: firstNameKana,
-                    // meikn: ,
-                    // meien: ,
-                    sex: gender,
-                });
-                // 所有必填项都已填写，跳转到新页面
-                // console.log(email,emailConfirm)
-
-                // window.location.assign('/insert1');
-                // window.location.href='/insert1?mail='+genderRadios+'ber'+birthday+'&pho='+phone+'&kjnhjn='+''+'&seikj'+lastName+'&seien='+lastNameKana+'&meikj='+firstNameKana+'&meikn='+''+'&meien='+''+'&sex='+genderRadios;
-                window.location.href = '/insert1?' + urlParams.toString();
-                // window.location.assign('/insert1',{'eamil':email}) ;
-
-            }
-            // })
         }
-    </script>
+
+        // 检查确认用再输入 E メールアドレス是否为空且与原输入一致
+        let emailConfirm = document.querySelector('input[name="remail"]').value;
+        if (!emailConfirm) {
+            errors.push('確認用再入力の E メールアドレスは必須です。');
+        } else {
+            if (email !== emailConfirm) {
+                errors.push('E メールアドレスと確認用再入力の E メールアドレスが一致しません。');
+            }
+        }
+
+        // 检查生年月日是否为空
+        let birthday = document.querySelector('input[placeholder="<例>1980-12-31"]').value;
+        if (!birthday) {
+            errors.push('生年月日は必須です。');
+        } else {
+            // 生日格式检查
+            const birthdayRegex = /^\d{4}-\d{2}-\d{2}$/;
+            if (!birthdayRegex.test(birthday)) {
+                errors.push('生年月日の形式が不正です。');
+            }
+        }
+
+        // 检查携帯電話是否为空
+        let phone = document.querySelector('input[placeholder="<例>080-1234-5678"]').value;
+        if (!phone) {
+            errors.push('携帯電話は必須です。');
+        } else {
+            // 手机号码格式检查
+            const phoneRegex = /^0\d{2}-?\d{4}-?\d{4}$/;
+            if (!phoneRegex.test(phone)) {
+                errors.push('携帯電話の形式が不正です。');
+            }
+        }
+        // 检查个人法人是否已选择
+        let personalCorporateRadios = document.getElementById('radio1')
+        let personalCorporateRadios2 = document.getElementById('radio2')
+        let personal;
+        if (personalCorporateRadios.checked){
+            personal = 1
+        }else if(personalCorporateRadios2.checked){
+            personal = 0
+        }else {
+            errors.push('個人法人を選択してください。');
+        }
+
+        // let personalCorporateRadios = document.querySelectorAll('input[name="kjnhjn"]');
+        // let personalCorporateSelected = false;
+        // for (let radio of personalCorporateRadios) {
+        //     if (radio.checked) {
+        //         personalCorporateSelected = true;
+        //         break;
+        //     }
+        // }
+        // if (!personalCorporateSelected) {
+        //     errors.push('個人法人を選択してください。');
+        // }
+
+        // 检查お名前姓是否为空
+        // let lastName = document.querySelector('input[placeholder="<例>山田"]').value;
+        // if (!lastName) {
+        //     errors.push('お名前の姓は必須です。');
+        // }
+        let lastName = document.querySelector('input[placeholder="<例>山田"]').value;
+        let fullWidthRegex = /^[一-龯]+$/; // 正则表达式：匹配全角字符
+
+        if (!lastName) {
+            errors.push('お名前の姓は必須です。');
+        } else if (!fullWidthRegex.test(lastName)) {
+            errors.push('お名前の姓は全角文字で入力してください。');
+        }
+
+        // 检查お名前名是否为空
+        let firstName = document.querySelector('input[placeholder="<例>太郎"]').value;
+        if (!firstName) {
+            errors.push('お名前の名は必須です。');
+        } else if (!fullWidthRegex.test(firstName)) {
+            errors.push('お名前の姓は全角文字で入力してください。');
+        }
+
+        // 检查お名前フリガナ姓是否为空且是否为平假名或片假名
+        let lastNameKana = document.querySelector('input[placeholder="<例>ヤマダ"]').value;
+        let kanaRegex = /^[あ-んア-ン]+$/; // 正则表达式：匹配平假名或片假名
+
+        if (!lastNameKana) {
+            errors.push('お名前フリガナの姓は必須です。');
+        } else if (!kanaRegex.test(lastNameKana)) {
+            errors.push('お名前フリガナの姓は平仮名または片仮名で入力してください。');
+        }
+
+
+        // 检查お名前フリガナ名是否为空
+        let firstNameKana = document.querySelector('input[placeholder="<例>タロウ"]').value;
+        if (!firstNameKana) {
+            errors.push('お名前フリガナの名は必須です。');
+        } else if (!kanaRegex.test(firstNameKana)) {
+            errors.push('お名前フリガナの姓は平仮名または片仮名で入力してください。');
+        }
+
+        // 检查ローマ字名姓是否为空且是否为半角英数字符
+        let lastNameRoman = document.querySelector('input[name="meikn"]').value;
+        let firstNameRoman = document.querySelector('input[name="meien"]').value;
+        let halfWidthAlphanumericRegex = /^[a-zA-Z0-9-\s]+$/; // 正则表达式：匹配半角英数字符和空格
+
+        if (!lastNameRoman) {
+            errors.push('ローマ字名の姓は必須です。');
+        } else if (!halfWidthAlphanumericRegex.test(lastNameRoman)) {
+            errors.push('ローマ字名の姓は半角英数字で入力してください。');
+        }
+
+        if (!firstNameRoman) {
+            errors.push('ローマ字名の名は必須です。');
+        } else if (!halfWidthAlphanumericRegex.test(firstNameRoman)) {
+            errors.push('ローマ字名の名は半角英数字で入力してください。');
+        }
+
+        let genderRadios = document.getElementById('customRadio1')
+        let genderRadios2 = document.getElementById('customRadio1')
+        let gender;
+        if (genderRadios.checked) {
+            gender = 1;
+        } else if (genderRadios2.checked){
+            gender = 0;
+        } else{
+            errors.push('性別を選択してください。');
+        }
+
+
+        // 检查性别是否已选择
+        // let genderRadios = document.querySelectorAll('input[name="sex"]');
+        // let genderSelected = false;
+        // let gender = '';
+        // for (let radio of genderRadios) {
+        //     if (radio.checked) {
+        //         genderSelected = true;
+        //         gender = 0;
+        //         break;
+        //     } else {
+        //         gender = 1;
+        //     }
+        // }
+        // if (!genderSelected) {
+        //     errors.push('性別を選択してください。');
+        // }
+
+        // 如果有错误，显示弹窗
+        // if (errors.length > 0) {
+        //     alert(errors.join('\n'));
+        //     // window.location.href = 'A1A01WA01A04_入会申込情報入力.html';
+        // } else {
+            let urlParams = new URLSearchParams({
+                mail: email,
+                ber: birthday,
+                pho: phone,
+                kjnhjn: personal,
+                seikj: lastName,
+                seikn: firstName,
+                seien: lastNameKana,
+                meikj: firstNameKana,
+                meikn: lastNameRoman,
+                meien: firstNameRoman,
+                sex: gender,
+            });
+            // 所有必填项都已填写，跳转到新页面
+            // console.log(email,emailConfirm)
+
+            // window.location.assign('/insert1');
+            // window.location.href='/insert1?mail='+genderRadios+'ber'+birthday+'&pho='+phone+'&kjnhjn='+''+'&seikj'+lastName+'&seien='+lastNameKana+'&meikj='+firstNameKana+'&meikn='+''+'&meien='+''+'&sex='+genderRadios;
+            window.location.href = '/insert1?' + urlParams.toString();
+            // window.location.assign('/insert1',{'eamil':email}) ;
+
+        // }
+        // })
+    }
+</script>
 
 
 </body>
