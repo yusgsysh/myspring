@@ -8,17 +8,21 @@ import java.util.UUID;
 
 public class GetCookie {
 
-    public static String getCookie(HttpServletRequest request, HttpServletResponse response ,String userToken) {
+    public static String getCookie(HttpServletRequest request, HttpServletResponse response) {
         Cookie[] cookies = request.getCookies();
-        for (Cookie cookie : cookies) {
-            if ("userToken".equals(cookie.getName())) {
-                userToken = cookie.getValue();
+        String userToken = null;
+        if (cookies != null) {
+            for (Cookie cookie : cookies) {
+                if ("userToken".equals(cookie.getName())) {
+                    userToken = cookie.getValue();
+                    break;
+                }
             }
         }
-        System.out.println(userToken);
+        System.out.println("userToken: " + userToken);
         if (userToken == null) {
             String token = UUID.randomUUID().toString();
-            Cookie cookie = new Cookie("userToken",token);
+            Cookie cookie = new Cookie("userToken", token);
             cookie.setMaxAge(-1);
             cookie.setPath("/");
             response.addCookie(cookie);

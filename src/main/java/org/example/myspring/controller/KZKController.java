@@ -33,7 +33,7 @@ public class KZKController {
 
     @RequestMapping("/toA1A01WB01A01")
     public String toA1A01WB01A11(){
-        return "A1A01WB01A01_家族カード申込情報入力.html";
+        return "A1A01WB01A01_家族カード申込情報入力";
     }
 
 }
